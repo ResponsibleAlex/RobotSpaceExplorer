@@ -1,0 +1,142 @@
+{
+        "RobotSpaceExplorer:DualCorePower": {
+                "NAME": "Dual Core",
+                "DESCRIPTIONS": [
+                        "If you play #b",
+                        " more card this turn, gain #b",
+                        " more cards this turn, gain #b",
+                        " #yVigor and #b",
+                        " #yBlock."
+                ]
+        },
+        "RobotSpaceExplorer:PowerGlovePower": {
+                "NAME": "Power Glove",
+                "DESCRIPTIONS": [
+                        "Whenever you would deal #y5 or less attack damage, increase it by #b",
+                        "."
+                ]
+        },
+        "RobotSpaceExplorer:ScannerPower": {
+                "NAME": "Scanner",
+                "DESCRIPTIONS": [
+                        "Whenever you #ySalvage, prioritize higher rarity cards."
+                ]
+        },
+        "RobotSpaceExplorer:DroneSwarmPower": {
+                "NAME": "Drone Swarm",
+                "DESCRIPTIONS": [
+                        "At the end of your turn, gain #b",
+                        " #yBlock and deal #b",
+                        " damage to ALL enemies."
+                ]
+        },
+        "RobotSpaceExplorer:TrailblazerPower": {
+                "NAME": "Trailblazer",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, gain #b",
+                        " #yArtifact and #b",
+                        " #yPlated #yArmor."
+                ]
+        },
+        "RobotSpaceExplorer:MultitoolPower": {
+                "NAME": "Multitool",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, #yUpgrade a random card in your hand for the rest of combat.",
+                        "At the start of your turn, #yUpgrade #b",
+                        " random cards in your hand for the rest of combat."
+                ]
+        },
+        "RobotSpaceExplorer:AcceleratorPower": {
+                "NAME": "Accelerator",
+                "DESCRIPTIONS": [
+                        "The first time you play a card costing #y0 each turn, draw #y1 card and gain [E] .",
+                        "The first #b",
+                        " times you play a card costing #y0 each turn, draw #y1 card and gain [E] ."
+                ]
+        },
+        "RobotSpaceExplorer:AutoloaderPower": {
+                "NAME": "Autoloader",
+                "DESCRIPTIONS": [
+                        "Play ",
+                        " at the start of each turn."
+                ]
+        },
+        "RobotSpaceExplorer:PowerCollectorPower": {
+                "NAME": "Power Collector",
+                "DESCRIPTIONS": [
+                        "Whenever you play a #yPower card, gain #b",
+                        " #yStrength."
+                ]
+        },
+        "RobotSpaceExplorer:DischargerPower": {
+                "NAME": "Discharger",
+                "DESCRIPTIONS": [
+                        "#yStatic #yBuildup cards are now #yEthereal. #yStatus cards deal #b",
+                        " damage to ALL enemies when #yExhausted."
+                ]
+        },
+        "RobotSpaceExplorer:FreezeRayPower": {
+                "NAME": "Freeze Ray",
+                "DESCRIPTIONS": [
+                        "Whenever you apply #yWeak to an enemy, deal #b",
+                        " damage to it."
+                ]
+        },
+        "RobotSpaceExplorer:StarDustEnergyDownPower": {
+                "NAME": "Energy Down",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, lose ",
+                        "."
+                ]
+        },
+        "RobotSpaceExplorer:StarDustPower": {
+                "NAME": "Star Dust",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, gain #b",
+                        " #ySolar #yFlare."
+                ]
+        },
+        "RobotSpaceExplorer:ExhaustFanPower": {
+                "NAME": "Exhaust Fan",
+                "DESCRIPTIONS": [
+                        "Gain #b",
+                        " #yBlock whenever you play an attack."
+                ]
+        },
+        "RobotSpaceExplorer:MiniBoostersPower": {
+                "NAME": "MiniBoosters",
+                "DESCRIPTIONS": [
+                        "Whenever you play a card costing #y0, deal #b",
+                        " damage to ALL enemies and gain #b",
+                        " #yBlock."
+                ]
+        },
+        "RobotSpaceExplorer:SalvageNextTurnPower": {
+                "NAME": "Scanning",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, #ySalvage #b",
+                        "."
+                ]
+        },
+        "RobotSpaceExplorer:SolarFlarePower": {
+                "NAME": "Solar Flare",
+                "DESCRIPTIONS": [
+                        "At the end of your turn, deal #b",
+                        " damage to a random enemy."
+                ]
+        },
+        "RobotSpaceExplorer:SwiftStepPower": {
+                "NAME": "Swift Step",
+                "DESCRIPTIONS": [
+                        "Whenever you play a card this turn, gain #b",
+                        " #yBlock."
+                ]
+        },
+        "RobotSpaceExplorer:SurgePower": {
+                "NAME": "Surge",
+                "DESCRIPTIONS": [
+                        "At the start of your next turn, gain #b",
+                        " #ytemporary #yStrength and remove all Weak on you."
+                ]
+        }
+}

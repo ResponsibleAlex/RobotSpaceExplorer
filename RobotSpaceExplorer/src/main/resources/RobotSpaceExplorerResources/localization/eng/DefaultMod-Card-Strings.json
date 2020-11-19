@@ -1,0 +1,338 @@
+{
+  "RobotSpaceExplorer:DualCore": {
+    "NAME": "Dual Core",
+    "DESCRIPTION": "Every time you play 5 cards in a single turn, gain !M! Vigor and !M! Block."
+  },
+  "RobotSpaceExplorer:PowerGlove": {
+    "NAME": "Power Glove",
+    "DESCRIPTION": "Whenever you would deal 5 or less unblocked attack damage, NL increase it by !M!."
+  },
+  "RobotSpaceExplorer:Scanner": {
+    "NAME": "Scanner",
+    "DESCRIPTION": "Whenever you robotspaceexplorer:Salvage, prioritize higher rarity cards."
+  },
+  "RobotSpaceExplorer:DroneSwarm": {
+    "NAME": "Drone Swarm",
+    "DESCRIPTION": "At the end of your turn, deal 2X damage to ALL enemies and gain 2X Block.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the end of your turn, deal 2X damage to ALL enemies and gain 2X Block."
+  },
+  "RobotSpaceExplorer:TrailblazerForm": {
+    "NAME": "Trailblazer Form",
+    "DESCRIPTION": "Ethereal. NL At the start of your turn, gain !M! Artifact and !RobotSpaceExplorer:SecondMagic! Plated Armor.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, gain !M! Artifact and !RobotSpaceExplorer:SecondMagic! Plated Armor."
+  },
+  "RobotSpaceExplorer:Multitool": {
+    "NAME": "Multitool",
+    "DESCRIPTION": "At the start of your turn, upgrade a random card in your hand for the rest of combat.",
+    "UPGRADE_DESCRIPTION": "Upgrade ALL cards in your hand for the rest of combat. NL "
+  },
+  "RobotSpaceExplorer:Accelerator": {
+    "NAME": "Accelerator",
+    "DESCRIPTION": "The first time you play a card costing 0 each turn, draw 1 card and gain [E]."
+  },
+  "RobotSpaceExplorer:Autoloader": {
+    "NAME": "Autoloader",
+    "DESCRIPTION": "Ethereal. NL Choose an attack in your hand and remove it from combat. At the start of each turn, play that card.",
+    "UPGRADE_DESCRIPTION": "Choose an attack in your hand and remove it from combat. At the start of each turn, play that card.",
+    "EXTENDED_DESCRIPTION": [
+      "No attacks in my hand!",
+      "to load into Autoloader"
+    ]
+  },
+  "RobotSpaceExplorer:PowerCollector": {
+    "NAME": "Power Collector",
+    "DESCRIPTION": "Whenever you play a power, gain 2 Strength.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play a power, gain 2 Strength."
+  },
+  "RobotSpaceExplorer:Discharger": {
+    "NAME": "Discharger",
+    "DESCRIPTION": "*Static *Buildup cards are now Ethereal. Status cards deal !M! damage to ALL enemies when Exhausted."
+  },
+  "RobotSpaceExplorer:FreezeRay": {
+    "NAME": "Freeze Ray",
+    "DESCRIPTION": "Whenever you apply Weak to an enemy, deal !M! damage to it."
+  },
+  "RobotSpaceExplorer:StarDust": {
+    "NAME": "Star Dust",
+    "DESCRIPTION": "At the start of each turn, gain 1 less [E] and gain !M! robotspaceexplorer:Solar_Flare."
+  },
+  "RobotSpaceExplorer:ExhaustFan": {
+    "NAME": "Exhaust Fan",
+    "DESCRIPTION": "Lose !RobotSpaceExplorer:SecondMagic! Dexterity. NL Gain !M! Block whenever you play an attack."
+  },
+  "RobotSpaceExplorer:MiniBoosters": {
+    "NAME": "MiniBoosters",
+    "DESCRIPTION": "Whenever you play a card costing 0, deal !M! damage to ALL enemies and gain !M! Block."
+  },
+  "RobotSpaceExplorer:BlastShield": {
+    "NAME": "Blast Shield",
+    "DESCRIPTION": "Gain Block equal to the amount an enemy intends to deal. NL Exhaust."
+  },
+  "RobotSpaceExplorer:Wormhole": {
+    "NAME": "Wormhole",
+    "DESCRIPTION": "Choose a card in your hand. Permanently remove it and this card from your deck.",
+    "EXTENDED_DESCRIPTION": [
+      "No valid cards to remove!",
+      "Choose a card to permanently remove"
+    ]
+  },
+  "RobotSpaceExplorer:Arsenal": {
+    "NAME": "Arsenal",
+    "DESCRIPTION": "Play a random attack from your Exhaust pile X times. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Play a random attack from your Exhaust pile X+1 times. NL Exhaust."
+  },
+  "RobotSpaceExplorer:Exploration": {
+    "NAME": "Exploration",
+    "DESCRIPTION": "At the end of combat, obtain a random relic. NL Remove this card from your deck."
+  },
+  "RobotSpaceExplorer:ScrapShield": {
+    "NAME": "Scrap Shield",
+    "DESCRIPTION": "Gain !B! Block. NL robotspaceexplorer:Salvage !M!."
+  },
+  "RobotSpaceExplorer:SurgingShield": {
+    "NAME": "Surging Shield",
+    "DESCRIPTION": "Gain !B! Block. NL Gain robotspaceexplorer:Surge !M!."
+  },
+  "RobotSpaceExplorer:Comet": {
+    "NAME": "Comet",
+    "DESCRIPTION": "Gain !M! robotspaceexplorer:Solar_Flare, then deal damage equal to your robotspaceexplorer:Solar_Flare to ALL enemies."
+  },
+  "RobotSpaceExplorer:GlueSpray": {
+    "NAME": "Glue Spray",
+    "DESCRIPTION": "Add X Glue Shots to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add X Upgraded Glue Shots to your hand. NL Exhaust."
+  },
+  "RobotSpaceExplorer:ToxicBomb": {
+    "NAME": "Toxic Bomb",
+    "DESCRIPTION": "Apply !RobotSpaceExplorer:SecondMagic! Weak to ALL enemies. NL After 2 turns, deal !M! damage to ALL enemies."
+  },
+  "RobotSpaceExplorer:FreezingShield": {
+    "NAME": "Freezing Shield",
+    "DESCRIPTION": "Gain !B! Block. NL Enemy loses !M! Strength this turn."
+  },
+  "RobotSpaceExplorer:SelfCleaning": {
+    "NAME": "Self-Cleaning",
+    "DESCRIPTION": "Add a Slimed to your hand, then Exhaust all Status cards in your hand. Gain !M! Block and draw a card for each card Exhausted."
+  },
+  "RobotSpaceExplorer:Calculate": {
+    "NAME": "Calculate",
+    "DESCRIPTION": "Next turn, gain [E] and robotspaceexplorer:Salvage !M!.",
+    "UPGRADE_DESCRIPTION": "Next turn, gain [E] [E] and robotspaceexplorer:Salvage !M!."
+  },
+  "RobotSpaceExplorer:Electroshield": {
+    "NAME": "Electroshield",
+    "DESCRIPTION": "Gain !B! Block. NL Add a *Static *Buildup to your hand."
+  },
+  "RobotSpaceExplorer:GearShield": {
+    "NAME": "Gear Shield",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Artifact. NL Exhaust."
+  },
+  "RobotSpaceExplorer:RigExplosive": {
+    "NAME": "Rig Explosive",
+    "DESCRIPTION": "Obtain a Fire Potion. NL Exhaust."
+  },
+  "RobotSpaceExplorer:DoubleFind": {
+    "NAME": "Double Find",
+    "DESCRIPTION": "Add 2 random cards into your hand. They cost 0 this turn. NL Exhaust."
+  },
+  "RobotSpaceExplorer:IronShell": {
+    "NAME": "Iron Shell",
+    "DESCRIPTION": "Gain !B! Block. NL Increase this card's Block by !M! this combat."
+  },
+  "RobotSpaceExplorer:DoubleBlock": {
+    "NAME": "Double Block",
+    "DESCRIPTION": "Gain !B! Block. NL Next turn, gain !B! Block."
+  },
+  "RobotSpaceExplorer:Smokescreen": {
+    "NAME": "Smokescreen",
+    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Weak to ALL enemies."
+  },
+  "RobotSpaceExplorer:TurboDodge": {
+    "NAME": "Turbo Dodge",
+    "DESCRIPTION": "Gain !B! Block. NL Next turn, gain [E].",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Next turn, gain [E] [E]."
+  },
+  "RobotSpaceExplorer:Fix": {
+    "NAME": "Fix",
+    "DESCRIPTION": "Gain !M! Artifact. NL Heal !RobotSpaceExplorer:SecondMagic! HP. NL Exhaust."
+  },
+  "RobotSpaceExplorer:Reload": {
+    "NAME": "Reload",
+    "DESCRIPTION": "Play a random Attack from your Exhaust pile.",
+    "UPGRADE_DESCRIPTION": "Choose and play an Attack from your Exhaust pile."
+  },
+  "RobotSpaceExplorer:JunkDive": {
+    "NAME": "Junk Dive",
+    "DESCRIPTION": "robotspaceexplorer:Salvage !M!. NL Exhaust."
+  },
+  "RobotSpaceExplorer:Jetpack": {
+    "NAME": "Jetpack",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! temporary Dexterity."
+  },
+  "RobotSpaceExplorer:Ammunition": {
+    "NAME": "Ammunition",
+    "DESCRIPTION": "Return !M! random Exhausted Attacks to your hand. NL Exhaust."
+  },
+  "RobotSpaceExplorer:GlueShot": {
+    "NAME": "Glue Shot",
+    "DESCRIPTION": "Gain !B! Block. NL Apply !M! Weak. NL Exhaust."
+  },
+  "RobotSpaceExplorer:FranticSearch": {
+    "NAME": "Frantic Search",
+    "DESCRIPTION": "robotspaceexplorer:Salvage 2. NL Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "robotspaceexplorer:Salvage 2. NL Draw !M! cards."
+  },
+  "RobotSpaceExplorer:Counterblock": {
+    "NAME": "Counterblock",
+    "DESCRIPTION": "Gain !B! Block. NL Draw !M! card next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Draw !M! cards next turn."
+  },
+  "RobotSpaceExplorer:Pulsar": {
+    "NAME": "Pulsar",
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! robotspaceexplorer:Solar_Flare."
+  },
+  "RobotSpaceExplorer:SwiftStep": {
+    "NAME": "Swift Step",
+    "DESCRIPTION": "Whenever you play a card this turn, gain !M! Block.",
+    "UPGRADE_DESCRIPTION": "Whenever you play a card this turn, gain !M! Block. NL robotspaceexplorer:Salvage 1."
+  },
+  "RobotSpaceExplorer:Probe": {
+    "NAME": "Probe",
+    "DESCRIPTION": "Deal !D! damage. NL Next turn, robotspaceexplorer:Salvage !M!."
+  },
+  "RobotSpaceExplorer:Explosion": {
+    "NAME": "Explosion",
+    "DESCRIPTION": "Play a random robotspaceexplorer:Missile card, then play an Aftershock for each Attack Exhausted this combat.",
+    "UPGRADE_DESCRIPTION": "Play a random Upgraded robotspaceexplorer:Missile card, then play an Aftershock+ for each Attack Exhausted this combat."
+  },
+  "RobotSpaceExplorer:Aftershock": {
+    "NAME": "Aftershock",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "RobotSpaceExplorer:HighVoltage": {
+    "NAME": "High Voltage",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Add 2 *Static *Buildups to your hand."
+  },
+  "RobotSpaceExplorer:Blaster": {
+    "NAME": "Blaster",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL Apply !M! Vulnerable."
+  },
+  "RobotSpaceExplorer:Asteroid": {
+    "NAME": "Asteroid",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "RobotSpaceExplorer:ShockMissile": {
+    "NAME": "Shock Missile",
+    "DESCRIPTION": "Deal !D! damage. NL Enemy loses !M! Strength. NL Exhaust."
+  },
+  "RobotSpaceExplorer:ChargingLaser": {
+    "NAME": "Charging Laser",
+    "DESCRIPTION": "Deal !D! damage. NL Increase this card's damage by !M! this combat."
+  },
+  "RobotSpaceExplorer:ShovelStrike": {
+    "NAME": "Shovel Strike",
+    "DESCRIPTION": "Deal !D! damage. NL robotspaceexplorer:Salvage !M!."
+  },
+  "RobotSpaceExplorer:MakeshiftVolley": {
+    "NAME": "Makeshift Volley",
+    "DESCRIPTION": "Discard your hand. NL Deal !D! damage to a random enemy for each card discarded."
+  },
+  "RobotSpaceExplorer:BigMissile": {
+    "NAME": "Big Missile",
+    "DESCRIPTION": "Remove all Block from the enemy. NL Deal !D! damage. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Remove all Block and Artifact from the enemy. NL Deal !D! damage. NL Exhaust."
+  },
+  "RobotSpaceExplorer:Electropulse": {
+    "NAME": "Electropulse",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Add a *Static *Buildup to your hand. NL Gain robotspaceexplorer:Surge !M!."
+  },
+  "RobotSpaceExplorer:StarLightning": {
+    "NAME": "Star Lightning",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! block. NL Gain !M! robotspaceexplorer:Solar_Flare."
+  },
+  "RobotSpaceExplorer:LuckyStrike": {
+    "NAME": "Lucky Strike",
+    "DESCRIPTION": "Deal !D! damage. Whenever you robotspaceexplorer:Salvage, if this is in your draw pile, play it."
+  },
+  "RobotSpaceExplorer:SlimeMissile": {
+    "NAME": "Slime Missile",
+    "DESCRIPTION": "Deal !D! damage. NL Add a Slimed to your hand. NL Exhaust."
+  },
+  "RobotSpaceExplorer:PlasmaMissile": {
+    "NAME": "Plasma Missile",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! robotspaceexplorer:Solar_Flare. NL Exhaust."
+  },
+  "RobotSpaceExplorer:StunGrenade": {
+    "NAME": "Stun Grenade",
+    "DESCRIPTION": "Deal !D! damage and apply !M! Weak to ALL enemies. NL Exhaust."
+  },
+  "RobotSpaceExplorer:ScrapToss": {
+    "NAME": "Scrap Toss",
+    "DESCRIPTION": "Deal !D! damage. NL robotspaceexplorer:Salvage !M!. NL Shuffle this card into your draw pile."
+  },
+  "RobotSpaceExplorer:MetalStrike": {
+    "NAME": "Metal Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL If the enemy intends to attack, do this again."
+  },
+  "RobotSpaceExplorer:ShockKick": {
+    "NAME": "Shock Kick",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL Add a *Static *Buildup to your hand."
+  },
+  "RobotSpaceExplorer:StaticBuildup": {
+    "NAME": "Static Buildup",
+    "DESCRIPTION": "At the end of your turn, take !M! damage and gain !M! Weak.",
+    "UPGRADE_DESCRIPTION": "At the end of your turn, take !M! damage and gain !M! Weak. NL Ethereal."
+  },
+  "RobotSpaceExplorer:ImprovisedAttack": {
+    "NAME": "Improvised Attack",
+    "DESCRIPTION": "Deal !D! damage. NL If you have robotspaceexplorer:Salvaged this turn, do this !M! more times."
+  },
+  "RobotSpaceExplorer:Blitz": {
+    "NAME": "Blitz",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! block."
+  },
+  "RobotSpaceExplorer:ScrapMissile": {
+    "NAME": "Scrap Missile",
+    "DESCRIPTION": "Deal !D! damage. NL robotspaceexplorer:Salvage !M!. NL Exhaust."
+  },
+  "RobotSpaceExplorer:FrostMissile": {
+    "NAME": "Frost Missile",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL Exhaust."
+  },
+  "RobotSpaceExplorer:LavaMissile": {
+    "NAME": "Lava Missile",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL Exhaust."
+  },
+  "RobotSpaceExplorer:LaserBurst": {
+    "NAME": "Laser Burst",
+    "DESCRIPTION": "Deal !D! damage to a random enemy !M! times."
+  },
+  "RobotSpaceExplorer:SurgingStrike": {
+    "NAME": "Surging Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Gain robotspaceexplorer:Surge !M!."
+  },
+  "RobotSpaceExplorer:MiniLasers": {
+    "NAME": "Mini Lasers",
+    "DESCRIPTION": "Deal !D! damage !M! times."
+  },
+  "RobotSpaceExplorer:Scan": {
+    "NAME": "Scan",
+    "DESCRIPTION": "Gain !B! Block. NL robotspaceexplorer:Salvage 1."
+  },
+  "RobotSpaceExplorer:LuckyFind": {
+    "NAME": "Lucky Find",
+    "DESCRIPTION": "At the end of combat, obtain a random common relic. NL Remove this card from your deck."
+  },
+  "RobotSpaceExplorer:MiniDrones": {
+    "NAME": "Mini Drones",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Gain !B! block."
+  },
+  "RobotSpaceExplorer:Strike": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "RobotSpaceExplorer:Defend": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  }
+}

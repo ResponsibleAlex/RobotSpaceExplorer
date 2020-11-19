@@ -1,0 +1,98 @@
+package RobotSpaceExplorer.cards;
+
+import RobotSpaceExplorer.actions.ExhaustStaticBuildupsAction;
+import RobotSpaceExplorer.actions.ShockMissileAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
+import com.megacrit.cardcrawl.powers.StrengthPower;
+
+import java.util.Iterator;
+
+import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeCardPath;
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
+
+public class ShockMissile extends AbstractDynamicCard {
+
+
+    // TEXT DECLARATION
+
+    public static final String ID = RobotSpaceExplorerMod.makeID(ShockMissile.class.getSimpleName());
+    public static final String IMG = makeCardPath("ShockMissile.png");
+
+    // /TEXT DECLARATION/
+
+
+    // STAT DECLARATION
+
+    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardType TYPE = CardType.ATTACK;
+    public static final CardColor COLOR = RobotSpaceExplorer.Enums.ROBOT_ORANGE;
+
+    private static final int COST = 1;
+    // private static final int UPGRADED_COST = 0;
+
+    private static final int DAMAGE = 7;
+    private static final int UPGRADE_PLUS_DMG = 1;
+    private static final int STRENGTH_DOWN = 1;
+    private static final int UPGRADE_PLUS_STR_DOWN = 1;
+
+    // /STAT DECLARATION/
+
+
+    public ShockMissile() {
+        super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseDamage = DAMAGE;
+        magicNumber = baseMagicNumber = STRENGTH_DOWN;
+        exhaust = true;
+    }
+
+
+    // Actions the card should do.
+    @Override
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new ShockMissileAction(p, m, this));
+
+        /*
+        Iterator i = p.hand.group.iterator();
+        AbstractCard c;
+
+        while (i.hasNext()) {
+            c = (AbstractCard) i.next();
+            if (c.cardID.equals(StaticBuildup.ID)) {
+                this.addToBot(new ShockMissileAction(p, m, this));
+            }
+        }
+
+        if (this.upgraded) {
+            this.addToBot(new ExhaustStaticBuildupsAction());
+        }
+        */
+    }
+
+    // Upgraded stats.
+    @Override
+    public void upgrade() {
+        if (!upgraded) {
+            upgradeName();
+            upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeMagicNumber(UPGRADE_PLUS_STR_DOWN);
+            //rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
+            initializeDescription();
+        }
+    }
+
+    @Override
+    public AbstractCard makeCopy() {
+        return new ShockMissile();
+    }
+}

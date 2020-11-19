@@ -1,0 +1,12 @@
+{
+  "modid": "RobotSpaceExplorer",
+  "name": "Robot Space Explorer",
+  "author_list": ["ResponsibleAlex"],
+  "credits": "Basemod, ModTheSpire",
+  "description": "A collaboration with my 7-year-old son.\n\nHe created about 20 of the card designs and/or names, and about half of the card art.\n\nI built the rest of the character around his work.",
+  "version": "${project.version}",
+  "sts_version": "${SlayTheSpire.version}",
+  "mts_version": "${ModTheSpire.version}",
+  "dependencies": ["basemod", "stslib"],
+  "update_json": ""
+}

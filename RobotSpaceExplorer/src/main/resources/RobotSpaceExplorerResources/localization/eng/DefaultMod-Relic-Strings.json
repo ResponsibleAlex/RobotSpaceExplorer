@@ -1,0 +1,84 @@
+{
+  "RobotSpaceExplorer:RingOfTheNewt": {
+    "NAME": "Ring of the Newt",
+    "FLAVOR": "An odd fossilized ring that appears to have been discarded.",
+    "DESCRIPTIONS": [
+      "Every #b2 turns, draw #b1 additional card."
+    ]
+  },
+  "RobotSpaceExplorer:SlideRule": {
+    "NAME": "Slide Rule",
+    "FLAVOR": "\"Log base 10 of 800 is 2.903...\"",
+    "DESCRIPTIONS": [
+      "Whenever you shuffle your draw pile, play a random #yAttack from your #yExhaust pile."
+    ]
+  },
+  "RobotSpaceExplorer:FoglandsKnife": {
+    "NAME": "Foglands Knife",
+    "FLAVOR": "A small knife used by assassins that appears to have been discarded.",
+    "DESCRIPTIONS": [
+      "#yAttacks that cost #b0 deal #b2 additional damage."
+    ]
+  },
+  "RobotSpaceExplorer:ClockworkSextant": {
+    "NAME": "Clockwork Sextant",
+    "FLAVOR": "\"Was this ever used by sailors?\"",
+    "DESCRIPTIONS": [
+      "At the start of your #b2nd turn, gain #b1 #yArtifact."
+    ]
+  },
+  "RobotSpaceExplorer:PlasmaHourglass": {
+    "NAME": "Plasma Hourglass",
+    "FLAVOR": "A scientific marvel that swirls with pure plasma.",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b1 #ySolar #yFlare."
+    ]
+  },
+  "RobotSpaceExplorer:Reprocessor": {
+    "NAME": "Reprocessor",
+    "FLAVOR": "This advanced device allows spacefarers to reuse valuable resources.",
+    "DESCRIPTIONS": [
+      "At the start of your turn, #ySalvage #b1."
+    ]
+  },
+  "RobotSpaceExplorer:ToughPlating": {
+    "NAME": "Tough Plating",
+    "FLAVOR": "A strong exoskeleton useful for persevering while exploring the depths of space.",
+    "DESCRIPTIONS": [
+      "Whenever you #ySalvage, gain #b2 #yBlock."
+    ]
+  },
+  "RobotSpaceExplorer:SearchSpecs": {
+    "NAME": "Search Specs",
+    "FLAVOR": "This fashionable accessory is widely used by robotic explorers.",
+    "DESCRIPTIONS": [
+      "The first time you Salvage each turn, gain [E] ."
+    ]
+  },
+  "RobotSpaceExplorer:TurboCore": {
+    "NAME": "TurboCore",
+    "FLAVOR": "Upgraded power drive that activates when danger is detected.",
+    "DESCRIPTIONS": [
+      "Replaces #rRoboCore. NL At the start of each combat, gain #b",
+      " temporary #yStrength, draw #b2 additional cards, and gain #b1 [E] ."
+    ]
+  },
+  "RobotSpaceExplorer:RoboCore": {
+    "NAME": "RoboCore",
+    "FLAVOR": "Standard issue power drive that activates when danger is detected.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, gain #b",
+      " temporary #yStrength and draw #b1 additional card."
+    ]
+  },
+  "RobotSpaceExplorer:BottledGravity": {
+    "NAME": "Bottled Gravity",
+    "FLAVOR": "The essence of pure gravity somehow makes the bottle feel lighter.",
+    "DESCRIPTIONS": [
+      "Choose a card. It",
+      " costs 1 less [E] in combat.",
+      "Select a card to bottle for ",
+      "."
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+[
+  {
+    "PROPER_NAME": "Surge",
+    "NAMES": [
+      "surge"
+    ],
+    "DESCRIPTION": "At the start of your next turn, remove all #yWeak on you and gain temporary #yStrength equal to your Surge."
+  },
+  {
+    "PROPER_NAME": "Missile",
+    "NAMES": [
+      "missile"
+    ],
+    "DESCRIPTION": "An exhausting Attack with \"Missile\" in its name."
+  },
+  {
+    "PROPER_NAME": "Solar Flare",
+    "NAMES": [
+      "solar flare",
+      "Solar_Flare",
+      "solar_flare"
+    ],
+    "DESCRIPTION": "Deal damage to a random enemy at the end of your turn equal to your Solar Flare."
+  },
+  {
+    "PROPER_NAME": "Salvage",
+    "NAMES": [
+      "salvage",
+      "salvaged"
+    ],
+    "DESCRIPTION": "Return a random card from your discard pile to your hand."
+  }
+]

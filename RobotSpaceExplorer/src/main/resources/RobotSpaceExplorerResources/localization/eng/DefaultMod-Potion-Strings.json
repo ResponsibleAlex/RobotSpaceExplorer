@@ -1,0 +1,23 @@
+{
+        "RobotSpaceExplorer:RecyclePotion": {
+                "NAME": "Recycle Potion",
+                "DESCRIPTIONS": [
+                        "#ySalvage ",
+                        " cards and #yupgrade them."
+                ]
+        },
+        "RobotSpaceExplorer:PlasmaFlask": {
+                "NAME": "Plasma Flask",
+                "DESCRIPTIONS": [
+                        "Gain ",
+                        " #ySolar #yFlare."
+                ]
+        },
+        "RobotSpaceExplorer:LiquidFusion": {
+                "NAME": "Liquid Fusion",
+                "DESCRIPTIONS": [
+                        "Every card in your hand costs 0 until played this turn.",
+                        "Draw a card. "
+                ]
+        }
+}
