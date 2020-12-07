@@ -1,0 +1,84 @@
+{
+  "RobotSpaceExplorer:RingOfTheNewt": {
+    "NAME": "蝾螈戒指",
+    "FLAVOR": "一个奇怪的化石戒指，似乎是被人丢弃的。",
+    "DESCRIPTIONS": [
+      "每 #b2 回合，额外抽 #b1 张牌。"
+    ]
+  },
+  "RobotSpaceExplorer:SlideRule": {
+    "NAME": " 计算尺",
+    "FLAVOR": "\"800的对数基数10为2.903...\"",
+    "DESCRIPTIONS": [
+      "每当洗牌，从消耗堆里随机打出一张攻击牌。"
+    ]
+  },
+  "RobotSpaceExplorer:FoglandsKnife": {
+    "NAME": "雾地之刃",
+    "FLAVOR": "刺客使用的小刀，似乎已经被丢弃。",
+    "DESCRIPTIONS": [
+      "0耗费的 #y攻击牌 造成 #b2 点额外伤害。"
+    ]
+  },
+  "RobotSpaceExplorer:ClockworkSextant": {
+    "NAME": "发条六分仪",
+    "FLAVOR": "\"水手们真的用过这玩意吗？\"",
+    "DESCRIPTIONS": [
+      "第 #b2 回合开始时，获得 #b1 #y人工制品 。"
+    ]
+  },
+  "RobotSpaceExplorer:PlasmaHourglass": {
+    "NAME": "等离子时漏",
+    "FLAVOR": "科学的奇迹，纯粹等离子体在其中漩涡。",
+    "DESCRIPTIONS": [
+      "每回合开始时，获得 #b1 #y太阳耀斑 。"
+    ]
+  },
+  "RobotSpaceExplorer:Reprocessor": {
+    "NAME": "后处理器",
+    "FLAVOR": "这种先进的装置可以让航天员重新利用宝贵的资源。",
+    "DESCRIPTIONS": [
+      "每回合开始时， #y捞捕 #b1 。"
+    ]
+  },
+  "RobotSpaceExplorer:ToughPlating": {
+    "NAME": "厚电镀板",
+    "FLAVOR": "坚固的外骨骼，在长期探索太空深处的工作中起到显著作用。",
+    "DESCRIPTIONS": [
+      "每当进行捞捕时，获得 #b2 格挡。"
+    ]
+  },
+  "RobotSpaceExplorer:SearchSpecs": {
+    "NAME": "搜寻目镜",
+    "FLAVOR": "这种时尚的配件被机器人探险者广泛使用。",
+    "DESCRIPTIONS": [
+      "每回合首次进行捞捕时，获得 [E] 。"
+    ]
+  },
+  "RobotSpaceExplorer:TurboCore": {
+    "NAME": "涡轮核心",
+    "FLAVOR": "升级后的动力驱动装置，在检测到危险时启动。",
+    "DESCRIPTIONS": [
+      "取代 #r机器人核心 。 NL 每场战斗开始时，获得 #b",
+      " #y临时力量 ，抽取额外 #b2 张牌，并获得1点能量。"
+    ]
+  },
+  "RobotSpaceExplorer:RoboCore": {
+    "NAME": "机器人核心",
+    "FLAVOR": "标准的动力驱动装置，在检测到危险时启动。",
+    "DESCRIPTIONS": [
+      "每场战斗开始时，获得 #b",
+      " #y临时力量 并额外 #b1 张牌。"
+    ]
+  },
+  "RobotSpaceExplorer:BottledGravity": {
+    "NAME": "瓶封重力",
+    "FLAVOR": "纯粹的重力精华，某种程度上让瓶子感觉更轻。",
+    "DESCRIPTIONS": [
+      "选择1张牌，使其",
+      " 在战斗中少耗费1点能量。",
+      "选择一张卡封装于 ",
+      " 。"
+    ]
+  }
+}

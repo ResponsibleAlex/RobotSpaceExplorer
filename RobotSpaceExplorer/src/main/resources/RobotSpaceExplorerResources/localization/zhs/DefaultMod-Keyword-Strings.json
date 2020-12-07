@@ -1,0 +1,30 @@
+[
+  {
+    "PROPER_NAME": "激涌",
+    "NAMES": [
+      "激涌"
+    ],
+    "DESCRIPTION": "下个回合开始时，移除你的所有 #y虚弱并获得等量于激涌层数的临时 #y力量 。"
+  },
+  {
+    "PROPER_NAME": "导弹",
+    "NAMES": [
+      "导弹"
+    ],
+    "DESCRIPTION": "打出时消耗此牌。"
+  },
+  {
+    "PROPER_NAME": "太阳耀斑",
+    "NAMES": [
+      "太阳耀斑"
+    ],
+    "DESCRIPTION": "在回合结束，对1名随机敌人造成等量于层数的伤害。"
+  },
+  {
+    "PROPER_NAME": "捞捕",
+    "NAMES": [
+      "捞捕"
+    ],
+    "DESCRIPTION": "从弃牌堆里随机返回1张牌到手上。"
+  }
+]

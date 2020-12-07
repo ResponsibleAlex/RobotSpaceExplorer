@@ -591,35 +591,40 @@ public class RobotSpaceExplorerMod implements
     
     
     // ================ LOAD THE TEXT ===================
-    
+
     @Override
     public void receiveEditStrings() {
-        logger.info("You seeing this?");
+
+        String lang = "eng";
+        if (Settings.language == Settings.GameLanguage.ZHS) {
+            lang = "zhs";
+        }
+
         logger.info("Beginning to edit strings for mod with ID: " + getModID());
         
         // CardStrings
         BaseMod.loadCustomStringsFile(CardStrings.class,
-                getModID() + "Resources/localization/eng/DefaultMod-Card-Strings.json");
+                getModID() + "Resources/localization/" + lang + "/DefaultMod-Card-Strings.json");
         
         // PowerStrings
         BaseMod.loadCustomStringsFile(PowerStrings.class,
-                getModID() + "Resources/localization/eng/DefaultMod-Power-Strings.json");
+                getModID() + "Resources/localization/" + lang + "/DefaultMod-Power-Strings.json");
         
         // RelicStrings
         BaseMod.loadCustomStringsFile(RelicStrings.class,
-                getModID() + "Resources/localization/eng/DefaultMod-Relic-Strings.json");
+                getModID() + "Resources/localization/" + lang + "/DefaultMod-Relic-Strings.json");
         
         // Event Strings
         BaseMod.loadCustomStringsFile(EventStrings.class,
-                getModID() + "Resources/localization/eng/DefaultMod-Event-Strings.json");
+                getModID() + "Resources/localization/" + lang + "/DefaultMod-Event-Strings.json");
         
         // PotionStrings
         BaseMod.loadCustomStringsFile(PotionStrings.class,
-                getModID() + "Resources/localization/eng/DefaultMod-Potion-Strings.json");
+                getModID() + "Resources/localization/" + lang + "/DefaultMod-Potion-Strings.json");
         
         // CharacterStrings
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
-                getModID() + "Resources/localization/eng/DefaultMod-Character-Strings.json");
+                getModID() + "Resources/localization/" + lang + "/DefaultMod-Character-Strings.json");
         
 
         logger.info("Done editing strings");
@@ -631,16 +636,13 @@ public class RobotSpaceExplorerMod implements
     
     @Override
     public void receiveEditKeywords() {
-        // Keywords on cards are supposed to be Capitalized, while in Keyword-String.json they're lowercase
-        //
-        // Multiword keywords on cards are done With_Underscores
-        //
-        // If you're using multiword keywords, the first element in your NAMES array in your keywords-strings.json has to be the same as the PROPER_NAME.
-        // That is, in Card-Strings.json you would have #yA_Long_Keyword (#y highlights the keyword in yellow).
-        // In Keyword-Strings.json you would have PROPER_NAME as A Long Keyword and the first element in NAMES be a long keyword, and the second element be a_long_keyword
-        
+        String lang = "eng";
+        if (Settings.language == Settings.GameLanguage.ZHS) {
+            lang = "zhs";
+        }
+
         Gson gson = new Gson();
-        String json = Gdx.files.internal(getModID() + "Resources/localization/eng/DefaultMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String json = Gdx.files.internal(getModID() + "Resources/localization/" + lang + "/DefaultMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
         
         if (keywords != null) {

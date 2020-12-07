@@ -1,0 +1,142 @@
+{
+        "RobotSpaceExplorer:DualCorePower": {
+                "NAME": "双核心",
+                "DESCRIPTIONS": [
+                        "在此回合内再打出 #b 张牌，",
+                        "获得 #b",
+                        "获得 #b",
+                        " #y活力 和 #b",
+                        " #y格挡"
+                ]
+        },
+        "RobotSpaceExplorer:PowerGlovePower": {
+                "NAME": "能量手套",
+                "DESCRIPTIONS": [
+                        "每当造成不大于 #y5 点攻击伤害，伤害增加 #b",
+                        " 。"
+                ]
+        },
+        "RobotSpaceExplorer:ScannerPower": {
+                "NAME": "扫描仪",
+                "DESCRIPTIONS": [
+                        "优先 #y捞捕 稀有度更高的牌。"
+                ]
+        },
+        "RobotSpaceExplorer:DroneSwarmPower": {
+                "NAME": "无人机蜂群",
+                "DESCRIPTIONS": [
+                        "回合结束时，获得 #b",
+                        " #y格挡 并对所有敌人造成 #b",
+                        " 伤害。"
+                ]
+        },
+        "RobotSpaceExplorer:TrailblazerPower": {
+                "NAME": "开拓者",
+                "DESCRIPTIONS": [
+                        "回合开始时，获得 #b",
+                        " #y人工制品 和 #b",
+                        " #y多层护甲 。"
+                ]
+        },
+        "RobotSpaceExplorer:MultitoolPower": {
+                "NAME": "多功能工具",
+                "DESCRIPTIONS": [
+                        "回合开始时， #y升级1张随机手牌。",
+                        "回合开始时， #y升级 #b",
+                        " 张随机手牌。"
+                ]
+        },
+        "RobotSpaceExplorer:AcceleratorPower": {
+                "NAME": "加速装置",
+                "DESCRIPTIONS": [
+                        "每回合第1次打出0耗费的牌时，抽1张牌并获得 [E] 。",
+                        "每回合前 #b",
+                        " 次打出0耗费的牌时，抽1张牌并获得 [E] 。"
+                ]
+        },
+        "RobotSpaceExplorer:AutoloaderPower": {
+                "NAME": "自动装卸",
+                "DESCRIPTIONS": [
+                        "打出 ",
+                        " 于每回合开始时。"
+                ]
+        },
+        "RobotSpaceExplorer:PowerCollectorPower": {
+                "NAME": "能量收集",
+                "DESCRIPTIONS": [
+                        "W每当打出1张能力牌，获得 #b",
+                        " #y力量。"
+                ]
+        },
+        "RobotSpaceExplorer:DischargerPower": {
+                "NAME": "放电",
+                "DESCRIPTIONS": [
+                        "#y静电积累 牌均设为 #y虚无。每当消耗 #y状态 牌时，对所有敌人造成 #b",
+                        " 伤害。"
+                ]
+        },
+        "RobotSpaceExplorer:FreezeRayPower": {
+                "NAME": "冷冻射线",
+                "DESCRIPTIONS": [
+                        "每当对敌人施加 #y虚弱 ，造成 #b",
+                        " 伤害。"
+                ]
+        },
+        "RobotSpaceExplorer:StarDustEnergyDownPower": {
+                "NAME": "能量下降",
+                "DESCRIPTIONS": [
+                        "回合开始时，失去 ",
+                        "。"
+                ]
+        },
+        "RobotSpaceExplorer:StarDustPower": {
+                "NAME": "星尘",
+                "DESCRIPTIONS": [
+                        "回合开始时，获得 #b",
+                        " #y太阳耀斑 。"
+                ]
+        },
+        "RobotSpaceExplorer:ExhaustFanPower": {
+                "NAME": "排气扇",
+                "DESCRIPTIONS": [
+                        "每当打出攻击牌，获得 #b",
+                        " #y格挡 。"
+                ]
+        },
+        "RobotSpaceExplorer:MiniBoostersPower": {
+                "NAME": "迷你助推器",
+                "DESCRIPTIONS": [
+                        "每当打出1张0耗费的牌，对所有敌人造成 #b",
+                        " 伤害并获得 #b",
+                        " 格挡。"
+                ]
+        },
+        "RobotSpaceExplorer:SalvageNextTurnPower": {
+                "NAME": "扫描",
+                "DESCRIPTIONS": [
+                        "回合开始时， #y捞捕 #b",
+                        "。"
+                ]
+        },
+        "RobotSpaceExplorer:SolarFlarePower": {
+                "NAME": "太阳耀斑",
+                "DESCRIPTIONS": [
+                        "回合结束时，对随机敌人造成 #b",
+                        " 伤害。"
+                ]
+        },
+        "RobotSpaceExplorer:SwiftStepPower": {
+                "NAME": "快速步伐",
+                "DESCRIPTIONS": [
+                        "每当在此回合打出1张牌，获得 #b",
+                        " #y格挡 。"
+                ]
+        },
+        "RobotSpaceExplorer:SurgePower": {
+                "NAME": "激涌",
+                "DESCRIPTIONS": [
+                        "下回合开始时获得 #b",
+                        " #临时力量 并移除所有虚弱。"
+                ]
+        }
+}

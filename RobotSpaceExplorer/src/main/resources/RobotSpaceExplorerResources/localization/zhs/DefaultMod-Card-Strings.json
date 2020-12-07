@@ -1,0 +1,338 @@
+{
+  "RobotSpaceExplorer:DualCore": {
+    "NAME": "双核心",
+    "DESCRIPTION": "每当在同一回合内打出5张牌，获得 !M! 活力 和 !M! 格挡。"
+  },
+  "RobotSpaceExplorer:PowerGlove": {
+    "NAME": "能量手套",
+    "DESCRIPTION": "每当造成 不大于5点未被格挡的攻击伤害， NL 伤害增加 !M! 。"
+  },
+  "RobotSpaceExplorer:Scanner": {
+    "NAME": "扫描仪",
+    "DESCRIPTION": "每当 robotspaceexplorer:捞捕 ，优先捞捕稀有度更高的牌。"
+  },
+  "RobotSpaceExplorer:DroneSwarm": {
+    "NAME": "无人机群",
+    "DESCRIPTION": "回合结束时，对所有敌人造成2X伤害并获得2X格挡。",
+    "UPGRADE_DESCRIPTION": "固有 。回合结束时，对所有敌人造成2X伤害并获得2X格挡。"
+  },
+  "RobotSpaceExplorer:TrailblazerForm": {
+    "NAME": " 开拓者模式",
+    "DESCRIPTION": "虚无 。 NL 回合开始时，获得 !M! 人工制品 和 !RobotSpaceExplorer:SecondMagic! 多层护甲 。",
+    "UPGRADE_DESCRIPTION": "回合开始时，获得 !M! 人工制品 和 !RobotSpaceExplorer:SecondMagic! 多层护甲 。"
+  },
+  "RobotSpaceExplorer:Multitool": {
+    "NAME": "多功能工具",
+    "DESCRIPTION": "回合开始时，随机升级一张手牌。",
+    "UPGRADE_DESCRIPTION": "回合开始时，升级所有手牌。 NL "
+  },
+  "RobotSpaceExplorer:Accelerator": {
+    "NAME": "加速器",
+    "DESCRIPTION": "每回合第1次打出0耗费的牌时，抽1张牌并获得 [E] 。"
+  },
+  "RobotSpaceExplorer:Autoloader": {
+    "NAME": "自动装卸机",
+    "DESCRIPTION": "虚无 。 NL 选择1张手中的攻击牌，在此战中移除。每回合开始时，打出该牌。",
+    "UPGRADE_DESCRIPTION": "选择1张手中的攻击牌，在此战中移除。每回合开始时，打出该牌。",
+    "EXTENDED_DESCRIPTION": [
+      "手上没有攻击牌！",
+      "用于自动装卸机"
+    ]
+  },
+  "RobotSpaceExplorer:PowerCollector": {
+    "NAME": "能量收集器",
+    "DESCRIPTION": "每当打出1张能力牌，获得2力量。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 每当打出1张能力牌，获得2力量。"
+  },
+  "RobotSpaceExplorer:Discharger": {
+    "NAME": "放电模块",
+    "DESCRIPTION": "*静电积累 牌均设为 虚无 。 消耗状态牌时对所有敌人造成 !M! 伤害。"
+  },
+  "RobotSpaceExplorer:FreezeRay": {
+    "NAME": "冷冻射线",
+    "DESCRIPTION": "每当对1名敌人施加 虚弱 ，造成 !M! 伤害。"
+  },
+  "RobotSpaceExplorer:StarDust": {
+    "NAME": "星尘",
+    "DESCRIPTION": "每回合开始时，少获得 [E] ，获得 !M! robotspaceexplorer:太阳耀斑 。"
+  },
+  "RobotSpaceExplorer:ExhaustFan": {
+    "NAME": "排气扇",
+    "DESCRIPTION": "失去 !RobotSpaceExplorer:SecondMagic! 敏捷。 NL 每当打出1张攻击牌，获得 !M! 格挡。"
+  },
+  "RobotSpaceExplorer:MiniBoosters": {
+    "NAME": "迷你助推器",
+    "DESCRIPTION": "每当打出1张0耗费的牌，对所有敌人造成 !M! 伤害并获得 !M! 格挡。"
+  },
+  "RobotSpaceExplorer:BlastShield": {
+    "NAME": "冲击护盾",
+    "DESCRIPTION": "获得等同于目标意图造成的伤害值的格挡。 NL 消耗 。"
+  },
+  "RobotSpaceExplorer:Wormhole": {
+    "NAME": "虫洞",
+    "DESCRIPTION": "选择1张手牌，连同此牌一起，从牌组中永久地移除。",
+    "EXTENDED_DESCRIPTION": [
+      "没有可移除的卡牌！",
+      "永久移除一张牌"
+    ]
+  },
+  "RobotSpaceExplorer:Arsenal": {
+    "NAME": "军械库",
+    "DESCRIPTION": "从消耗牌中随机打出1张攻击牌X次。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "从消耗牌中随机打出1张攻击牌X+1次 NL 消耗 。"
+  },
+  "RobotSpaceExplorer:Exploration": {
+    "NAME": "勘探",
+    "DESCRIPTION": "战斗结束时，获得一件随机遗物。 NL 从牌组中永久移除此牌。"
+  },
+  "RobotSpaceExplorer:ScrapShield": {
+    "NAME": "废料护盾",
+    "DESCRIPTION": "获得 !B! 格挡。 NL robotspaceexplorer:捞捕 !M! 。"
+  },
+  "RobotSpaceExplorer:SurgingShield": {
+    "NAME": "激涌护盾",
+    "DESCRIPTION": "获得 !B! 格挡。 NL 获得 robotspaceexplorer:激涌 !M! 。"
+  },
+  "RobotSpaceExplorer:Comet": {
+    "NAME": "彗星",
+    "DESCRIPTION": "获得 !M! robotspaceexplorer:太阳耀斑 ， 然后对所有敌人造成等量于太阳耀斑层数的伤害。"
+  },
+  "RobotSpaceExplorer:GlueSpray": {
+    "NAME": "粘胶喷射",
+    "DESCRIPTION": "添加X张 *粘胶炮弹 到手上。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "添加X张升级的 *粘胶炮弹 到手上。 NL 消耗 。"
+  },
+  "RobotSpaceExplorer:ToxicBomb": {
+    "NAME": "毒性炸弹",
+    "DESCRIPTION": "对所有敌人施加 !RobotSpaceExplorer:SecondMagic! 虚弱 。 NL 2回合后，对所有敌人造成 !M! 伤害。"
+  },
+  "RobotSpaceExplorer:FreezingShield": {
+    "NAME": "霜冻护盾",
+    "DESCRIPTION": "获得 !B! 格挡。 NL 敌人在此回合失去 !M! 力量。"
+  },
+  "RobotSpaceExplorer:SelfCleaning": {
+    "NAME": "自清洗",
+    "DESCRIPTION": "添加1张粘液到手上，然后消耗手中状态牌，抽取等量牌，获得 !M! 格挡。"
+  },
+  "RobotSpaceExplorer:Calculate": {
+    "NAME": "计算",
+    "DESCRIPTION": "下回合，获得 [E] 并 robotspaceexplorer:捞捕 !M! 。",
+    "UPGRADE_DESCRIPTION": "下回合，获得 [E] [E] 并 robotspaceexplorer:捞捕 !M! 。"
+  },
+  "RobotSpaceExplorer:Electroshield": {
+    "NAME": "电能护盾",
+    "DESCRIPTION": "获得 !B! 格挡。 NL 添加1张 *静电积累 到手上。"
+  },
+  "RobotSpaceExplorer:GearShield": {
+    "NAME": "传动护盾",
+    "DESCRIPTION": "获得 !B! 格挡。 NL 获得 !M! 人工制品。 NL 消耗 。"
+  },
+  "RobotSpaceExplorer:RigExplosive": {
+    "NAME": "钻探爆破",
+    "DESCRIPTION": "获得一瓶火焰药剂。 NL 消耗 。"
+  },
+  "RobotSpaceExplorer:DoubleFind": {
+    "NAME": "双重发现",
+    "DESCRIPTION": "添加2张随机牌到手上，这些牌在此回合耗费为0。 NL 消耗 。"
+  },
+  "RobotSpaceExplorer:IronShell": {
+    "NAME": "钢铁外壳",
+    "DESCRIPTION": "获得 !B! 格挡。 NL 在此战中增加此牌的格挡效果 !M! 点。"
+  },
+  "RobotSpaceExplorer:DoubleBlock": {
+    "NAME": "双重格挡",
+    "DESCRIPTION": "获得 !B! 格挡。 NL 在下回合，获得 !B! 格挡。"
+  },
+  "RobotSpaceExplorer:Smokescreen": {
+    "NAME": "烟幕",
+    "DESCRIPTION": "获得 !B! 格挡。 NL 对所有敌人施加 !M! 虚弱 。"
+  },
+  "RobotSpaceExplorer:TurboDodge": {
+    "NAME": "涡轮闪避",
+    "DESCRIPTION": "获得 !B! 格挡。 NL 在下回合，获得 [E] 。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 格挡。 NL 在下回合，获得 [E] [E] 。"
+  },
+  "RobotSpaceExplorer:Fix": {
+    "NAME": "修复",
+    "DESCRIPTION": "获得 !M! 人工制品。 NL 治疗 !RobotSpaceExplorer:SecondMagic! 生命。 NL 消耗 。"
+  },
+  "RobotSpaceExplorer:Reload": {
+    "NAME": "重载",
+    "DESCRIPTION": "随机打出1张消耗堆中的攻击牌。",
+    "UPGRADE_DESCRIPTION": "从消耗堆中选择打出1张攻击牌。"
+  },
+  "RobotSpaceExplorer:JunkDive": {
+    "NAME": "废料捕捞",
+    "DESCRIPTION": "robotspaceexplorer:捞捕 !M! 。 NL 消耗 。"
+  },
+  "RobotSpaceExplorer:Jetpack": {
+    "NAME": "喷气背包",
+    "DESCRIPTION": "获得 !B! 格挡。 NL 获得 !M! 临时敏捷。"
+  },
+  "RobotSpaceExplorer:Ammunition": {
+    "NAME": "装弹",
+    "DESCRIPTION": "随机返回 !M! 张已消耗的攻击牌到手上。 NL 消耗 。"
+  },
+  "RobotSpaceExplorer:GlueShot": {
+    "NAME": "黏胶炮弹",
+    "DESCRIPTION": "获得 !B! 格挡。 NL 施加 !M! 虚弱 。 NL 消耗 。"
+  },
+  "RobotSpaceExplorer:FranticSearch": {
+    "NAME": "狂搜乱寻",
+    "DESCRIPTION": "robotspaceexplorer:捞捕 2。 NL 抽 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": "robotspaceexplorer:捞捕 2。 NL 抽 !M! 张牌。"
+  },
+  "RobotSpaceExplorer:Counterblock": {
+    "NAME": "计数模块",
+    "DESCRIPTION": "获得 !B! 格挡。 NL 下回合抽 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 格挡。 NL 下回合抽 !M! 张牌。"
+  },
+  "RobotSpaceExplorer:Pulsar": {
+    "NAME": "脉冲星",
+    "DESCRIPTION": "获得 !B! 格挡。 NL 获得 !M! robotspaceexplorer:太阳耀斑 。"
+  },
+  "RobotSpaceExplorer:SwiftStep": {
+    "NAME": "快速步伐",
+    "DESCRIPTION": "每当在此回合打出1张牌，获得 !M! 格挡。",
+    "UPGRADE_DESCRIPTION": "每当在此回合打出1张牌，获得 !M! 格挡。 NL robotspaceexplorer:捞捕 1。"
+  },
+  "RobotSpaceExplorer:Probe": {
+    "NAME": "探测",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 在下回合，robotspaceexplorer:捞捕 !M! 。"
+  },
+  "RobotSpaceExplorer:Explosion": {
+    "NAME": "爆炸",
+    "DESCRIPTION": "打出1张随机 robotspaceexplorer:导弹 牌。然后，每消耗过1张攻击牌，打出1张 *余波 。",
+    "UPGRADE_DESCRIPTION": "打出1张随机 robotspaceexplorer:导弹 牌。然后，每消耗过1张攻击牌，打出1张 *余波+ 。"
+  },
+  "RobotSpaceExplorer:Aftershock": {
+    "NAME": "余波",
+    "DESCRIPTION": "造成 !D! 伤害。"
+  },
+  "RobotSpaceExplorer:HighVoltage": {
+    "NAME": " 高电压",
+    "DESCRIPTION": "对所有敌人造成 !D! 伤害。 NL 添加 2 *静电积累 到手上。"
+  },
+  "RobotSpaceExplorer:Blaster": {
+    "NAME": "爆裂",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 施加 !M! 虚弱 。 NL 施加 !M! 易伤 。"
+  },
+  "RobotSpaceExplorer:Asteroid": {
+    "NAME": "小行星",
+    "DESCRIPTION": "造成 !D! 伤害。"
+  },
+  "RobotSpaceExplorer:ShockMissile": {
+    "NAME": "冲震导弹",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 目标失去 !M! 力量。 NL 消耗 。"
+  },
+  "RobotSpaceExplorer:ChargingLaser": {
+    "NAME": "充能激光",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 此战中增加此牌的伤害效果 !M! 点。"
+  },
+  "RobotSpaceExplorer:ShovelStrike": {
+    "NAME": "铁铲打击",
+    "DESCRIPTION": "造成 !D! 伤害。 NL robotspaceexplorer:捞捕 !M! 。"
+  },
+  "RobotSpaceExplorer:MakeshiftVolley": {
+    "NAME": "临时齐射",
+    "DESCRIPTION": "丢弃所有手牌。 NL 每弃1张对随机敌人造成 !D! 伤害。"
+  },
+  "RobotSpaceExplorer:BigMissile": {
+    "NAME": "大型导弹",
+    "DESCRIPTION": "移除目标所有格挡。 NL 造成 !D! 伤害。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "移除目标所有格挡和 人工制品 。 NL 造成 !D! 伤害。 NL 消耗 。"
+  },
+  "RobotSpaceExplorer:Electropulse": {
+    "NAME": "电脉冲",
+    "DESCRIPTION": "对所有敌人造成 !D! 伤害。 NL 添加1张 *静电积累 到手上。 NL 获得 robotspaceexplorer:激涌 !M! 。"
+  },
+  "RobotSpaceExplorer:StarLightning": {
+    "NAME": "星闪",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 获得 !B! 格挡。 NL 获得 !M! robotspaceexplorer:太阳耀斑 。"
+  },
+  "RobotSpaceExplorer:LuckyStrike": {
+    "NAME": "幸运一击",
+    "DESCRIPTION": "造成 !D! 伤害。 每当 robotspaceexplorer:捞捕 ，如果此牌在抽牌堆，打出它。"
+  },
+  "RobotSpaceExplorer:SlimeMissile": {
+    "NAME": "黏液导弹",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 增加1张黏液到手上。 NL 消耗 。"
+  },
+  "RobotSpaceExplorer:PlasmaMissile": {
+    "NAME": "等离子导弹",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 获得 !M! robotspaceexplorer:太阳耀斑 。 NL 消耗 。"
+  },
+  "RobotSpaceExplorer:StunGrenade": {
+    "NAME": "震眩榴弹",
+    "DESCRIPTION": "造成 !D! 伤害并施加 !M! 虚弱 to 所有敌人。 NL 消耗 。"
+  },
+  "RobotSpaceExplorer:ScrapToss": {
+    "NAME": "废料投掷",
+    "DESCRIPTION": "造成 !D! 伤害。 NL robotspaceexplorer:捞捕 !M! 。 NL 将此牌洗入抽牌堆。"
+  },
+  "RobotSpaceExplorer:MetalStrike": {
+    "NAME": "金属打击",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 施加 !M! 虚弱 。 NL 如果敌人意图进攻，重复此牌效果。"
+  },
+  "RobotSpaceExplorer:ShockKick": {
+    "NAME": "冲震踢",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 施加 !M! 虚弱 。 NL 添加1张 *静电积累 到手上。"
+  },
+  "RobotSpaceExplorer:StaticBuildup": {
+    "NAME": "静电积累",
+    "DESCRIPTION": "回合结束时，受到 !M! 伤害并获得 !M! 虚弱 。",
+    "UPGRADE_DESCRIPTION": "回合结束时，受到 !M! 伤害并 获得 !M! 虚弱 。 NL 虚无 。"
+  },
+  "RobotSpaceExplorer:ImprovisedAttack": {
+    "NAME": "即兴进攻",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 如果本回合进行过 robotspaceexplorer:捕捞 ，多造成 !M! 次伤害。"
+  },
+  "RobotSpaceExplorer:Blitz": {
+    "NAME": "闪电战",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 获得 !B! 格挡。"
+  },
+  "RobotSpaceExplorer:ScrapMissile": {
+    "NAME": "碎片导弹",
+    "DESCRIPTION": "造成 !D! 伤害。 NL robotspaceexplorer:捞捕 !M! 。 NL 消耗 。"
+  },
+  "RobotSpaceExplorer:FrostMissile": {
+    "NAME": "霜冻导弹",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 施加 !M! 虚弱 。 NL 消耗 。"
+  },
+  "RobotSpaceExplorer:LavaMissile": {
+    "NAME": "岩浆导弹",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 施加 !M! 易伤 。 NL 消耗 。"
+  },
+  "RobotSpaceExplorer:LaserBurst": {
+    "NAME": "激光迸射",
+    "DESCRIPTION": "对随机敌人造成 !D! 伤害 !M! 次。"
+  },
+  "RobotSpaceExplorer:SurgingStrike": {
+    "NAME": "激涌打击",
+    "DESCRIPTION": "造成 !D! 伤害。 NL 获得 robotspaceexplorer:激涌 !M! 。"
+  },
+  "RobotSpaceExplorer:MiniLasers": {
+    "NAME": "迷你激光",
+    "DESCRIPTION": "造成 !D! 伤害 !M! 次。"
+  },
+  "RobotSpaceExplorer:Scan": {
+    "NAME": "扫描",
+    "DESCRIPTION": "获得 !B! 格挡。 NL robotspaceexplorer:捞捕 1。"
+  },
+  "RobotSpaceExplorer:LuckyFind": {
+    "NAME": "幸运发现",
+    "DESCRIPTION": "战斗结束时，获取一件随机普通遗物。 NL 从牌组中永久移除此牌。"
+  },
+  "RobotSpaceExplorer:MiniDrones": {
+    "NAME": "迷你无人机",
+    "DESCRIPTION": "对所有敌人造成 !D! 伤害。 NL 获得 !B! 格挡。"
+  },
+  "RobotSpaceExplorer:Strike": {
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 伤害。"
+  },
+  "RobotSpaceExplorer:Defend": {
+    "NAME": "防御",
+    "DESCRIPTION": "获得 !B! 格挡。"
+  }
+}

@@ -1,0 +1,23 @@
+{
+        "RobotSpaceExplorer:RecyclePotion": {
+                "NAME": "回收剂",
+                "DESCRIPTIONS": [
+                        "#y捞捕 ",
+                        " 张牌并 #y升级 它们。"
+                ]
+        },
+        "RobotSpaceExplorer:PlasmaFlask": {
+                "NAME": "等离子瓶",
+                "DESCRIPTIONS": [
+                        "获得 ",
+                        " #y太阳耀斑 。"
+                ]
+        },
+        "RobotSpaceExplorer:LiquidFusion": {
+                "NAME": "聚变液",
+                "DESCRIPTIONS": [
+                        "此回合中，所有手牌打出前耗费都为0。",
+                        "抽1张牌。 "
+                ]
+        }
+}

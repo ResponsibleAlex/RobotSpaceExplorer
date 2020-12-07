@@ -1,0 +1,13 @@
+{
+  "RobotSpaceExplorer:RobotSpaceExplorer": {
+    "NAMES": [
+      "机器太空探险家",
+      "机器宇航员"
+    ],
+    "TEXT": [
+      "迷失于虫洞另一端，飞船坠毁，回路也被烧坏。 NL 机器太空探险家得找到回家的路。",
+      "NL 你装备好武器系统...",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~metal~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+    ]
+  }
+}
