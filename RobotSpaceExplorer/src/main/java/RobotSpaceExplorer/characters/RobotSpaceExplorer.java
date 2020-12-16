@@ -2,15 +2,16 @@ package RobotSpaceExplorer.characters;
 
 import RobotSpaceExplorer.relics.RoboCore;
 import basemod.abstracts.CustomPlayer;
-import basemod.animations.SpriterAnimation;
+import basemod.animations.SpineAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -103,13 +104,15 @@ public class RobotSpaceExplorer extends CustomPlayer {
     public RobotSpaceExplorer(String name, PlayerClass setClass) {
         super(name, setClass, orbTextures,
                 "RobotSpaceExplorerResources/images/char/defaultCharacter/orb/vfx.png", null,
-                new SpriterAnimation(
-                        "RobotSpaceExplorerResources/images/char/defaultCharacter/Spriter/theDefaultAnimation.scml"));
+                new SpineAnimation(
+                        THE_DEFAULT_SKELETON_ATLAS,
+                        THE_DEFAULT_SKELETON_JSON,
+                        1.0f));
 
 
         // =============== TEXTURES, ENERGY, LOADOUT =================  
 
-        initializeClass(THE_DEFAULT_IMAGE, // required call to load textures and setup energy/loadout.
+        initializeClass(null, // required call to load textures and setup energy/loadout.
                 // I left these in DefaultMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
                 THE_DEFAULT_SHOULDER_2, // campfire pose
                 THE_DEFAULT_SHOULDER_1, // another campfire pose
@@ -120,14 +123,10 @@ public class RobotSpaceExplorer extends CustomPlayer {
 
 
         // =============== ANIMATIONS =================  
-/*
-        loadAnimation(
-                THE_DEFAULT_SKELETON_ATLAS,
-                THE_DEFAULT_SKELETON_JSON,
-                1.0f);
-        AnimationState.TrackEntry e = state.setAnimation(0, "animation", true);
-        e.setTime(e.getEndTime() * MathUtils.random());
-*/
+
+        AnimationState.TrackEntry e = state.setAnimation(0, "idle", true);
+        e.setTime(0);
+
         // =============== /ANIMATIONS/ =================
 
 
@@ -141,6 +140,25 @@ public class RobotSpaceExplorer extends CustomPlayer {
     }
 
     // =============== /CHARACTER CLASS END/ =================
+
+    @Override
+    public void renderPlayerImage(SpriteBatch sb)
+    {
+        sr.setPremultipliedAlpha(false);
+        super.renderPlayerImage(sb);
+        sr.setPremultipliedAlpha(true);
+    }
+
+    @Override
+    public void damage(DamageInfo info)
+    {
+        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > currentBlock) {
+            AnimationState.TrackEntry e = state.setAnimation(0, "hit", false);
+            state.addAnimation(0,"idle", true, 0.0f);
+            e.setTimeScale(1f);
+        }
+        super.damage(info);
+    }
 
     // Starting description and loadout
     @Override
