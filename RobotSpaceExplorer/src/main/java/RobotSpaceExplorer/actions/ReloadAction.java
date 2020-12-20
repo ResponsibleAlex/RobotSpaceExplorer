@@ -24,9 +24,9 @@ public class ReloadAction extends AbstractGameAction {
 
     public ReloadAction(boolean canChooseACard) {
         canChoose = canChooseACard;
-        this.p = AbstractDungeon.player;
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
+        p = AbstractDungeon.player;
+        actionType = ActionType.CARD_MANIPULATION;
+        duration = Settings.ACTION_DUR_FAST;
     }
 
     public void update()
@@ -35,21 +35,21 @@ public class ReloadAction extends AbstractGameAction {
         Iterator c;
         CardGroup pile = p.exhaustPile.getAttacks();
 
-        if (this.duration == Settings.ACTION_DUR_FAST) {
+        if (duration == Settings.ACTION_DUR_FAST) {
             if (pile.isEmpty()) {
-                this.isDone = true;
+                isDone = true;
             } else if (pile.size() == 1) {
                 // only 1, get it and play it
                 card = pile.getTopCard();
-                this.addToBot(new PlayExhaustedAttackAction(card));
+                addToBot(new PlayExhaustedAttackAction(card));
 
-                this.isDone = true;
+                isDone = true;
             } else if (!canChoose) {
                 // get a random one and play it
                 card = pile.getRandomCard(true);
-                this.addToBot(new PlayExhaustedAttackAction(card));
+                addToBot(new PlayExhaustedAttackAction(card));
 
-                this.isDone = true;
+                isDone = true;
             } else {
                 // open selection screen
                 c = pile.group.iterator();
@@ -62,18 +62,18 @@ public class ReloadAction extends AbstractGameAction {
                 }
 
                 AbstractDungeon.gridSelectScreen.open(pile, 1, TEXT[0], false);
-                this.tickDuration();
+                tickDuration();
             }
         } else {
             // we have selected a card, close selection screen and play it
             if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
                 for(c = AbstractDungeon.gridSelectScreen.selectedCards.iterator(); c.hasNext(); card.unhover()) {
                     card = (AbstractCard)c.next();
-                    this.addToBot(new PlayExhaustedAttackAction(card));
+                    addToBot(new PlayExhaustedAttackAction(card));
                 }
 
                 AbstractDungeon.gridSelectScreen.selectedCards.clear();
-                this.p.hand.refreshHandLayout();
+                p.hand.refreshHandLayout();
 
                 // from ExhumeAction
                 for(c = pile.group.iterator(); c.hasNext(); card.target_y = 0.0F) {
@@ -83,7 +83,7 @@ public class ReloadAction extends AbstractGameAction {
                 }
             }
 
-            this.tickDuration();
+            tickDuration();
         }
     }
 

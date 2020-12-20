@@ -55,7 +55,7 @@ public class MiniLasers extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         for(int i = 0; i < magicNumber; i++) {
             beamEffect(p, m);
-            this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+            addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
         }
     }
 

@@ -14,18 +14,18 @@ public class AmmunitionAction extends AbstractGameAction {
     private AbstractPlayer p;
 
     public AmmunitionAction(int numberOfAttacksToUnExhaust) {
-        this.numberOfAttacks = numberOfAttacksToUnExhaust;
-        this.p = AbstractDungeon.player;
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
+        numberOfAttacks = numberOfAttacksToUnExhaust;
+        p = AbstractDungeon.player;
+        actionType = ActionType.CARD_MANIPULATION;
+        duration = Settings.ACTION_DUR_FAST;
     }
 
     public void update() {
         if (numberOfAttacks == 0) {
             p.hand.refreshHandLayout();
-            this.isDone = true;
+            isDone = true;
         } else {
-            this.addOne();
+            addOne();
             numberOfAttacks--;
             tickDuration();
         }
@@ -38,7 +38,7 @@ public class AmmunitionAction extends AbstractGameAction {
         if (!attacks.isEmpty()) {
             c = attacks.getRandomCard(true);
             p.exhaustPile.removeCard(c);
-            this.addToBot(new MakeTempCardInHandAction(c, true, true));
+            addToBot(new MakeTempCardInHandAction(c, true, true));
         }
     }
 }

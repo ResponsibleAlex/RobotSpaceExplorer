@@ -39,7 +39,7 @@ public class DualCorePower extends AbstractPower implements CloneablePowerInterf
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
         magicNumber = amount;
         if (magicNumber >= 999) {
             magicNumber = 999;
@@ -49,8 +49,8 @@ public class DualCorePower extends AbstractPower implements CloneablePowerInterf
         type = PowerType.BUFF;
 
         // We load those txtures here.
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
@@ -60,33 +60,33 @@ public class DualCorePower extends AbstractPower implements CloneablePowerInterf
         if (magicNumber >= 999) {
             magicNumber = 999;
         }
-        this.updateDescription();
+        updateDescription();
     }
 
     @Override
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
-        --this.amount;
-        if (this.amount == 0) {
-            this.flash();
-            this.amount = 5;
+        --amount;
+        if (amount == 0) {
+            flash();
+            amount = 5;
 
             if (Settings.FAST_MODE) {
-                this.addToBot(new VFXAction(owner, new FlameBarrierEffect(owner.hb.cX, owner.hb.cY), 0.1F));
+                addToBot(new VFXAction(owner, new FlameBarrierEffect(owner.hb.cX, owner.hb.cY), 0.1F));
             } else {
-                this.addToBot(new VFXAction(owner, new FlameBarrierEffect(owner.hb.cX, owner.hb.cY), 0.5F));
+                addToBot(new VFXAction(owner, new FlameBarrierEffect(owner.hb.cX, owner.hb.cY), 0.5F));
             }
 
-            this.addToBot(new ApplyPowerAction(owner, owner, new VigorPower(owner, magicNumber), magicNumber));
-            this.addToBot(new GainBlockAction(owner, owner, magicNumber));
+            addToBot(new ApplyPowerAction(owner, owner, new VigorPower(owner, magicNumber), magicNumber));
+            addToBot(new GainBlockAction(owner, owner, magicNumber));
         }
 
-        this.updateDescription();
+        updateDescription();
     }
 
     @Override
     public void atStartOfTurn() {
-        this.amount = 5;
-        this.updateDescription();
+        amount = 5;
+        updateDescription();
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))

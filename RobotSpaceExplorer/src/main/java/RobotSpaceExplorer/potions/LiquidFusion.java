@@ -35,20 +35,20 @@ public class LiquidFusion extends AbstractPotion {
         isThrown = false;
 
         // Initialize the on-hover name + description
-        this.tips.clear();
+        tips.clear();
         tips.add(new PowerTip(name, description));
     }
 
     public void initializeData() {
-        this.potency = this.getPotency();
+        potency = getPotency();
         if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(SacredBark.ID)) {
-            this.description = DESCRIPTIONS[1] + DESCRIPTIONS[0];
+            description = DESCRIPTIONS[1] + DESCRIPTIONS[0];
         } else {
-            this.description = DESCRIPTIONS[0];
+            description = DESCRIPTIONS[0];
         }
 
-        this.tips.clear();
-        this.tips.add(new PowerTip(this.name, this.description));
+        tips.clear();
+        tips.add(new PowerTip(name, description));
     }
 
     @Override
@@ -57,7 +57,7 @@ public class LiquidFusion extends AbstractPotion {
         // If you are in combat
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(SacredBark.ID)) {
-                this.addToBot(new DrawCardAction(1));
+                addToBot(new DrawCardAction(1));
             }
             Iterator i  = AbstractDungeon.player.hand.group.iterator();
             AbstractCard c;

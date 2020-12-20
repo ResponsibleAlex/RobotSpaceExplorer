@@ -45,16 +45,16 @@ public class Fix extends AbstractDynamicCard {
         baseBlock = 0;
         magicNumber = baseMagicNumber = ARTIFACT;
         defaultSecondMagicNumber = defaultBaseSecondMagicNumber = HEAL;
-        this.exhaust = true;
-        this.tags.add(CardTags.HEALING);
+        exhaust = true;
+        tags.add(CardTags.HEALING);
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new ArtifactPower(p, this.magicNumber), this.magicNumber));
-        this.addToBot(new HealAction(p, p, this.defaultSecondMagicNumber));
+        addToBot(new ApplyPowerAction(p, p, new ArtifactPower(p, magicNumber), magicNumber));
+        addToBot(new HealAction(p, p, defaultSecondMagicNumber));
     }
 
 

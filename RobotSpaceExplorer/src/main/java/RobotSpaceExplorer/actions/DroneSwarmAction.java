@@ -15,11 +15,11 @@ public class DroneSwarmAction extends AbstractGameAction {
     private boolean upgraded;
 
     public DroneSwarmAction(boolean freeToPlayOnce, int energyOnUse, boolean upgraded) {
-        this.actionType = ActionType.POWER;
+        actionType = ActionType.POWER;
         this.freeToPlayOnce = freeToPlayOnce;
         this.energyOnUse = energyOnUse;
         this.upgraded = upgraded;
-        this.p = AbstractDungeon.player;
+        p = AbstractDungeon.player;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class DroneSwarmAction extends AbstractGameAction {
 
         if (effect > 0) {
             effect *= 2; // 2X
-            this.addToBot(new ApplyPowerAction(p, p,
+            addToBot(new ApplyPowerAction(p, p,
                     new DroneSwarmPower(effect), effect));
 
             if (!freeToPlayOnce) {

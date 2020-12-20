@@ -15,8 +15,8 @@ public class ExhaustStaticBuildupsAction extends AbstractGameAction {
     AbstractPlayer p = AbstractDungeon.player;
 
     public ExhaustStaticBuildupsAction() {
-        this.actionType = ActionType.EXHAUST;
-        this.duration = Settings.ACTION_DUR_FAST;
+        actionType = ActionType.EXHAUST;
+        duration = Settings.ACTION_DUR_FAST;
     }
 
     public void update() {
@@ -34,9 +34,9 @@ public class ExhaustStaticBuildupsAction extends AbstractGameAction {
         i = cardsToExhaust.iterator();
         while (i.hasNext()) {
             c = (AbstractCard) i.next();
-            this.addToTop(new ExhaustSpecificCardAction(c, p.hand));
+            addToTop(new ExhaustSpecificCardAction(c, p.hand));
         }
 
-        this.isDone = true;
+        isDone = true;
     }
 }

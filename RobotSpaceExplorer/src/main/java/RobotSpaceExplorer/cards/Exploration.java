@@ -52,7 +52,7 @@ public class Exploration extends AbstractDynamicCard {
         AbstractDungeon.getCurrRoom().addRelicToRewards(tier);
 
         AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(this, (float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2)));
-        this.addToBot(new RemoveFromMasterDeckAction(this));
+        addToBot(new RemoveFromMasterDeckAction(this));
     }
 
     public static AbstractRelic.RelicTier getRelicTier() {

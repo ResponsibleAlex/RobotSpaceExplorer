@@ -50,8 +50,8 @@ public class HighVoltage extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         lightningAllEffect();
-        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
-        this.addToBot(new MakeTempCardInHandAction(new StaticBuildup(), 2));
+        addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+        addToBot(new MakeTempCardInHandAction(new StaticBuildup(), 2));
     }
 
 

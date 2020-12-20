@@ -40,18 +40,18 @@ public class TurboCore extends CustomRelic {
     // Description
     @Override
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0] + STRENGTH + this.DESCRIPTIONS[1];
+        return DESCRIPTIONS[0] + STRENGTH + DESCRIPTIONS[1];
     }
 
     @Override
     public void atBattleStart() {
-        this.flash();
-        this.addToTop(new RoboCoreStrengthAction(STRENGTH));
+        flash();
+        addToTop(new RoboCoreStrengthAction(STRENGTH));
 
-        this.addToBot(new DrawCardAction(AbstractDungeon.player, CARDS, false));
-        this.addToBot(new GainEnergyAction(ENERGY));
+        addToBot(new DrawCardAction(AbstractDungeon.player, CARDS, false));
+        addToBot(new GainEnergyAction(ENERGY));
 
-        this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+        addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
     }
 
     @Override
@@ -72,7 +72,7 @@ public class TurboCore extends CustomRelic {
             AbstractRelic r;
             while (i.hasNext()) {
                 r = (AbstractRelic)i.next();
-                if (r.relicId.equals(this.ID)) {
+                if (r.relicId.equals(ID)) {
                     r.flash();
                 }
             }

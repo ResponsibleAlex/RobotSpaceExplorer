@@ -18,17 +18,17 @@ public class PlayRandomMissileAction extends AbstractGameAction {
         this.upgradeMissile = upgradeMissile;
         initMissiles();
 
-        this.startDuration = Settings.ACTION_DUR_FAST;
-        this.duration = this.startDuration;
-        this.actionType = ActionType.DAMAGE;
+        startDuration = Settings.ACTION_DUR_FAST;
+        duration = startDuration;
+        actionType = ActionType.DAMAGE;
     }
 
     public void update() {
-        if (this.duration == this.startDuration) {
+        if (duration == startDuration) {
             playRandomMissile();
         }
 
-        this.tickDuration();
+        tickDuration();
     }
 
     // BigMissile, FrostMissile, LavaMissile, ShockMissile, SlimeMissile

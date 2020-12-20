@@ -154,10 +154,10 @@ public class BottledGravity extends CustomRelic implements CustomBottleRelic, Cu
 
     // Change description after relic is already loaded to reflect the bottled card.
     public void setDescriptionAfterLoading() {
-        this.description = FontHelper.colorString(card.name, "y") + DESCRIPTIONS[1];
-        this.tips.clear();
-        this.tips.add(new PowerTip(this.name, this.description));
-        this.initializeTips();
+        description = FontHelper.colorString(card.name, "y") + DESCRIPTIONS[1];
+        tips.clear();
+        tips.add(new PowerTip(name, description));
+        initializeTips();
     }
 
     // Standard description

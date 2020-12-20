@@ -56,16 +56,16 @@ public class StunGrenade extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
 
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-            this.flash();
+            flash();
             Iterator monsters = AbstractDungeon.getMonsters().monsters.iterator();
 
             while(monsters.hasNext()) {
                 AbstractMonster monster = (AbstractMonster)monsters.next();
                 if (!monster.isDead && !monster.isDying) {
-                    this.addToBot(new ApplyPowerAction(monster, p, new WeakPower(monster, this.magicNumber, false), this.magicNumber));
+                    addToBot(new ApplyPowerAction(monster, p, new WeakPower(monster, magicNumber, false), magicNumber));
                 }
             }
         }

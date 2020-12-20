@@ -39,14 +39,14 @@ public class AutoloaderPower extends AbstractPower implements CloneablePowerInte
         ID = POWER_ID + IdOffset;
         ++IdOffset;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
         this.cardToPlay = cardToPlay;
 
         type = PowerType.BUFF;
 
         // We load those txtures here.
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }

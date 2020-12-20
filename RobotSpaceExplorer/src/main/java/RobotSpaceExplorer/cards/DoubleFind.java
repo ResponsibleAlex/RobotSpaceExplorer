@@ -49,10 +49,10 @@ public class DoubleFind extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard c = AbstractDungeon.returnTrulyRandomCardInCombat().makeCopy();
         c.setCostForTurn(0);
-        this.addToBot(new MakeTempCardInHandAction(c, true));
+        addToBot(new MakeTempCardInHandAction(c, true));
         AbstractCard c2 = AbstractDungeon.returnTrulyRandomCardInCombat().makeCopy();
         c2.setCostForTurn(0);
-        this.addToBot(new MakeTempCardInHandAction(c2, true));
+        addToBot(new MakeTempCardInHandAction(c2, true));
     }
 
 

@@ -56,13 +56,13 @@ public class Smokescreen extends AbstractDynamicCard {
                 new GainBlockAction(p, p, block));
 
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-            this.flash();
+            flash();
             Iterator monsters = AbstractDungeon.getMonsters().monsters.iterator();
 
             while(monsters.hasNext()) {
                 AbstractMonster monster = (AbstractMonster)monsters.next();
                 if (!monster.isDead && !monster.isDying) {
-                    this.addToBot(new ApplyPowerAction(monster, p, new WeakPower(monster, this.magicNumber, false), this.magicNumber));
+                    addToBot(new ApplyPowerAction(monster, p, new WeakPower(monster, magicNumber, false), magicNumber));
                 }
             }
         }

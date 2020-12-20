@@ -28,10 +28,10 @@ public class PlasmaFlask extends AbstractPotion {
     }
 
     public void initializeData() {
-        this.potency = this.getPotency();
-        this.description = DESCRIPTIONS[0] + potency + DESCRIPTIONS[1];
-        this.tips.clear();
-        this.tips.add(new PowerTip(this.name, this.description));
+        potency = getPotency();
+        description = DESCRIPTIONS[0] + potency + DESCRIPTIONS[1];
+        tips.clear();
+        tips.add(new PowerTip(name, description));
     }
 
     @Override
@@ -39,7 +39,7 @@ public class PlasmaFlask extends AbstractPotion {
         target = AbstractDungeon.player;
         // If you are in combat
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            this.addToBot(new ApplyPowerAction(target, target, new SolarFlarePower(this.potency), this.potency));
+            addToBot(new ApplyPowerAction(target, target, new SolarFlarePower(potency), potency));
         }
     }
 

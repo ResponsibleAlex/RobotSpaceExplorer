@@ -24,24 +24,24 @@ public class ArsenalAction extends AbstractGameAction {
     public ArsenalAction(AbstractPlayer p, boolean upgraded, boolean freeToPlayOnce, int energyOnUse) {
         this.p = p;
         this.freeToPlayOnce = freeToPlayOnce;
-        this.duration = Settings.ACTION_DUR_XFAST;
-        this.actionType = ActionType.SPECIAL;
+        duration = Settings.ACTION_DUR_XFAST;
+        actionType = ActionType.SPECIAL;
         this.energyOnUse = energyOnUse;
         this.upgraded = upgraded;
     }
 
     public void update() {
         int effect = EnergyPanel.totalCount;
-        if (this.energyOnUse != -1) {
-            effect = this.energyOnUse;
+        if (energyOnUse != -1) {
+            effect = energyOnUse;
         }
 
-        if (this.p.hasRelic("Chemical X")) {
+        if (p.hasRelic("Chemical X")) {
             effect += 2;
-            this.p.getRelic("Chemical X").flash();
+            p.getRelic("Chemical X").flash();
         }
 
-        if (this.upgraded) {
+        if (upgraded) {
             ++effect;
         }
 
@@ -49,14 +49,14 @@ public class ArsenalAction extends AbstractGameAction {
         CardGroup pile = p.exhaustPile.getAttacks();
         if (pile.size() > 0) {
             for (int i = 0; i < effect; i++) {
-                this.addToBot(new PlayExhaustedAttackAction(pile.getRandomCard(true)));
+                addToBot(new PlayExhaustedAttackAction(pile.getRandomCard(true)));
             }
         }
 
-        if (!this.freeToPlayOnce) {
-            this.p.energy.use(EnergyPanel.totalCount);
+        if (!freeToPlayOnce) {
+            p.energy.use(EnergyPanel.totalCount);
         }
 
-        this.isDone = true;
+        isDone = true;
     }
 }

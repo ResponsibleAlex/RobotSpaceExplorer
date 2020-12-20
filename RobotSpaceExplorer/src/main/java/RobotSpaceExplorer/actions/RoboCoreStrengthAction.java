@@ -19,9 +19,9 @@ public class RoboCoreStrengthAction extends AbstractGameAction {
     AbstractPlayer p;
 
     public RoboCoreStrengthAction(int strength) {
-        this.amount = strength;
-        this.actionType = ActionType.SPECIAL;
-        this.p = AbstractDungeon.player;
+        amount = strength;
+        actionType = ActionType.SPECIAL;
+        p = AbstractDungeon.player;
     }
 
     public void update() {
@@ -50,8 +50,8 @@ public class RoboCoreStrengthAction extends AbstractGameAction {
             if (p.hasPower(LoseStrengthPower.POWER_ID) && p.hasPower(ArtifactPower.POWER_ID)) {
                 // If we see some existing Strength Down and a charge of Artifact
                 // assume we need to clean it all up.
-                this.addToBot(new RemoveSpecificPowerAction(p, p, LoseStrengthPower.POWER_ID));
-                this.addToBot(new RemoveSpecificPowerAction(p, p, ArtifactPower.POWER_ID));
+                addToBot(new RemoveSpecificPowerAction(p, p, LoseStrengthPower.POWER_ID));
+                addToBot(new RemoveSpecificPowerAction(p, p, ArtifactPower.POWER_ID));
             } else if (p.hasPower(LoseStrengthPower.POWER_ID)) {
                 // If we see the Strength Down but no Artifact, assume something else
                 // removed the Artifact and apply our Strength Down
@@ -66,14 +66,14 @@ public class RoboCoreStrengthAction extends AbstractGameAction {
             strDown();
         }
 
-        this.isDone = true;
+        isDone = true;
     }
 
     public void strUp() {
-        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, this.amount), this.amount));
+        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, amount), amount));
     }
 
     public void strDown() {
-        this.addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(p, this.amount), this.amount));
+        addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(p, amount), amount));
     }
 }

@@ -40,21 +40,21 @@ public class SalvageAction extends AbstractGameAction {
     private AbstractPlayer p;
 
     public SalvageAction(int numberOfCardsToSalvage) {
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.cardsToSalvage = numberOfCardsToSalvage;
-        this.init();
+        actionType = ActionType.CARD_MANIPULATION;
+        cardsToSalvage = numberOfCardsToSalvage;
+        init();
     }
 
     public SalvageAction(int numberOfCardsToSalvage, boolean upgradeSalvageCards) {
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.cardsToSalvage = numberOfCardsToSalvage;
-        this.upgradeCards = upgradeSalvageCards;
-        this.init();
+        actionType = ActionType.CARD_MANIPULATION;
+        cardsToSalvage = numberOfCardsToSalvage;
+        upgradeCards = upgradeSalvageCards;
+        init();
     }
 
     private void init() {
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
+        actionType = ActionType.CARD_MANIPULATION;
+        duration = Settings.ACTION_DUR_FAST;
         p = AbstractDungeon.player;
 
         Iterator i = p.relics.iterator();
@@ -88,14 +88,14 @@ public class SalvageAction extends AbstractGameAction {
 
                 // perform the salvage action
                 count++;
-                AbstractCard c = this.getRandomSalvage(pile);
+                AbstractCard c = getRandomSalvage(pile);
                 hand.addToHand(c);
                 pile.removeCard(c);
                 c.lighten(false);
                 c.unhover();
                 c.applyPowers();
 
-                if (this.upgradeCards) {
+                if (upgradeCards) {
                     if (c.canUpgrade() && !c.upgraded) {
                         c.upgrade();
                         c.superFlash();
@@ -112,8 +112,8 @@ public class SalvageAction extends AbstractGameAction {
                 if (!salvagedThisTurn) {
                     // if we have search specs, gain [E]
                     if (hasSearchSpecs) {
-                        this.addToBot(new RelicAboveCreatureAction(p, searchSpecs));
-                        this.addToBot(new GainEnergyAction(1));
+                        addToBot(new RelicAboveCreatureAction(p, searchSpecs));
+                        addToBot(new GainEnergyAction(1));
                     }
 
                     // set "salvagedThisTurn" to true
@@ -122,8 +122,8 @@ public class SalvageAction extends AbstractGameAction {
 
                 // gain block for each card salvaged if we have the Tough Plating relic
                 if (hasToughPlating) {
-                    this.addToBot(new RelicAboveCreatureAction(p, toughPlating));
-                    this.addToBot(new GainBlockAction(p, p, TOUGH_PLATING_BLOCK));
+                    addToBot(new RelicAboveCreatureAction(p, toughPlating));
+                    addToBot(new GainBlockAction(p, p, TOUGH_PLATING_BLOCK));
                 }
 
                 tickDuration();
@@ -146,7 +146,7 @@ public class SalvageAction extends AbstractGameAction {
             hand.refreshHandLayout();
         }
 
-        this.isDone = true;
+        isDone = true;
     }
 
     private AbstractCard getRandomSalvage(CardGroup pile) {
@@ -174,13 +174,13 @@ public class SalvageAction extends AbstractGameAction {
         AbstractDungeon.player.drawPile.group.remove(c);
         AbstractDungeon.getCurrRoom().souls.remove(c);
 
-        this.addToTop(new NewQueueCardAction(c, AbstractDungeon.getRandomMonster(),
+        addToTop(new NewQueueCardAction(c, AbstractDungeon.getRandomMonster(),
                 false, true));
 
         if (!Settings.FAST_MODE) {
-            this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
+            addToTop(new WaitAction(Settings.ACTION_DUR_MED));
         } else {
-            this.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
+            addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
         }
     }
 }

@@ -24,15 +24,15 @@ public class PlayExhaustedAttackAction extends AbstractGameAction {
         init();
     }
     private void init() {
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
+        actionType = ActionType.CARD_MANIPULATION;
+        duration = Settings.ACTION_DUR_FAST;
     }
 
     public void update() {
         if (card != null) {
             playCard();
         }
-        this.isDone = true;
+        isDone = true;
     }
 
     private void playCard() {

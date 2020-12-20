@@ -51,7 +51,7 @@ public class Wormhole extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new WormholeAction(this, cardStrings.EXTENDED_DESCRIPTION[1]));
+        addToBot(new WormholeAction(this, cardStrings.EXTENDED_DESCRIPTION[1]));
     }
 
     @Override
@@ -72,7 +72,7 @@ public class Wormhole extends AbstractDynamicCard {
             }
 
             if (!canUse)
-                this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
+                cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
             return canUse;
         }
     }

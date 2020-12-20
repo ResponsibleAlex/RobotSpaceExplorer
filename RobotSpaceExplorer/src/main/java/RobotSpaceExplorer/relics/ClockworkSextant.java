@@ -31,29 +31,29 @@ public class ClockworkSextant extends CustomRelic {
 
     @Override
     public void atBattleStart() {
-        this.counter = 0;
+        counter = 0;
     }
 
     @Override
     public void atTurnStart() {
-        if (!this.grayscale) {
-            ++this.counter;
+        if (!grayscale) {
+            ++counter;
         }
 
-        if (this.counter == 2) {
-            this.flash();
-            this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ArtifactPower(AbstractDungeon.player, 1), 1));
-            this.counter = -1;
-            this.grayscale = true;
+        if (counter == 2) {
+            flash();
+            addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ArtifactPower(AbstractDungeon.player, 1), 1));
+            counter = -1;
+            grayscale = true;
         }
 
     }
 
     @Override
     public void onVictory() {
-        this.counter = -1;
-        this.grayscale = false;
+        counter = -1;
+        grayscale = false;
     }
 
     @Override

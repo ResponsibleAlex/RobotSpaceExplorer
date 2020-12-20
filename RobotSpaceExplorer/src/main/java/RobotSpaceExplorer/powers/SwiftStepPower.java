@@ -36,7 +36,7 @@ public class SwiftStepPower extends AbstractPower implements CloneablePowerInter
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
         this.amount = amount;
         if (this.amount >= 999) {
             this.amount = 999;
@@ -46,33 +46,33 @@ public class SwiftStepPower extends AbstractPower implements CloneablePowerInter
         //isTurnBased = false;
 
         // We load those txtures here.
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (this.amount >= 999) {
-            this.amount = 999;
+        if (amount >= 999) {
+            amount = 999;
         }
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (Settings.FAST_MODE) {
-            this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.amount, true));
+            addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, amount, true));
         } else {
-            this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.amount));
+            addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, amount));
         }
 
-        this.flash();
+        flash();
     }
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, ID));
+        addToBot(new RemoveSpecificPowerAction(owner, owner, ID));
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))

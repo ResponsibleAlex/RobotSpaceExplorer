@@ -46,7 +46,7 @@ public class RigExplosive extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractPotion potion = new FirePotion();
-        this.addToBot(new ObtainPotionAction(potion));
+        addToBot(new ObtainPotionAction(potion));
     }
 
 

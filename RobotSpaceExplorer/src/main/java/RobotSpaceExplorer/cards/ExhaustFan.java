@@ -50,10 +50,10 @@ public class ExhaustFan extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p,
+        addToBot(new ApplyPowerAction(p, p,
                 new ExhaustFanPower(magicNumber), magicNumber));
         int dexdown = defaultSecondMagicNumber * -1;
-        this.addToBot(new ApplyPowerAction(p, p,
+        addToBot(new ApplyPowerAction(p, p,
                 new DexterityPower(p, dexdown), dexdown));
     }
 

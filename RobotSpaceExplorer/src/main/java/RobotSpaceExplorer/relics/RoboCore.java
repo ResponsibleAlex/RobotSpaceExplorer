@@ -35,17 +35,17 @@ public class RoboCore extends CustomRelic {
     // Description
     @Override
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0] + STRENGTH + this.DESCRIPTIONS[1];
+        return DESCRIPTIONS[0] + STRENGTH + DESCRIPTIONS[1];
     }
 
     @Override
     public void atBattleStart() {
-        this.flash();
-        this.addToTop(new RoboCoreStrengthAction(STRENGTH));
+        flash();
+        addToTop(new RoboCoreStrengthAction(STRENGTH));
 
-        this.addToBot(new DrawCardAction(AbstractDungeon.player, CARDS, false));
+        addToBot(new DrawCardAction(AbstractDungeon.player, CARDS, false));
 
-        this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+        addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
     }
 
     @Override

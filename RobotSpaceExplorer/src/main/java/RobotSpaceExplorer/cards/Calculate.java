@@ -56,8 +56,8 @@ public class Calculate extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new EnergizedPower(p, defaultSecondMagicNumber), defaultSecondMagicNumber));
-        this.addToBot(new ApplyPowerAction(p, p, new SalvageNextTurnPower(magicNumber), magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new EnergizedPower(p, defaultSecondMagicNumber), defaultSecondMagicNumber));
+        addToBot(new ApplyPowerAction(p, p, new SalvageNextTurnPower(magicNumber), magicNumber));
     }
 
 

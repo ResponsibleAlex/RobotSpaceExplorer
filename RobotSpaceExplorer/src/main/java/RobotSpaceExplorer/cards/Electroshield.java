@@ -47,8 +47,8 @@ public class Electroshield extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GainBlockAction(p, p, block));
-        this.addToBot(new MakeTempCardInHandAction(new StaticBuildup(), 1));
+        addToBot(new GainBlockAction(p, p, block));
+        addToBot(new MakeTempCardInHandAction(new StaticBuildup(), 1));
     }
 
 

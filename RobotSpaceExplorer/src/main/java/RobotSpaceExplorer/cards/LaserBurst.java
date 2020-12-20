@@ -49,7 +49,7 @@ public class LaserBurst extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < magicNumber; i++) {
-            this.addToBot(new LaserBurstAction(this));
+            addToBot(new LaserBurstAction(this));
         }
     }
 
