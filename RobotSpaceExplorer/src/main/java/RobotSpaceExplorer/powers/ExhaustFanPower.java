@@ -3,11 +3,9 @@ package RobotSpaceExplorer.powers;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -16,10 +14,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import RobotSpaceExplorer.RobotSpaceExplorerMod;
 import RobotSpaceExplorer.util.TextureLoader;
-import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
-
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makePowerPath;
 

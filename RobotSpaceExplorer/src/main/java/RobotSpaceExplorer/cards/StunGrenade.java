@@ -11,8 +11,6 @@ import RobotSpaceExplorer.RobotSpaceExplorerMod;
 import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
-import java.util.Iterator;
-
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeCardPath;
 
 public class StunGrenade extends AbstractDynamicCard {

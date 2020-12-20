@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import RobotSpaceExplorer.RobotSpaceExplorerMod;
 import RobotSpaceExplorer.characters.RobotSpaceExplorer;
-import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import com.megacrit.cardcrawl.powers.EnergizedPower;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeCardPath;
