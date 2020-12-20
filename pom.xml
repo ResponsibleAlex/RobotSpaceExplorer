@@ -25,7 +25,7 @@
             <url>file:${project.basedir}/repo</url>
         </repository>
         <repository>
-            <id>project.local</id>
+            <id>project.local.old</id>
             <name>project</name>
             <url>file:${project.basedir}/RobotSpaceExplorer/repo</url>
         </repository>
