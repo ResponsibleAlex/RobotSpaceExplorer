@@ -47,7 +47,7 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
     }
 
     protected void lightningAllEffect() {
-        Iterator i = AbstractDungeon.getMonsters().monsters.iterator();
+        Iterator<AbstractMonster> i = AbstractDungeon.getMonsters().monsters.iterator();
         AbstractMonster m;
 
         while(i.hasNext()) {

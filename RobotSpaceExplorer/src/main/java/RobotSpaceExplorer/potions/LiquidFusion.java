@@ -59,7 +59,7 @@ public class LiquidFusion extends AbstractPotion {
             if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(SacredBark.ID)) {
                 this.addToBot(new DrawCardAction(1));
             }
-            Iterator i  = AbstractDungeon.player.hand.group.iterator();
+            Iterator<AbstractCard> i  = AbstractDungeon.player.hand.group.iterator();
             AbstractCard c;
             while (i.hasNext()) {
                 c = (AbstractCard)i.next();

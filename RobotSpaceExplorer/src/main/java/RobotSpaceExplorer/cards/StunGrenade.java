@@ -60,10 +60,8 @@ public class StunGrenade extends AbstractDynamicCard {
 
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             this.flash();
-            Iterator monsters = AbstractDungeon.getMonsters().monsters.iterator();
 
-            while(monsters.hasNext()) {
-                AbstractMonster monster = (AbstractMonster)monsters.next();
+            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
                 if (!monster.isDead && !monster.isDying) {
                     this.addToBot(new ApplyPowerAction(monster, p, new WeakPower(monster, this.magicNumber, false), this.magicNumber));
                 }

@@ -56,7 +56,7 @@ public class Autoloader extends AbstractDynamicCard {
         if (!canUse) {
             return false;
         } else {
-            Iterator i = p.hand.group.iterator();
+            Iterator<AbstractCard> i = p.hand.group.iterator();
             canUse = false;
 
             while(i.hasNext()) {
