@@ -1,5 +1,6 @@
 package RobotSpaceExplorer.actions;
 
+import RobotSpaceExplorer.cards.AbstractDynamicCard;
 import RobotSpaceExplorer.cards.Wormhole;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -28,23 +29,16 @@ public class WormholeAction extends AbstractGameAction {
     }
 
     public void update() {
-        Iterator<AbstractCard> i = p.hand.group.iterator();
-        AbstractCard c;
 
         if (duration == Settings.ACTION_DUR_FAST) {
-            while (i.hasNext()) {
-                c = i.next();
-                if (!Wormhole.canRemove(c)) {
-                    cannotRemove.add(c);
-                }
-            }
+            p.hand.group.stream()
+                        .filter(c -> !Wormhole.canRemove(c))
+                        .forEach(cannotRemove::add);
 
             if (1 == p.hand.group.size() - cannotRemove.size()) {
                 // only 1 valid card
-                i = p.hand.group.iterator();
 
-                while (i.hasNext()) {
-                    c = i.next();
+                for (AbstractCard c : p.hand.group) {
                     if (Wormhole.canRemove(c)) {
                         // the only valid card, do removal on c
                         removeFromDeck(c);
@@ -63,7 +57,7 @@ public class WormholeAction extends AbstractGameAction {
 
             if (1 == p.hand.group.size()) {
                 // only 1 valid card, should never reach here? from Armaments...
-                c = p.hand.getTopCard();
+                AbstractCard c = p.hand.getTopCard();
                 removeFromDeck(c);
                 returnCards();
                 isDone = true;
@@ -71,12 +65,7 @@ public class WormholeAction extends AbstractGameAction {
         }
 
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
-            i = AbstractDungeon.handCardSelectScreen.selectedCards.group.iterator();
-
-            while (i.hasNext()) {
-                c = i.next();
-                removeFromDeck(c);
-            }
+            AbstractDungeon.handCardSelectScreen.selectedCards.group.forEach(this::removeFromDeck);
 
             returnCards();
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
@@ -88,24 +77,14 @@ public class WormholeAction extends AbstractGameAction {
     }
 
     private void returnCards() {
-        Iterator<AbstractCard> i = cannotRemove.iterator();
-        AbstractCard c;
-
-        while (i.hasNext()) {
-            c = i.next();
-            p.hand.addToTop(c);
-        }
+        cannotRemove.forEach(c -> p.hand.addToTop(c));
 
         p.hand.refreshHandLayout();
 
         // glow if playable
-        i = p.hand.group.iterator();
-        while (i.hasNext()) {
-            c = i.next();
-            if (shouldGlow(c)) {
-                c.beginGlowing();
-            }
-        }
+        p.hand.group.stream()
+                    .filter(AbstractDynamicCard::shouldGlow)
+                    .forEach(AbstractCard::beginGlowing);
     }
 
     private void removeFromDeck(AbstractCard c) {

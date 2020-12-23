@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.stream.Collectors;
 
 public class ExhaustStaticBuildupsAction extends AbstractGameAction {
     final AbstractPlayer p = AbstractDungeon.player;
@@ -20,22 +21,13 @@ public class ExhaustStaticBuildupsAction extends AbstractGameAction {
     }
 
     public void update() {
-        ArrayList<AbstractCard> cardsToExhaust = new ArrayList<>();
-        Iterator<AbstractCard> i = p.hand.group.iterator();
-        AbstractCard c;
+        ArrayList<AbstractCard> cardsToExhaust = p.hand.group.stream()
+                                                             .filter(c -> c.cardID.equals(StaticBuildup.ID))
+                                                             .collect(Collectors.toCollection(ArrayList::new));
 
-        while (i.hasNext()) {
-            c = i.next();
-            if (c.cardID.equals(StaticBuildup.ID)) {
-                cardsToExhaust.add(c);
-            }
-        }
-
-        i = cardsToExhaust.iterator();
-        while (i.hasNext()) {
-            c = i.next();
-            addToTop(new ExhaustSpecificCardAction(c, p.hand));
-        }
+        cardsToExhaust.stream()
+                      .map(c -> new ExhaustSpecificCardAction(c, p.hand))
+                      .forEach(this::addToTop);
 
         isDone = true;
     }

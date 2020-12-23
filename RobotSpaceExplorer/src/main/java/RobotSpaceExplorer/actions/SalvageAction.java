@@ -70,7 +70,6 @@ public class SalvageAction extends AbstractGameAction {
         CardGroup pile = p.discardPile;
         CardGroup hand = p.hand;
         int count = 0;
-        boolean salvagedThisTurn;
 
         for (int i = 0; i < cardsToSalvage; i++) {
             if (10 == hand.size()) {
@@ -100,7 +99,7 @@ public class SalvageAction extends AbstractGameAction {
                 p.hand.refreshHandLayout();
 
                 // if this is the first time we salvaged a card this turn
-                salvagedThisTurn = SalvagePatch.salvagedThisTurn.get(AbstractDungeon.actionManager);
+                boolean salvagedThisTurn = SalvagePatch.salvagedThisTurn.get(AbstractDungeon.actionManager);
                 if (!salvagedThisTurn) {
                     // if we have search specs, gain [E]
                     if (hasSearchSpecs) {
@@ -126,9 +125,8 @@ public class SalvageAction extends AbstractGameAction {
         // and refresh hand layout
         if (0 < count) {
             Iterator<AbstractCard> i = p.drawPile.group.iterator();
-            AbstractCard c;
             while (i.hasNext()) {
-                c = i.next();
+                AbstractCard c = i.next();
                 if (c.cardID.equals(LuckyStrike.ID)) {
                     i.remove();
                     playLuckyStrike(c);
@@ -143,7 +141,7 @@ public class SalvageAction extends AbstractGameAction {
 
     private AbstractCard getRandomSalvage(CardGroup pile) {
         AbstractCard c;
-        
+
         if (hasScanner) {
             c = pile.getRandomCard(AbstractDungeon.cardRandomRng, AbstractCard.CardRarity.RARE);
             if (null == c) {
@@ -158,7 +156,7 @@ public class SalvageAction extends AbstractGameAction {
         } else {
             c = pile.getRandomCard(true);
         }
-        
+
         return c;
     }
 

@@ -4,8 +4,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-import java.util.Iterator;
-
 public class RemoveFromMasterDeckAction extends AbstractGameAction {
     private final AbstractCard cardToRemove;
 
@@ -19,10 +17,7 @@ public class RemoveFromMasterDeckAction extends AbstractGameAction {
         AbstractCard upgradeMatch = null;
         AbstractCard match = null;
 
-        Iterator<AbstractCard> i = AbstractDungeon.player.masterDeck.group.iterator();
-        AbstractCard c;
-        while (i.hasNext()) {
-            c = i.next();
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
             if (c.cardID.equals(cardToRemove.cardID) && c.upgraded == cardToRemove.upgraded) {
                 upgradeMatch = c;
                 break;

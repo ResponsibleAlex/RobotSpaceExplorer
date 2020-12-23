@@ -31,13 +31,11 @@ public class PlayRandomMissileAction extends AbstractGameAction {
         tickDuration();
     }
 
-    // BigMissile, FrostMissile, LavaMissile, ShockMissile, SlimeMissile
     private void initMissiles() {
         if (null == missileGroup) {
             missileGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
             missileGroup.addToTop(new BigMissile());
             missileGroup.addToTop(new FrostMissile());
-            //missileGroup.addToTop(new LavaMissile());
             missileGroup.addToTop(new ShockMissile());
             missileGroup.addToTop(new SlimeMissile());
             missileGroup.addToTop(new PlasmaMissile());

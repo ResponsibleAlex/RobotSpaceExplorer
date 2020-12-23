@@ -24,23 +24,16 @@ public class AutoloaderAction extends AbstractGameAction {
     }
 
     public void update() {
-        Iterator<AbstractCard> i = p.hand.group.iterator();
-        AbstractCard c;
 
         if (duration == Settings.ACTION_DUR_FAST) {
-            while (i.hasNext()) {
-                c = i.next();
-                if (AbstractCard.CardType.ATTACK != c.type) {
-                    nonAttacks.add(c);
-                }
-            }
+            p.hand.group.stream()
+                        .filter(c -> AbstractCard.CardType.ATTACK != c.type)
+                        .forEach(nonAttacks::add);
 
             if (1 == p.hand.group.size() - nonAttacks.size()) {
                 // only 1 valid card
-                i = p.hand.group.iterator();
 
-                while (i.hasNext()) {
-                    c = i.next();
+                for (AbstractCard c : p.hand.group) {
                     if (AbstractCard.CardType.ATTACK == c.type) {
                         // the only valid card, purge and add to autoloader
                         loadIntoPower(c);
@@ -59,9 +52,7 @@ public class AutoloaderAction extends AbstractGameAction {
 
             if (1 == p.hand.group.size()) {
                 // only 1 valid card, should never reach here? from Armaments...
-                c = p.hand.getTopCard();
-
-                loadIntoPower(c);
+                loadIntoPower(p.hand.getTopCard());
 
                 returnCards();
                 isDone = true;
@@ -69,12 +60,7 @@ public class AutoloaderAction extends AbstractGameAction {
         }
 
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
-            i = AbstractDungeon.handCardSelectScreen.selectedCards.group.iterator();
-
-            while(i.hasNext()) {
-                c = i.next();
-                loadIntoPower(c);
-            }
+            AbstractDungeon.handCardSelectScreen.selectedCards.group.forEach(this::loadIntoPower);
 
             returnCards();
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
@@ -86,20 +72,13 @@ public class AutoloaderAction extends AbstractGameAction {
     }
 
     private void returnCards() {
-        Iterator<AbstractCard> i = nonAttacks.iterator();
-        AbstractCard c;
-
-        while(i.hasNext()) {
-            c = i.next();
-            p.hand.addToTop(c);
-        }
+        nonAttacks.forEach(c -> p.hand.addToTop(c));
 
         p.hand.refreshHandLayout();
     }
 
     private void loadIntoPower(AbstractCard c) {
-        addToBot(new ApplyPowerAction(p, p,
-                new AutoloaderPower(c), 0));
+        addToBot(new ApplyPowerAction(p, p, new AutoloaderPower(c), 0));
         AbstractDungeon.player.hand.removeCard(c);
     }
 }

@@ -32,11 +32,10 @@ public class AmmunitionAction extends AbstractGameAction {
     }
 
     public void addOne() {
-        AbstractCard c;
         CardGroup attacks = p.exhaustPile.getAttacks();
 
         if (!attacks.isEmpty()) {
-            c = attacks.getRandomCard(true);
+            AbstractCard c = attacks.getRandomCard(true);
             p.exhaustPile.removeCard(c);
             addToBot(new MakeTempCardInHandAction(c, true, true));
         }

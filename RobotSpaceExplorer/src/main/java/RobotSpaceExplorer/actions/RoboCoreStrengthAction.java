@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.ClockworkSouvenir;
 import com.megacrit.cardcrawl.relics.MutagenicStrength;
 
@@ -28,21 +27,15 @@ public class RoboCoreStrengthAction extends AbstractGameAction {
         // If you have both MutagenicStrength and ClockworkSouvenir,
         // try to let them all stack intuitively. Gremlin's Visage might
         // mess this up.
-        boolean hasMutagenic = false;
-        boolean hasSouvenir = false;
 
-        for (AbstractRelic r : p.relics) {
-            if (r.relicId.equals(MutagenicStrength.ID)) {
-                hasMutagenic = true;
-            }
-            if (r.relicId.equals(ClockworkSouvenir.ID)) {
-                hasSouvenir = true;
-            }
-        }
+        boolean hasMutagenic = p.relics.stream()
+                                       .anyMatch(r -> r.relicId.equals(MutagenicStrength.ID));
+
+        boolean hasSouvenir = p.relics.stream()
+                                      .anyMatch(r -> r.relicId.equals(ClockworkSouvenir.ID));
 
         // if we have both relics, do some logic, otherwise apply the Strength down
         if (hasMutagenic && hasSouvenir) {
-
             if (p.hasPower(LoseStrengthPower.POWER_ID) && p.hasPower(ArtifactPower.POWER_ID)) {
                 // If we see some existing Strength Down and a charge of Artifact
                 // assume we need to clean it all up.
