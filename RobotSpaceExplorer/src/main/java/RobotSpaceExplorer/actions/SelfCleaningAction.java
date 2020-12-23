@@ -28,20 +28,20 @@ public class SelfCleaningAction extends AbstractGameAction {
 
         Iterator<AbstractCard> i = p.hand.getCardsOfType(AbstractCard.CardType.STATUS).group.iterator();
         while (i.hasNext()) {
-            c = (AbstractCard) i.next();
+            c = i.next();
             cardsToExhaust.add(c);
         }
 
         i = cardsToExhaust.iterator();
         while (i.hasNext()) {
-            c = (AbstractCard) i.next();
+            c = i.next();
             addToTop(new DrawCardAction(1));
             addToTop(new GainBlockAction(p, p, amount));
         }
 
         i = cardsToExhaust.iterator();
         while (i.hasNext()) {
-            c = (AbstractCard) i.next();
+            c = i.next();
             addToTop(new ExhaustSpecificCardAction(c, p.hand));
         }
 

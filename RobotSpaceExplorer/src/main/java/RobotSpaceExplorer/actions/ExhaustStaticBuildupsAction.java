@@ -25,7 +25,7 @@ public class ExhaustStaticBuildupsAction extends AbstractGameAction {
         AbstractCard c;
 
         while (i.hasNext()) {
-            c = (AbstractCard) i.next();
+            c = i.next();
             if (c.cardID.equals(StaticBuildup.ID)) {
                 cardsToExhaust.add(c);
             }
@@ -33,7 +33,7 @@ public class ExhaustStaticBuildupsAction extends AbstractGameAction {
 
         i = cardsToExhaust.iterator();
         while (i.hasNext()) {
-            c = (AbstractCard) i.next();
+            c = i.next();
             addToTop(new ExhaustSpecificCardAction(c, p.hand));
         }
 

@@ -62,7 +62,7 @@ public class LiquidFusion extends AbstractPotion {
             Iterator<AbstractCard> i  = AbstractDungeon.player.hand.group.iterator();
             AbstractCard c;
             while (i.hasNext()) {
-                c = (AbstractCard)i.next();
+                c = i.next();
                 if (c.costForTurn > 0) {
                     c.setCostForTurn(0);
                     c.superFlash();

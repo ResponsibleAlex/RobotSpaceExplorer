@@ -78,7 +78,7 @@ public class DischargerPower extends AbstractPower implements CloneablePowerInte
 
         i = g.group.iterator();
         while (i.hasNext()) {
-            c = (AbstractCard)i.next();
+            c = i.next();
             if (c.cardID == StaticBuildup.ID) {
                 ((StaticBuildup) c).setEthereal();
                 if (flash) {
@@ -109,7 +109,7 @@ public class DischargerPower extends AbstractPower implements CloneablePowerInte
         AbstractMonster m;
 
         while(i.hasNext()) {
-            m = (AbstractMonster)i.next();
+            m = i.next();
             if (!m.isDeadOrEscaped() && !m.halfDead) {
                 addToBot(new VFXAction(new LightningEffect(m.drawX, m.drawY), 0.0F));
             }

@@ -33,7 +33,7 @@ public class WormholeAction extends AbstractGameAction {
 
         if (duration == Settings.ACTION_DUR_FAST) {
             while (i.hasNext()) {
-                c = (AbstractCard) i.next();
+                c = i.next();
                 if (!Wormhole.canRemove(c)) {
                     cannotRemove.add(c);
                 }
@@ -44,7 +44,7 @@ public class WormholeAction extends AbstractGameAction {
                 i = p.hand.group.iterator();
 
                 while (i.hasNext()) {
-                    c = (AbstractCard) i.next();
+                    c = i.next();
                     if (Wormhole.canRemove(c)) {
                         // the only valid card, do removal on c
                         removeFromDeck(c);
@@ -74,7 +74,7 @@ public class WormholeAction extends AbstractGameAction {
             i = AbstractDungeon.handCardSelectScreen.selectedCards.group.iterator();
 
             while (i.hasNext()) {
-                c = (AbstractCard) i.next();
+                c = i.next();
                 removeFromDeck(c);
             }
 
@@ -92,7 +92,7 @@ public class WormholeAction extends AbstractGameAction {
         AbstractCard c;
 
         while (i.hasNext()) {
-            c = (AbstractCard) i.next();
+            c = i.next();
             p.hand.addToTop(c);
         }
 
@@ -101,7 +101,7 @@ public class WormholeAction extends AbstractGameAction {
         // glow if playable
         i = p.hand.group.iterator();
         while (i.hasNext()) {
-            c = (AbstractCard) i.next();
+            c = i.next();
             if (shouldGlow(c)) {
                 c.beginGlowing();
             }

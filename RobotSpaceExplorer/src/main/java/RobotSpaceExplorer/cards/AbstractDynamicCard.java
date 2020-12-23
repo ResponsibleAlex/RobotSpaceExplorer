@@ -49,7 +49,7 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
         AbstractMonster m;
 
         while(i.hasNext()) {
-            m = (AbstractMonster)i.next();
+            m = i.next();
             if (!m.isDeadOrEscaped() && !m.halfDead) {
                 addToTop(new VFXAction(new LightningEffect(m.drawX, m.drawY), 0.0F));
             }

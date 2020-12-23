@@ -64,7 +64,7 @@ public class Wormhole extends AbstractDynamicCard {
             canUse = false;
 
             while (i.hasNext()) {
-                AbstractCard c = (AbstractCard) i.next();
+                AbstractCard c = i.next();
                 if (canRemove(c)) {
                     canUse = true;
                     break;

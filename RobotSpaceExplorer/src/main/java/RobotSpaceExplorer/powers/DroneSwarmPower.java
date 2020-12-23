@@ -69,7 +69,7 @@ public class DroneSwarmPower extends AbstractPower implements CloneablePowerInte
             if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
                 addToBot(new SFXAction("ATTACK_DEFECT_BEAM"));
                 addToBot(new VFXAction(owner, new SweepingBeamEffect(owner.hb.cX, owner.hb.cY, owner.flipHorizontal), 0.4F));
-                addToBot(new DamageAllEnemiesAction((AbstractCreature)null, DamageInfo.createDamageMatrix(amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
+                addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
             }
         }
     }

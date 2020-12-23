@@ -51,7 +51,7 @@ public class ReloadAction extends AbstractGameAction {
                 c = pile.group.iterator();
 
                 while(c.hasNext()) {
-                    card = (AbstractCard)c.next();
+                    card = c.next();
                     card.stopGlowing();
                     card.unhover();
                     card.unfadeOut();
@@ -64,7 +64,7 @@ public class ReloadAction extends AbstractGameAction {
             // we have selected a card, close selection screen and play it
             if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
                 for(c = AbstractDungeon.gridSelectScreen.selectedCards.iterator(); c.hasNext(); card.unhover()) {
-                    card = (AbstractCard)c.next();
+                    card = c.next();
                     addToBot(new PlayExhaustedAttackAction(card));
                 }
 
@@ -73,7 +73,7 @@ public class ReloadAction extends AbstractGameAction {
 
                 // from ExhumeAction
                 for(c = pile.group.iterator(); c.hasNext(); card.target_y = 0.0F) {
-                    card = (AbstractCard)c.next();
+                    card = c.next();
                     card.unhover();
                     card.target_x = (float)CardGroup.DISCARD_PILE_X;
                 }

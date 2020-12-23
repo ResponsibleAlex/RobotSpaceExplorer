@@ -22,7 +22,7 @@ public class RemoveFromMasterDeckAction extends AbstractGameAction {
         Iterator<AbstractCard> i = AbstractDungeon.player.masterDeck.group.iterator();
         AbstractCard c;
         while (i.hasNext()) {
-            c = (AbstractCard)i.next();
+            c = i.next();
             if (c.cardID == cardToRemove.cardID && c.upgraded == cardToRemove.upgraded) {
                 upgradeMatch = c;
                 break;
