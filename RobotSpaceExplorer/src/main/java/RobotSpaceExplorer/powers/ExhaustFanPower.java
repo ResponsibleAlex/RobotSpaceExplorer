@@ -1,9 +1,11 @@
 package RobotSpaceExplorer.powers;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -12,8 +14,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.util.TextureLoader;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makePowerPath;
 
@@ -69,28 +69,6 @@ public class ExhaustFanPower extends AbstractPower implements CloneablePowerInte
             }
         }
     }
-
-    /*
-    @Override
-    public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
-        ArrayList<AbstractCard> cards = AbstractDungeon.actionManager.cardsPlayedThisTurn;
-        Iterator i = cards.iterator();
-        AbstractCard c;
-
-        boolean playedSkills = false;
-        while (i.hasNext()) {
-            c = (AbstractCard)i.next();
-            if (c.type == AbstractCard.CardType.SKILL) {
-                playedSkills = true;
-            }
-        }
-
-        if (!playedSkills) {
-            this.flash();
-            this.addToBot(new GainBlockAction(this.owner, this.owner, this.amount));
-        }
-    }
-    */
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override

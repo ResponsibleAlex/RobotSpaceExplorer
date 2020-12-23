@@ -1,5 +1,7 @@
 package RobotSpaceExplorer.characters;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.cards.*;
 import RobotSpaceExplorer.relics.RoboCore;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpineAnimation;
@@ -26,8 +28,6 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.cards.*;
 
 import java.util.ArrayList;
 import java.util.List;

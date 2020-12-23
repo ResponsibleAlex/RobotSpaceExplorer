@@ -1,11 +1,11 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
 import RobotSpaceExplorer.actions.ShockMissileAction;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeCardPath;
 
@@ -50,22 +50,6 @@ public class ShockMissile extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ShockMissileAction(p, m, this));
-
-        /*
-        Iterator i = p.hand.group.iterator();
-        AbstractCard c;
-
-        while (i.hasNext()) {
-            c = (AbstractCard) i.next();
-            if (c.cardID.equals(StaticBuildup.ID)) {
-                this.addToBot(new ShockMissileAction(p, m, this));
-            }
-        }
-
-        if (this.upgraded) {
-            this.addToBot(new ExhaustStaticBuildupsAction());
-        }
-        */
     }
 
     // Upgraded stats.
