@@ -1,6 +1,8 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
 import RobotSpaceExplorer.actions.WormholeAction;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import RobotSpaceExplorer.patches.relics.BottledGravityPatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.curses.AscendersBane;
@@ -10,8 +12,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 
 import java.util.Iterator;
 
@@ -63,7 +63,7 @@ public class Wormhole extends AbstractDynamicCard {
             Iterator<AbstractCard> i = p.hand.group.iterator();
             canUse = false;
 
-            while(i.hasNext()) {
+            while (i.hasNext()) {
                 AbstractCard c = (AbstractCard) i.next();
                 if (canRemove(c)) {
                     canUse = true;
@@ -78,14 +78,11 @@ public class Wormhole extends AbstractDynamicCard {
     }
 
     public static boolean canRemove(AbstractCard c) {
-        if (c.type == CardType.STATUS
-                || c.inBottleFlame || c.inBottleLightning || c.inBottleTornado
-                || BottledGravityPatch.inBottledGravity.get(c)
-                || c.cardID.equals(AscendersBane.ID) || c.cardID.equals(Necronomicurse.ID)
-                || c.cardID.equals(CurseOfTheBell.ID)) {
-            return false;
-        }
-        return true;
+        return c.type != CardType.STATUS
+                && !c.inBottleFlame && !c.inBottleLightning && !c.inBottleTornado
+                && !BottledGravityPatch.inBottledGravity.get(c)
+                && !c.cardID.equals(AscendersBane.ID) && !c.cardID.equals(Necronomicurse.ID)
+                && !c.cardID.equals(CurseOfTheBell.ID);
     }
 
     // Upgraded stats.
