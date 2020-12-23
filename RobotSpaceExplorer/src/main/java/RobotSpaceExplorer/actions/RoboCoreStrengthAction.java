@@ -32,10 +32,10 @@ public class RoboCoreStrengthAction extends AbstractGameAction {
         boolean hasSouvenir = false;
 
         for (AbstractRelic r : p.relics) {
-            if (r.relicId == MutagenicStrength.ID) {
+            if (r.relicId.equals(MutagenicStrength.ID)) {
                 hasMutagenic = true;
             }
-            if (r.relicId == ClockworkSouvenir.ID) {
+            if (r.relicId.equals(ClockworkSouvenir.ID)) {
                 hasSouvenir = true;
             }
         }

@@ -56,7 +56,7 @@ public class FreezingShield extends AbstractDynamicCard {
         addToBot(new GainBlockAction(p, p, block));
         addToBot(new VFXAction(new FrostEffect(m.hb.cX, m.hb.cY)));
         addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -magicNumber), -magicNumber));
-        if (m != null && !m.hasPower("Artifact")) {
+        if (!m.hasPower("Artifact")) {
             addToBot(new ApplyPowerAction(m, p, new GainStrengthPower(m, magicNumber), magicNumber));
         }
     }
