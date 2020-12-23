@@ -24,7 +24,7 @@ import static RobotSpaceExplorer.cards.AbstractDynamicCard.shouldGlow;
 
 public class SalvageAction extends AbstractGameAction {
 
-    private int cardsToSalvage;
+    private final int cardsToSalvage;
     private boolean upgradeCards = false;
     private boolean hasToughPlating = false;
     private AbstractRelic toughPlating = null;

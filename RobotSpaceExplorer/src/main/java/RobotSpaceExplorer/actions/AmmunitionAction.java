@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 public class AmmunitionAction extends AbstractGameAction {
 
     private int numberOfAttacks;
-    private AbstractPlayer p;
+    private final AbstractPlayer p;
 
     public AmmunitionAction(int numberOfAttacksToUnExhaust) {
         numberOfAttacks = numberOfAttacksToUnExhaust;

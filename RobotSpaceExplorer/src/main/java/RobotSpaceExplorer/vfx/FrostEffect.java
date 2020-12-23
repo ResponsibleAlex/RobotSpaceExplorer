@@ -12,8 +12,8 @@ import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeEffectPath;
 public class FrostEffect extends AbstractGameEffect {
     private static final String img = makeEffectPath("Snowflake.png");
 
-    private float x;
-    private float y;
+    private final float x;
+    private final float y;
 
     private int count = 2;
     private float timer = 0.0F;

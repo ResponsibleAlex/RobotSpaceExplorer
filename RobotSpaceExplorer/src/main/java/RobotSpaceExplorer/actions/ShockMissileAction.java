@@ -14,9 +14,9 @@ import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
 public class ShockMissileAction extends AbstractGameAction {
 
-    private AbstractPlayer p;
-    private AbstractMonster m;
-    private AbstractCard c;
+    private final AbstractPlayer p;
+    private final AbstractMonster m;
+    private final AbstractCard c;
 
     public ShockMissileAction(AbstractPlayer player, AbstractMonster monster, AbstractCard card) {
         p = player;

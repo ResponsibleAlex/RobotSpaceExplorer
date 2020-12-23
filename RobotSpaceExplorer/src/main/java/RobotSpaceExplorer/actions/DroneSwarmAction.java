@@ -9,10 +9,10 @@ import com.megacrit.cardcrawl.relics.ChemicalX;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 public class DroneSwarmAction extends AbstractGameAction {
-    private boolean freeToPlayOnce;
-    private AbstractPlayer p;
-    private int energyOnUse;
-    private boolean upgraded;
+    private final boolean freeToPlayOnce;
+    private final AbstractPlayer p;
+    private final int energyOnUse;
+    private final boolean upgraded;
 
     public DroneSwarmAction(boolean freeToPlayOnce, int energyOnUse, boolean upgraded) {
         actionType = ActionType.POWER;

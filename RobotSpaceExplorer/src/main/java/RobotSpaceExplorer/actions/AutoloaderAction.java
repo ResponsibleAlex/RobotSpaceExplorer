@@ -12,9 +12,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class AutoloaderAction extends AbstractGameAction {
-    private AbstractPlayer p;
-    private ArrayList<AbstractCard> nonAttacks = new ArrayList<>();
-    private String text;
+    private final AbstractPlayer p;
+    private final ArrayList<AbstractCard> nonAttacks = new ArrayList<>();
+    private final String text;
 
     public AutoloaderAction(String chooseACardText) {
         text = chooseACardText;

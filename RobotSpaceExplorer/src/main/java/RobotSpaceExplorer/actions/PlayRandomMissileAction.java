@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class PlayRandomMissileAction extends AbstractGameAction {
 
     private static CardGroup missileGroup = null;
-    private boolean upgradeMissile;
+    private final boolean upgradeMissile;
 
     public PlayRandomMissileAction(boolean upgradeMissile) {
         this.upgradeMissile = upgradeMissile;

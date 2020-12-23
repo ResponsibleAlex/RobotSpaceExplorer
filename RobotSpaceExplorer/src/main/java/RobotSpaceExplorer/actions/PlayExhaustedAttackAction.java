@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class PlayExhaustedAttackAction extends AbstractGameAction {
-    private AbstractPlayer p = AbstractDungeon.player;
+    private final AbstractPlayer p = AbstractDungeon.player;
     private AbstractCard card;
 
     public PlayExhaustedAttackAction(AbstractCard exhaustedAttack) {

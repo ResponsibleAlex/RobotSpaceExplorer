@@ -32,7 +32,7 @@ public class AutoloaderPower extends AbstractPower implements CloneablePowerInte
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Autoloader32.png"));
 
     private static int IdOffset = 0;
-    private AbstractCard cardToPlay;
+    private final AbstractCard cardToPlay;
 
     public AutoloaderPower(final AbstractCard cardToPlay) {
         name = NAME;

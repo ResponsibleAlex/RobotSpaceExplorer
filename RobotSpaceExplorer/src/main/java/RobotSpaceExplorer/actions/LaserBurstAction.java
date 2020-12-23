@@ -15,8 +15,8 @@ import com.megacrit.cardcrawl.vfx.combat.SmallLaserEffect;
 
 public class LaserBurstAction extends AbstractGameAction {
 
-    private AbstractCard card;
-    private AbstractPlayer p;
+    private final AbstractCard card;
+    private final AbstractPlayer p;
 
     public LaserBurstAction(AbstractCard card) {
         this.card = card;

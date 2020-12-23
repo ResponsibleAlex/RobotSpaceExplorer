@@ -12,8 +12,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class CometAction extends AbstractGameAction {
-    AbstractPlayer p;
-    AbstractMonster m;
+    final AbstractPlayer p;
+    final AbstractMonster m;
 
     public CometAction(AbstractMonster monster, int solarFlareAmount) {
         m = monster;

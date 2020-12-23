@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class ExplosionAction extends AbstractGameAction {
-    private AbstractCard aftershock;
+    private final AbstractCard aftershock;
 
     public ExplosionAction(AbstractCard cardToPlay) {
         aftershock = cardToPlay;

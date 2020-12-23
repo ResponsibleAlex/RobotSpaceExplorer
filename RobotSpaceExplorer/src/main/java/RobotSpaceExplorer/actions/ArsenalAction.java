@@ -7,10 +7,10 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 public class ArsenalAction extends AbstractGameAction {
-    private boolean freeToPlayOnce;
-    private AbstractPlayer p;
-    private int energyOnUse;
-    private boolean upgraded;
+    private final boolean freeToPlayOnce;
+    private final AbstractPlayer p;
+    private final int energyOnUse;
+    private final boolean upgraded;
 
     public ArsenalAction(AbstractPlayer p, boolean upgraded, boolean freeToPlayOnce, int energyOnUse) {
         this.p = p;

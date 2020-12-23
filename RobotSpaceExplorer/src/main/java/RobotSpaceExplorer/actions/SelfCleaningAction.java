@@ -13,7 +13,7 @@ import java.util.Collection;
 
 public class SelfCleaningAction extends AbstractGameAction {
 
-    AbstractPlayer p;
+    final AbstractPlayer p;
 
     public SelfCleaningAction(int blockAmount) {
         amount = blockAmount;
