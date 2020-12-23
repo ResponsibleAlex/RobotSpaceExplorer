@@ -28,7 +28,7 @@ public class WormholeAction extends AbstractGameAction {
     }
 
     public void update() {
-        Iterator i = p.hand.group.iterator();
+        Iterator<AbstractCard> i = p.hand.group.iterator();
         AbstractCard c;
 
         if (duration == Settings.ACTION_DUR_FAST) {
@@ -88,7 +88,7 @@ public class WormholeAction extends AbstractGameAction {
     }
 
     private void returnCards() {
-        Iterator i = cannotRemove.iterator();
+        Iterator<AbstractCard> i = cannotRemove.iterator();
         AbstractCard c;
 
         while (i.hasNext()) {

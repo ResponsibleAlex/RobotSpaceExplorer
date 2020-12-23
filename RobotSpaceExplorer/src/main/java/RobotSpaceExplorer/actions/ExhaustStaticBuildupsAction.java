@@ -21,7 +21,7 @@ public class ExhaustStaticBuildupsAction extends AbstractGameAction {
 
     public void update() {
         ArrayList<AbstractCard> cardsToExhaust = new ArrayList<>();
-        Iterator i = p.hand.group.iterator();
+        Iterator<AbstractCard> i = p.hand.group.iterator();
         AbstractCard c;
 
         while (i.hasNext()) {

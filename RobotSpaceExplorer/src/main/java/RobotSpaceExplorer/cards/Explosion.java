@@ -54,13 +54,10 @@ public class Explosion extends AbstractDynamicCard {
         addToBot(new PlayRandomMissileAction(upgraded));
 
         ArrayList<AbstractCard> cards = AbstractDungeon.actionManager.cardsPlayedThisCombat;
-        int size = cards.size();
-        for (int i = 0; i < size; ++i) {
-            AbstractCard c = cards.get(i);
-            if (c.exhaust && c.type == AbstractCard.CardType.ATTACK) {
-                addToBot(new ExplosionAction(cardsToPreview));
-            }
-        }
+        cards.stream()
+             .filter(c -> c.exhaust && c.type == CardType.ATTACK)
+             .map(c -> new ExplosionAction(this.cardsToPreview))
+             .forEach(this::addToBot);
 
         // extra to account for the random missile
         addToBot(new ExplosionAction(cardsToPreview));

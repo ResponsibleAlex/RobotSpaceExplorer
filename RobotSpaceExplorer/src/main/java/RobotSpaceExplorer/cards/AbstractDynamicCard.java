@@ -4,10 +4,8 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 import com.megacrit.cardcrawl.vfx.combat.SmallLaserEffect;
 
@@ -47,7 +45,7 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
     }
 
     protected void lightningAllEffect() {
-        Iterator i = AbstractDungeon.getMonsters().monsters.iterator();
+        Iterator<AbstractMonster> i = AbstractDungeon.getMonsters().monsters.iterator();
         AbstractMonster m;
 
         while(i.hasNext()) {

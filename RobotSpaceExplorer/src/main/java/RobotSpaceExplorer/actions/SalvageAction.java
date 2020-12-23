@@ -1,26 +1,21 @@
 package RobotSpaceExplorer.actions;
 
-import RobotSpaceExplorer.cards.AbstractDynamicCard;
 import RobotSpaceExplorer.cards.LuckyStrike;
 import RobotSpaceExplorer.patches.SalvagePatch;
 import RobotSpaceExplorer.powers.ScannerPower;
 import RobotSpaceExplorer.relics.SearchSpecs;
 import RobotSpaceExplorer.relics.ToughPlating;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
-import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.Iterator;
@@ -57,10 +52,7 @@ public class SalvageAction extends AbstractGameAction {
         duration = Settings.ACTION_DUR_FAST;
         p = AbstractDungeon.player;
 
-        Iterator i = p.relics.iterator();
-
-        while(i.hasNext()) {
-            AbstractRelic r = (AbstractRelic)i.next();
+        for (AbstractRelic r : p.relics) {
             if (r.relicId == ToughPlating.ID) {
                 hasToughPlating = true;
                 toughPlating = r;
@@ -133,7 +125,7 @@ public class SalvageAction extends AbstractGameAction {
         // if we salvaged at least one card, autoplay any Lucky Strikes
         // and refresh hand layout
         if (count > 0) {
-            Iterator i = p.drawPile.group.iterator();
+            Iterator<AbstractCard> i = p.drawPile.group.iterator();
             AbstractCard c;
             while (i.hasNext()) {
                 c = (AbstractCard)i.next();

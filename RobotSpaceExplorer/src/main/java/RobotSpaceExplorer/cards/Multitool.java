@@ -45,7 +45,7 @@ public class Multitool extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (upgraded) {
-            Iterator i = p.hand.group.iterator();
+            Iterator<AbstractCard> i = p.hand.group.iterator();
             AbstractCard c;
 
             while(i.hasNext()) {

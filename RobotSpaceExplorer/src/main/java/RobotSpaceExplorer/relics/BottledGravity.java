@@ -89,7 +89,7 @@ public class BottledGravity extends CustomRelic implements CustomBottleRelic, Cu
         CardGroup cards = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         CardGroup unbottled = CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck);
 
-        Iterator i = unbottled.group.iterator();
+        Iterator<AbstractCard> i = unbottled.group.iterator();
         AbstractCard c;
         while (i.hasNext()) {
             c = (AbstractCard) i.next();
@@ -140,9 +140,8 @@ public class BottledGravity extends CustomRelic implements CustomBottleRelic, Cu
     @Override
     public void atBattleStartPreDraw() {
         AbstractCard c;
-        Iterator i = AbstractDungeon.player.drawPile.group.iterator();
-        while (i.hasNext()) {
-            c = (AbstractCard)i.next();
+        for (AbstractCard abstractCard : AbstractDungeon.player.drawPile.group) {
+            c = abstractCard;
             if (BottledGravityPatch.inBottledGravity.get(c)) {
                 if (c.cost > 0) {
                     c.cost = c.cost - 1;

@@ -13,7 +13,7 @@ import java.util.Iterator;
 
 public class AutoloaderAction extends AbstractGameAction {
     private AbstractPlayer p;
-    private ArrayList<AbstractCard> nonAttacks = new ArrayList();
+    private ArrayList<AbstractCard> nonAttacks = new ArrayList<>();
     private String text;
 
     public AutoloaderAction(String chooseACardText) {
@@ -24,7 +24,7 @@ public class AutoloaderAction extends AbstractGameAction {
     }
 
     public void update() {
-        Iterator i = p.hand.group.iterator();
+        Iterator<AbstractCard> i = p.hand.group.iterator();
         AbstractCard c;
 
         if (duration == Settings.ACTION_DUR_FAST) {
@@ -86,7 +86,7 @@ public class AutoloaderAction extends AbstractGameAction {
     }
 
     private void returnCards() {
-        Iterator i = nonAttacks.iterator();
+        Iterator<AbstractCard> i = nonAttacks.iterator();
         AbstractCard c;
 
         while(i.hasNext()) {

@@ -8,7 +8,6 @@ import RobotSpaceExplorer.RobotSpaceExplorerMod;
 import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeCardPath;
-import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 public class Ammunition extends AbstractDynamicCard {
 

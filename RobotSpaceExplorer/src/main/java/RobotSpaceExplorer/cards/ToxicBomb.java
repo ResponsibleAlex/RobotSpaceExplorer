@@ -59,10 +59,8 @@ public class ToxicBomb extends AbstractDynamicCard {
         // apply weak
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             flash();
-            Iterator monsters = AbstractDungeon.getMonsters().monsters.iterator();
 
-            while(monsters.hasNext()) {
-                AbstractMonster monster = (AbstractMonster)monsters.next();
+            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
                 if (!monster.isDead && !monster.isDying) {
                     addToBot(new ApplyPowerAction(monster, p, new WeakPower(monster, defaultSecondMagicNumber, false), defaultSecondMagicNumber));
                 }
