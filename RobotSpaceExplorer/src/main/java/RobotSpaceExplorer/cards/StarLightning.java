@@ -11,8 +11,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import RobotSpaceExplorer.RobotSpaceExplorerMod;
 import RobotSpaceExplorer.characters.RobotSpaceExplorer;
-import com.megacrit.cardcrawl.powers.LoseStrengthPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeCardPath;
 

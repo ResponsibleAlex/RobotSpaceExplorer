@@ -1,10 +1,7 @@
 package RobotSpaceExplorer.relics;
 
 import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.actions.AmmunitionAction;
-import RobotSpaceExplorer.actions.ArsenalAction;
 import RobotSpaceExplorer.actions.PlayExhaustedAttackAction;
-import RobotSpaceExplorer.actions.PlayRandomMissileAction;
 import RobotSpaceExplorer.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;

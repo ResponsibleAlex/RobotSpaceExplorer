@@ -5,16 +5,10 @@ import RobotSpaceExplorer.actions.RoboCoreStrengthAction;
 import RobotSpaceExplorer.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.relics.ClockworkSouvenir;
-import com.megacrit.cardcrawl.relics.MutagenicStrength;
-
-import java.util.Iterator;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeRelicOutlinePath;
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeRelicPath;

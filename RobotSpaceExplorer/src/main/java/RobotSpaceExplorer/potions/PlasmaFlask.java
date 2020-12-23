@@ -2,10 +2,8 @@ package RobotSpaceExplorer.potions;
 
 import RobotSpaceExplorer.RobotSpaceExplorerMod;
 import RobotSpaceExplorer.powers.SolarFlarePower;
-import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
