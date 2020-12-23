@@ -23,10 +23,10 @@ public class RemoveFromMasterDeckAction extends AbstractGameAction {
         AbstractCard c;
         while (i.hasNext()) {
             c = i.next();
-            if (c.cardID == cardToRemove.cardID && c.upgraded == cardToRemove.upgraded) {
+            if (c.cardID.equals(cardToRemove.cardID) && c.upgraded == cardToRemove.upgraded) {
                 upgradeMatch = c;
                 break;
-            } else if (c.cardID == cardToRemove.cardID) {
+            } else if (c.cardID.equals(cardToRemove.cardID)) {
                 match = c;
             }
         }

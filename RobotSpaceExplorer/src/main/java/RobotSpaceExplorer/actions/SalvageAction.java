@@ -53,11 +53,11 @@ public class SalvageAction extends AbstractGameAction {
         p = AbstractDungeon.player;
 
         for (AbstractRelic r : p.relics) {
-            if (r.relicId == ToughPlating.ID) {
+            if (r.relicId.equals(ToughPlating.ID)) {
                 hasToughPlating = true;
                 toughPlating = r;
             }
-            if (r.relicId == SearchSpecs.ID) {
+            if (r.relicId.equals(SearchSpecs.ID)) {
                 hasSearchSpecs = true;
                 searchSpecs = r;
             }
@@ -129,7 +129,7 @@ public class SalvageAction extends AbstractGameAction {
             AbstractCard c;
             while (i.hasNext()) {
                 c = i.next();
-                if (c.cardID == LuckyStrike.ID) {
+                if (c.cardID.equals(LuckyStrike.ID)) {
                     i.remove();
                     playLuckyStrike(c);
                 }

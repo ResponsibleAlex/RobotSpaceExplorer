@@ -79,7 +79,7 @@ public class DischargerPower extends AbstractPower implements CloneablePowerInte
         i = g.group.iterator();
         while (i.hasNext()) {
             c = i.next();
-            if (c.cardID == StaticBuildup.ID) {
+            if (c.cardID.equals(StaticBuildup.ID)) {
                 ((StaticBuildup) c).setEthereal();
                 if (flash) {
                     c.superFlash();
