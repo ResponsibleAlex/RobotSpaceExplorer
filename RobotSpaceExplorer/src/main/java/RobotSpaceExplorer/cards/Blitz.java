@@ -65,7 +65,7 @@ public class Blitz extends AbstractDynamicCard {
             addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, ROBOT_ORANGE), 0.4F));
 
         }
-        for(i = 0; i < 5; ++i) {
+        for(i = 0; 5 > i; ++i) {
             addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
         }
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));

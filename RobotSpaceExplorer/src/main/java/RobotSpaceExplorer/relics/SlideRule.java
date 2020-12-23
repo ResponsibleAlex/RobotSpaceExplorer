@@ -32,7 +32,7 @@ public class SlideRule extends CustomRelic {
     @Override
     public void onShuffle() {
         CardGroup pile = AbstractDungeon.player.exhaustPile.getAttacks();
-        if (pile.size() > 0) {
+        if (0 < pile.size()) {
             flash();
             addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             addToBot(new PlayExhaustedAttackAction(pile.getRandomCard(true)));

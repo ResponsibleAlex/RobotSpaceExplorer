@@ -42,7 +42,7 @@ public class MiniBoostersPower extends AbstractPower implements CloneablePowerIn
 
         owner = AbstractDungeon.player;
         this.amount = amount;
-        if (this.amount >= 999) {
+        if (999 <= this.amount) {
             this.amount = 999;
         }
 
@@ -57,14 +57,14 @@ public class MiniBoostersPower extends AbstractPower implements CloneablePowerIn
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (amount >= 999) {
+        if (999 <= amount) {
             amount = 999;
         }
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.costForTurn == 0) {
+        if (0 == card.costForTurn) {
             flash();
             addToBot(new SFXAction("ATTACK_HEAVY"));
             if (Settings.FAST_MODE) {

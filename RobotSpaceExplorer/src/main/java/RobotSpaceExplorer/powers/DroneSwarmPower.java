@@ -39,7 +39,7 @@ public class DroneSwarmPower extends AbstractPower implements CloneablePowerInte
 
         owner = AbstractDungeon.player;
         this.amount = amount;
-        if (this.amount >= 999) {
+        if (999 <= this.amount) {
             this.amount = 999;
         }
 
@@ -54,14 +54,14 @@ public class DroneSwarmPower extends AbstractPower implements CloneablePowerInte
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (amount >= 999) {
+        if (999 <= amount) {
             amount = 999;
         }
     }
 
     @Override
     public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
-        if (amount > 0) {
+        if (0 < amount) {
             flash();
             addToBot(new GainBlockAction(owner, owner, amount));
 

@@ -32,7 +32,7 @@ public class AutoloaderPower extends AbstractPower implements CloneablePowerInte
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Autoloader32.png"));
 
     private static int IdOffset = 0;
-    private AbstractCard cardToPlay;
+    private final AbstractCard cardToPlay;
 
     public AutoloaderPower(final AbstractCard cardToPlay) {
         name = NAME;
@@ -64,7 +64,7 @@ public class AutoloaderPower extends AbstractPower implements CloneablePowerInte
         tmp.current_y = card.current_y;
         tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
         tmp.target_y = (float)Settings.HEIGHT / 2.0F;
-        if (m != null) {
+        if (null != m) {
             tmp.calculateCardDamage(m);
         }
 

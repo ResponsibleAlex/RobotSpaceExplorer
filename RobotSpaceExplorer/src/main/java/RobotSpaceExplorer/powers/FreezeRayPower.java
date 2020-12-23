@@ -39,7 +39,7 @@ public class FreezeRayPower extends AbstractPower implements CloneablePowerInter
 
         owner = AbstractDungeon.player;
         this.amount = amount;
-        if (this.amount >= 999) {
+        if (999 <= this.amount) {
             this.amount = 999;
         }
 
@@ -54,14 +54,14 @@ public class FreezeRayPower extends AbstractPower implements CloneablePowerInter
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (amount >= 999) {
+        if (999 <= amount) {
             amount = 999;
         }
     }
 
     @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (power.type == PowerType.DEBUFF && power.ID.equals(WeakPower.POWER_ID) && source == owner && target != owner && !target.hasPower("Artifact")) {
+        if (PowerType.DEBUFF == power.type && power.ID.equals(WeakPower.POWER_ID) && source == owner && target != owner && !target.hasPower("Artifact")) {
             flash();
             addToBot(new VFXAction(new FrostEffect(target.hb.cX, target.hb.cY)));
             addToBot(new DamageAction(target, new DamageInfo(owner, amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));

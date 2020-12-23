@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import java.util.Iterator;
 
 public class RemoveFromMasterDeckAction extends AbstractGameAction {
-    private AbstractCard cardToRemove;
+    private final AbstractCard cardToRemove;
 
     public RemoveFromMasterDeckAction(AbstractCard cardToRemove) {
         this.cardToRemove = cardToRemove;
@@ -31,9 +31,9 @@ public class RemoveFromMasterDeckAction extends AbstractGameAction {
             }
         }
 
-        if (upgradeMatch != null) {
+        if (null != upgradeMatch) {
             doRemovalFromMasterDeck(upgradeMatch);
-        } else if (match != null) {
+        } else if (null != match) {
             doRemovalFromMasterDeck(match);
         }
 

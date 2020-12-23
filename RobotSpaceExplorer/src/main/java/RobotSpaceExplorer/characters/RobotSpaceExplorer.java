@@ -152,7 +152,7 @@ public class RobotSpaceExplorer extends CustomPlayer {
     @Override
     public void damage(DamageInfo info)
     {
-        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > currentBlock) {
+        if (null != info.owner && DamageInfo.DamageType.THORNS != info.type && info.output > currentBlock) {
             AnimationState.TrackEntry e = state.setAnimation(0, "hit", false);
             state.addAnimation(0,"idle", true, 0.0f);
             e.setTimeScale(1f);

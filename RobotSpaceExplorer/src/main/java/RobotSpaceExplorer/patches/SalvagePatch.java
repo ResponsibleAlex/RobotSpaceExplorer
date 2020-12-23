@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.actions.GameActionManager;
 
 @SpirePatch(clz = GameActionManager.class, method = SpirePatch.CLASS)
 public class SalvagePatch {
-    public static SpireField<Boolean> salvagedThisTurn = new SpireField<>(() -> false);
+    public static final SpireField<Boolean> salvagedThisTurn = new SpireField<>(() -> false);
 
     @SpirePatch(clz = GameActionManager.class, method = "clear")
     public static class Clear {

@@ -45,7 +45,7 @@ public class DischargerPower extends AbstractPower implements CloneablePowerInte
 
         owner = AbstractDungeon.player;
         this.amount = amount;
-        if (this.amount >= 999) {
+        if (999 <= this.amount) {
             this.amount = 999;
         }
 
@@ -90,14 +90,14 @@ public class DischargerPower extends AbstractPower implements CloneablePowerInte
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (amount >= 999) {
+        if (999 <= amount) {
             amount = 999;
         }
     }
 
     @Override
     public void onExhaust(AbstractCard card) {
-        if (card.type == AbstractCard.CardType.STATUS) {
+        if (AbstractCard.CardType.STATUS == card.type) {
             flash();
             lightningAllEffect();
             addToBot(new DamageAllEnemiesAction(owner, DamageInfo.createDamageMatrix(amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE, true));

@@ -33,7 +33,7 @@ public class StarDustEnergyDownPower extends AbstractPower implements CloneableP
 
         owner = AbstractDungeon.player;
         this.amount = amount;
-        if (this.amount >= 999) {
+        if (999 <= this.amount) {
             this.amount = 999;
         }
 
@@ -48,7 +48,7 @@ public class StarDustEnergyDownPower extends AbstractPower implements CloneableP
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (amount >= 999) {
+        if (999 <= amount) {
             amount = 999;
         }
     }

@@ -54,7 +54,7 @@ public class ChargingLaser extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (damage < THRESHOLD) {
+        if (THRESHOLD > damage) {
             beamEffect(p, m);
         } else {
             addToBot(new SFXAction("ATTACK_HEAVY"));

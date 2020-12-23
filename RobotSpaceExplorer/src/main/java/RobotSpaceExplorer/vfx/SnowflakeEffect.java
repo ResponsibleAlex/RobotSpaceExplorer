@@ -13,17 +13,17 @@ import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeEffectPath;
 
 public class SnowflakeEffect extends AbstractGameEffect {
     private static final String imgSrc = makeEffectPath("Snowflake.png");
-    private static Texture img = ImageMaster.loadImage(imgSrc);
+    private static final Texture img = ImageMaster.loadImage(imgSrc);
 
     private float x;
     private float y;
-    private float dest_x;
-    private float dest_y;
-    private float x_drift;
+    private final float dest_x;
+    private final float dest_y;
+    private final float x_drift;
 
-    private float rotation_delta;
+    private final float rotation_delta;
     private float counter;
-    private float counter_max;
+    private final float counter_max;
 
     public SnowflakeEffect(float x, float y, float dest_x, float dest_y, float x_drift) {
         this.x = x;
@@ -58,7 +58,7 @@ public class SnowflakeEffect extends AbstractGameEffect {
 
         counter++;
         duration -= Gdx.graphics.getDeltaTime();
-        if (duration < 0.0F) {
+        if (0.0F > duration) {
             isDone = true;
         }
     }

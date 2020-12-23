@@ -36,7 +36,7 @@ public class PowerCollectorPower extends AbstractPower implements CloneablePower
 
         owner = AbstractDungeon.player;
         this.amount = amount;
-        if (this.amount >= 999) {
+        if (999 <= this.amount) {
             this.amount = 999;
         }
 
@@ -51,14 +51,14 @@ public class PowerCollectorPower extends AbstractPower implements CloneablePower
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (amount >= 999) {
+        if (999 <= amount) {
             amount = 999;
         }
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.type == AbstractCard.CardType.POWER) {
+        if (AbstractCard.CardType.POWER == card.type) {
             addToBot(new ApplyPowerAction(owner, owner, new StrengthPower(owner, amount), amount));
         }
     }

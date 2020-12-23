@@ -55,7 +55,7 @@ public class Explosion extends AbstractDynamicCard {
 
         ArrayList<AbstractCard> cards = AbstractDungeon.actionManager.cardsPlayedThisCombat;
         cards.stream()
-             .filter(c -> c.exhaust && c.type == CardType.ATTACK)
+             .filter(c -> c.exhaust && CardType.ATTACK == c.type)
              .map(c -> new ExplosionAction(cardsToPreview))
              .forEach(this::addToBot);
 

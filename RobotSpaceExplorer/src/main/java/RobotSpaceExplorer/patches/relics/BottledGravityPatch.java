@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 
 @SpirePatch(clz = AbstractCard.class, method = SpirePatch.CLASS)
 public class BottledGravityPatch {
-    public static SpireField<Boolean> inBottledGravity = new SpireField<>(() -> false);
+    public static final SpireField<Boolean> inBottledGravity = new SpireField<>(() -> false);
 
     @SpirePatch(clz = AbstractCard.class, method = "makeStatEquivalentCopy")
     public static class MakeStatEquivalentCopy {

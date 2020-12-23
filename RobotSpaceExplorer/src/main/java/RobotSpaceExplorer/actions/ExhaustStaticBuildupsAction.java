@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class ExhaustStaticBuildupsAction extends AbstractGameAction {
-    AbstractPlayer p = AbstractDungeon.player;
+    final AbstractPlayer p = AbstractDungeon.player;
 
     public ExhaustStaticBuildupsAction() {
         actionType = ActionType.EXHAUST;

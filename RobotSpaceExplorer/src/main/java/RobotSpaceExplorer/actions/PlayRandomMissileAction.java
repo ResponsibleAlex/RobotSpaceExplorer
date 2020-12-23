@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class PlayRandomMissileAction extends AbstractGameAction {
 
     private static CardGroup missileGroup = null;
-    private boolean upgradeMissile;
+    private final boolean upgradeMissile;
 
     public PlayRandomMissileAction(boolean upgradeMissile) {
         this.upgradeMissile = upgradeMissile;
@@ -33,7 +33,7 @@ public class PlayRandomMissileAction extends AbstractGameAction {
 
     // BigMissile, FrostMissile, LavaMissile, ShockMissile, SlimeMissile
     private void initMissiles() {
-        if (missileGroup == null) {
+        if (null == missileGroup) {
             missileGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
             missileGroup.addToTop(new BigMissile());
             missileGroup.addToTop(new FrostMissile());
@@ -57,7 +57,7 @@ public class PlayRandomMissileAction extends AbstractGameAction {
         tmp.current_y = card.current_y;
         tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
         tmp.target_y = (float)Settings.HEIGHT / 2.0F;
-        if (m != null) {
+        if (null != m) {
             tmp.calculateCardDamage(m);
         }
 

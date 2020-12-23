@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.relics.MutagenicStrength;
 
 public class RoboCoreStrengthAction extends AbstractGameAction {
 
-    AbstractPlayer p;
+    final AbstractPlayer p;
 
     public RoboCoreStrengthAction(int strength) {
         amount = strength;

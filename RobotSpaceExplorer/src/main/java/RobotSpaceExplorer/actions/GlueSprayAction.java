@@ -9,10 +9,10 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 public class GlueSprayAction extends AbstractGameAction {
-    private boolean freeToPlayOnce;
-    private AbstractPlayer p;
-    private int energyOnUse;
-    private boolean upgrade;
+    private final boolean freeToPlayOnce;
+    private final AbstractPlayer p;
+    private final int energyOnUse;
+    private final boolean upgrade;
 
     public GlueSprayAction(AbstractPlayer p, boolean upgraded, boolean freeToPlayOnce, int energyOnUse) {
         this.p = p;
@@ -25,7 +25,7 @@ public class GlueSprayAction extends AbstractGameAction {
 
     public void update() {
         int effect = EnergyPanel.totalCount;
-        if (energyOnUse != -1) {
+        if (-1 != energyOnUse) {
             effect = energyOnUse;
         }
 

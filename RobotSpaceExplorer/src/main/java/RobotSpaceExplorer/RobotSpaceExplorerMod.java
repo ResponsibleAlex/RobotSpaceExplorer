@@ -72,7 +72,7 @@ public class RobotSpaceExplorerMod implements
     private static String modID;
 
     // Mod-settings settings. This is if you want an on/off savable button
-    public static Properties theDefaultDefaultSettings = new Properties();
+    public static final Properties theDefaultDefaultSettings = new Properties();
     public static final String ENABLE_PLACEHOLDER_SETTINGS = "enablePlaceholder";
     public static boolean enablePlaceholder = true; // The boolean we'll be setting on/off (true/false)
 
@@ -545,7 +545,7 @@ public class RobotSpaceExplorerMod implements
     public void receiveEditStrings() {
 
         String lang = "eng";
-        if (Settings.language == Settings.GameLanguage.ZHS) {
+        if (Settings.GameLanguage.ZHS == Settings.language) {
             lang = "zhs";
         }
 
@@ -586,7 +586,7 @@ public class RobotSpaceExplorerMod implements
     @Override
     public void receiveEditKeywords() {
         String lang = "eng";
-        if (Settings.language == Settings.GameLanguage.ZHS) {
+        if (Settings.GameLanguage.ZHS == Settings.language) {
             lang = "zhs";
         }
 
@@ -595,7 +595,7 @@ public class RobotSpaceExplorerMod implements
                                .readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
 
-        if (keywords != null) {
+        if (null != keywords) {
             for (Keyword keyword : keywords) {
                 BaseMod.addKeyword(modID.toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
