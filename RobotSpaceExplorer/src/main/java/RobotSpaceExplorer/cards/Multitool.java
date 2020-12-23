@@ -44,7 +44,7 @@ public class Multitool extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (this.upgraded) {
+        if (upgraded) {
             Iterator<AbstractCard> i = p.hand.group.iterator();
             AbstractCard c;
 
@@ -57,7 +57,7 @@ public class Multitool extends AbstractDynamicCard {
                 }
             }
         }
-        this.addToBot(new ApplyPowerAction(p, p,
+        addToBot(new ApplyPowerAction(p, p,
                 new MultitoolPower(1), 1));
     }
 

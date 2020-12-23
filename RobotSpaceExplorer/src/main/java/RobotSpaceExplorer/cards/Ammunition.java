@@ -40,14 +40,14 @@ public class Ammunition extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = 0;
         magicNumber = baseMagicNumber = ATTACKS_RETURNED;
-        this.exhaust = true;
+        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new AmmunitionAction(magicNumber));
+        addToBot(new AmmunitionAction(magicNumber));
     }
 
 

@@ -10,10 +10,10 @@ public class ExplosionAction extends AbstractGameAction {
     private AbstractCard aftershock;
 
     public ExplosionAction(AbstractCard cardToPlay) {
-        this.aftershock = cardToPlay;
+        aftershock = cardToPlay;
 
-        this.duration = Settings.ACTION_DUR_FAST;
-        this.actionType = ActionType.SPECIAL;
+        duration = Settings.ACTION_DUR_FAST;
+        actionType = ActionType.SPECIAL;
     }
 
     public void update() {
@@ -26,6 +26,6 @@ public class ExplosionAction extends AbstractGameAction {
 
         AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, true, 0, true, true), false);
 
-        this.isDone = true;
+        isDone = true;
     }
 }

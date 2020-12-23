@@ -43,14 +43,14 @@ public class TrailblazerForm extends AbstractDynamicCard {
         magicNumber = baseMagicNumber = MAGIC_NUMBER;
         defaultSecondMagicNumber = defaultBaseSecondMagicNumber = SECOND_MAGIC_NUMBER;
         isEthereal = true;
-        this.tags.add(BaseModCardTags.FORM);
+        tags.add(BaseModCardTags.FORM);
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p,
+        addToBot(new ApplyPowerAction(p, p,
                 new TrailblazerPower(magicNumber), magicNumber));
     }
 

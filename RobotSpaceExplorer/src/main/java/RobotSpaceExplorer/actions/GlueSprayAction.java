@@ -16,35 +16,35 @@ public class GlueSprayAction extends AbstractGameAction {
 
     public GlueSprayAction(AbstractPlayer p, boolean upgraded, boolean freeToPlayOnce, int energyOnUse) {
         this.p = p;
-        this.upgrade = upgraded;
+        upgrade = upgraded;
         this.freeToPlayOnce = freeToPlayOnce;
-        this.duration = Settings.ACTION_DUR_XFAST;
-        this.actionType = ActionType.SPECIAL;
+        duration = Settings.ACTION_DUR_XFAST;
+        actionType = ActionType.SPECIAL;
         this.energyOnUse = energyOnUse;
     }
 
     public void update() {
         int effect = EnergyPanel.totalCount;
-        if (this.energyOnUse != -1) {
-            effect = this.energyOnUse;
+        if (energyOnUse != -1) {
+            effect = energyOnUse;
         }
 
-        if (this.p.hasRelic("Chemical X")) {
+        if (p.hasRelic("Chemical X")) {
             effect += 2;
-            this.p.getRelic("Chemical X").flash();
+            p.getRelic("Chemical X").flash();
         }
 
         AbstractCard c = (new GlueShot()).makeCopy();
-        if (this.upgrade) {
+        if (upgrade) {
             c.upgrade();
             c.applyPowers();
         }
-        this.addToTop(new MakeTempCardInHandAction(c, effect));
+        addToTop(new MakeTempCardInHandAction(c, effect));
 
-        if (!this.freeToPlayOnce) {
-            this.p.energy.use(EnergyPanel.totalCount);
+        if (!freeToPlayOnce) {
+            p.energy.use(EnergyPanel.totalCount);
         }
 
-        this.isDone = true;
+        isDone = true;
     }
 }

@@ -49,7 +49,7 @@ public class ShockMissile extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ShockMissileAction(p, m, this));
+        addToBot(new ShockMissileAction(p, m, this));
 
         /*
         Iterator i = p.hand.group.iterator();

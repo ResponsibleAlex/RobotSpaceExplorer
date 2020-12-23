@@ -24,26 +24,26 @@ public class FrostEffect extends AbstractGameEffect {
     }
 
     public void update() {
-        this.timer -= Gdx.graphics.getDeltaTime();
-        if (this.timer < 0.0F) {
-            this.timer += 0.15F;
+        timer -= Gdx.graphics.getDeltaTime();
+        if (timer < 0.0F) {
+            timer += 0.15F;
 
             CardCrawlGame.sound.playA("ORB_FROST_EVOKE", MathUtils.random(0.7F, 0.8F));
 
-            AbstractDungeon.effectsQueue.add(new SnowflakeEffect(this.x, this.y,
-                    this.x - 120.0F, this.y + 30.0F, -4.0F));
-            AbstractDungeon.effectsQueue.add(new SnowflakeEffect(this.x, this.y,
-                    this.x + 120.0F, this.y + 30.0F, 4.0F));
-            AbstractDungeon.effectsQueue.add(new SnowflakeEffect(this.x, this.y,
-                    this.x - 60.0F, this.y + 100.0F, -2.0F));
-            AbstractDungeon.effectsQueue.add(new SnowflakeEffect(this.x, this.y,
-                    this.x + 60.0F, this.y + 100.0F, 2.0F));
-            AbstractDungeon.effectsQueue.add(new SnowflakeEffect(this.x, this.y,
-                    this.x, this.y + 120.0F, 0.0F));
+            AbstractDungeon.effectsQueue.add(new SnowflakeEffect(x, y,
+                    x - 120.0F, y + 30.0F, -4.0F));
+            AbstractDungeon.effectsQueue.add(new SnowflakeEffect(x, y,
+                    x + 120.0F, y + 30.0F, 4.0F));
+            AbstractDungeon.effectsQueue.add(new SnowflakeEffect(x, y,
+                    x - 60.0F, y + 100.0F, -2.0F));
+            AbstractDungeon.effectsQueue.add(new SnowflakeEffect(x, y,
+                    x + 60.0F, y + 100.0F, 2.0F));
+            AbstractDungeon.effectsQueue.add(new SnowflakeEffect(x, y,
+                    x, y + 120.0F, 0.0F));
 
-            --this.count;
-            if (this.count == 0) {
-                this.isDone = true;
+            --count;
+            if (count == 0) {
+                isDone = true;
             }
         }
     }

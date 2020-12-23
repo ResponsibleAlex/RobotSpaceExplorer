@@ -12,7 +12,7 @@ public class RemoveFromMasterDeckAction extends AbstractGameAction {
     public RemoveFromMasterDeckAction(AbstractCard cardToRemove) {
         this.cardToRemove = cardToRemove;
 
-        this.actionType = ActionType.CARD_MANIPULATION;
+        actionType = ActionType.CARD_MANIPULATION;
     }
 
     public void update() {
@@ -23,10 +23,10 @@ public class RemoveFromMasterDeckAction extends AbstractGameAction {
         AbstractCard c;
         while (i.hasNext()) {
             c = (AbstractCard)i.next();
-            if (c.cardID == this.cardToRemove.cardID && c.upgraded == this.cardToRemove.upgraded) {
+            if (c.cardID == cardToRemove.cardID && c.upgraded == cardToRemove.upgraded) {
                 upgradeMatch = c;
                 break;
-            } else if (c.cardID == this.cardToRemove.cardID) {
+            } else if (c.cardID == cardToRemove.cardID) {
                 match = c;
             }
         }
@@ -37,14 +37,14 @@ public class RemoveFromMasterDeckAction extends AbstractGameAction {
             doRemovalFromMasterDeck(match);
         }
 
-        this.isDone = true;
+        isDone = true;
     }
 
     private void doRemovalFromMasterDeck(AbstractCard c) {
-        this.cardToRemove.lighten(true);
-        this.cardToRemove.stopGlowing();
-        this.cardToRemove.unhover();
-        this.cardToRemove.unfadeOut();
+        cardToRemove.lighten(true);
+        cardToRemove.stopGlowing();
+        cardToRemove.unhover();
+        cardToRemove.unfadeOut();
         AbstractDungeon.player.masterDeck.removeCard(c);
     }
 }

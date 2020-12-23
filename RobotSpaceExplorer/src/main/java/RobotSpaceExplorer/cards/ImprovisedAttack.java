@@ -53,20 +53,20 @@ public class ImprovisedAttack extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 
         if (SalvagePatch.salvagedThisTurn.get(AbstractDungeon.actionManager)) {
             for (int i = 0; i < magicNumber; i++) {
-                this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             }
         }
     }
 
     public void triggerOnGlowCheck() {
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
         if (SalvagePatch.salvagedThisTurn.get(AbstractDungeon.actionManager)) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+            glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 

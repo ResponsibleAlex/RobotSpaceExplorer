@@ -17,9 +17,9 @@ public class AutoloaderAction extends AbstractGameAction {
     private String text;
 
     public AutoloaderAction(String chooseACardText) {
-        this.text = chooseACardText;
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
+        text = chooseACardText;
+        actionType = ActionType.CARD_MANIPULATION;
+        duration = Settings.ACTION_DUR_FAST;
         p = AbstractDungeon.player;
     }
 
@@ -27,7 +27,7 @@ public class AutoloaderAction extends AbstractGameAction {
         Iterator<AbstractCard> i = p.hand.group.iterator();
         AbstractCard c;
 
-        if (this.duration == Settings.ACTION_DUR_FAST) {
+        if (duration == Settings.ACTION_DUR_FAST) {
             while (i.hasNext()) {
                 c = (AbstractCard) i.next();
                 if (c.type != AbstractCard.CardType.ATTACK) {
@@ -35,36 +35,36 @@ public class AutoloaderAction extends AbstractGameAction {
                 }
             }
 
-            if (this.p.hand.group.size() - this.nonAttacks.size() == 1) {
+            if (p.hand.group.size() - nonAttacks.size() == 1) {
                 // only 1 valid card
-                i = this.p.hand.group.iterator();
+                i = p.hand.group.iterator();
 
                 while (i.hasNext()) {
                     c = (AbstractCard) i.next();
                     if (c.type == AbstractCard.CardType.ATTACK) {
                         // the only valid card, purge and add to autoloader
                         loadIntoPower(c);
-                        this.isDone = true;
+                        isDone = true;
                         return;
                     }
                 }
             }
 
-            this.p.hand.group.removeAll(this.nonAttacks);
-            if (this.p.hand.group.size() > 1) {
+            p.hand.group.removeAll(nonAttacks);
+            if (p.hand.group.size() > 1) {
                 AbstractDungeon.handCardSelectScreen.open(text, 1, false, false, false, false);
-                this.tickDuration();
+                tickDuration();
                 return;
             }
 
-            if (this.p.hand.group.size() == 1) {
+            if (p.hand.group.size() == 1) {
                 // only 1 valid card, should never reach here? from Armaments...
-                c = this.p.hand.getTopCard();
+                c = p.hand.getTopCard();
 
                 loadIntoPower(c);
 
-                this.returnCards();
-                this.isDone = true;
+                returnCards();
+                isDone = true;
             }
         }
 
@@ -76,29 +76,29 @@ public class AutoloaderAction extends AbstractGameAction {
                 loadIntoPower(c);
             }
 
-            this.returnCards();
+            returnCards();
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
-            this.isDone = true;
+            isDone = true;
         }
 
-        this.tickDuration();
+        tickDuration();
     }
 
     private void returnCards() {
-        Iterator<AbstractCard> i = this.nonAttacks.iterator();
+        Iterator<AbstractCard> i = nonAttacks.iterator();
         AbstractCard c;
 
         while(i.hasNext()) {
             c = (AbstractCard)i.next();
-            this.p.hand.addToTop(c);
+            p.hand.addToTop(c);
         }
 
-        this.p.hand.refreshHandLayout();
+        p.hand.refreshHandLayout();
     }
 
     private void loadIntoPower(AbstractCard c) {
-        this.addToBot(new ApplyPowerAction(p, p,
+        addToBot(new ApplyPowerAction(p, p,
                 new AutoloaderPower(c), 0));
         AbstractDungeon.player.hand.removeCard(c);
     }

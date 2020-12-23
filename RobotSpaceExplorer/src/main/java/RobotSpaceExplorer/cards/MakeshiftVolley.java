@@ -50,10 +50,10 @@ public class MakeshiftVolley extends AbstractDynamicCard {
         int count = AbstractDungeon.player.hand.size();
         count--; // this card still technically in hand, so ignore it for the count
         if (count != 0) {
-            this.addToTop(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, count, true));
+            addToTop(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, count, true));
 
             for (int i = 0; i < count; i++) {
-                this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             }
         }
     }

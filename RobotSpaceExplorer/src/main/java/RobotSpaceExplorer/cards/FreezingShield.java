@@ -53,11 +53,11 @@ public class FreezingShield extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GainBlockAction(p, p, block));
-        this.addToBot(new VFXAction(new FrostEffect(m.hb.cX, m.hb.cY)));
-        this.addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -this.magicNumber), -this.magicNumber));
+        addToBot(new GainBlockAction(p, p, block));
+        addToBot(new VFXAction(new FrostEffect(m.hb.cX, m.hb.cY)));
+        addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -magicNumber), -magicNumber));
         if (m != null && !m.hasPower("Artifact")) {
-            this.addToBot(new ApplyPowerAction(m, p, new GainStrengthPower(m, this.magicNumber), this.magicNumber));
+            addToBot(new ApplyPowerAction(m, p, new GainStrengthPower(m, magicNumber), magicNumber));
         }
     }
 

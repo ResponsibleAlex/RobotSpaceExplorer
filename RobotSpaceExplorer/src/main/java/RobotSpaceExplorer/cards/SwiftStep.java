@@ -48,9 +48,9 @@ public class SwiftStep extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new SwiftStepPower(magicNumber), magicNumber));
-        if (this.upgraded) {
-            this.addToBot(new SalvageAction(1));
+        addToBot(new ApplyPowerAction(p, p, new SwiftStepPower(magicNumber), magicNumber));
+        if (upgraded) {
+            addToBot(new SalvageAction(1));
         }
     }
 

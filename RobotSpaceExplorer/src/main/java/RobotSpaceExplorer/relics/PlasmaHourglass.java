@@ -33,9 +33,9 @@ public class PlasmaHourglass extends CustomRelic {
 
     @Override
     public void atTurnStart() {
-        this.flash();
-        this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+        flash();
+        addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+        addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
                 new SolarFlarePower(SOLAR_FLARE_PER_TURN), SOLAR_FLARE_PER_TURN));
     }
 

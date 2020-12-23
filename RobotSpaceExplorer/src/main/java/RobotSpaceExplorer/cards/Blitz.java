@@ -56,22 +56,22 @@ public class Blitz extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GainBlockAction(p, p, block));
+        addToBot(new GainBlockAction(p, p, block));
         int i;
         if (Settings.FAST_MODE) {
-            this.addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, ROBOT_ORANGE)));
+            addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, ROBOT_ORANGE)));
 
             for(i = 0; i < 5; ++i) {
-                this.addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
+                addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
             }
         } else {
-            this.addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, ROBOT_ORANGE), 0.4F));
+            addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, ROBOT_ORANGE), 0.4F));
 
             for(i = 0; i < 5; ++i) {
-                this.addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
+                addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
             }
         }
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
     }
 
 

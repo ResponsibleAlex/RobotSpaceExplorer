@@ -51,7 +51,7 @@ public class Explosion extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new PlayRandomMissileAction(this.upgraded));
+        addToBot(new PlayRandomMissileAction(upgraded));
 
         ArrayList<AbstractCard> cards = AbstractDungeon.actionManager.cardsPlayedThisCombat;
         cards.stream()
@@ -60,7 +60,7 @@ public class Explosion extends AbstractDynamicCard {
              .forEach(this::addToBot);
 
         // extra to account for the random missile
-        this.addToBot(new ExplosionAction(this.cardsToPreview));
+        addToBot(new ExplosionAction(cardsToPreview));
     }
 
 

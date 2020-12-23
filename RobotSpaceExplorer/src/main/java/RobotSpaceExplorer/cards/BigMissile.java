@@ -51,10 +51,10 @@ public class BigMissile extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new RemoveAllBlockAction(m, p));
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+        addToBot(new RemoveAllBlockAction(m, p));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
         if (upgraded) {
-            this.addToBot(new RemoveSpecificPowerAction(m, p, "Artifact"));
+            addToBot(new RemoveSpecificPowerAction(m, p, "Artifact"));
         }
     }
 

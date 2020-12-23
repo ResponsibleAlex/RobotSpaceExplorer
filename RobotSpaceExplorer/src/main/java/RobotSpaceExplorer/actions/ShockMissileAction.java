@@ -22,15 +22,15 @@ public class ShockMissileAction extends AbstractGameAction {
         p = player;
         m = monster;
         c = card;
-        this.actionType = ActionType.DAMAGE;
+        actionType = ActionType.DAMAGE;
     }
 
     public void update() {
-        this.addToBot(new VFXAction(new LightningEffect(m.drawX, m.drawY), 0.2F));
-        this.addToBot(new SFXAction("ORB_LIGHTNING_EVOKE"));
-        this.addToBot(new DamageAction(m, new DamageInfo(p, c.damage, c.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
-        this.addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -c.magicNumber), -c.magicNumber));
+        addToBot(new VFXAction(new LightningEffect(m.drawX, m.drawY), 0.2F));
+        addToBot(new SFXAction("ORB_LIGHTNING_EVOKE"));
+        addToBot(new DamageAction(m, new DamageInfo(p, c.damage, c.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+        addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -c.magicNumber), -c.magicNumber));
 
-        this.isDone = true;
+        isDone = true;
     }
 }

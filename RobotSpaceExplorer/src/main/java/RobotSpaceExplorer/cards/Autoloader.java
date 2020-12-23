@@ -47,7 +47,7 @@ public class Autoloader extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new AutoloaderAction(cardStrings.EXTENDED_DESCRIPTION[1]));
+        addToBot(new AutoloaderAction(cardStrings.EXTENDED_DESCRIPTION[1]));
     }
 
     @Override
@@ -68,7 +68,7 @@ public class Autoloader extends AbstractDynamicCard {
             }
 
             if (!canUse)
-                this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
+                cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
             return canUse;
         }
     }

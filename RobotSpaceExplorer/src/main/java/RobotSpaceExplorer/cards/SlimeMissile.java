@@ -51,8 +51,8 @@ public class SlimeMissile extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.POISON));
-        this.addToBot(new MakeTempCardInHandAction(new Slimed(), 1));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.POISON));
+        addToBot(new MakeTempCardInHandAction(new Slimed(), 1));
     }
 
 

@@ -43,7 +43,7 @@ public class DischargerPower extends AbstractPower implements CloneablePowerInte
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
         this.amount = amount;
         if (this.amount >= 999) {
             this.amount = 999;
@@ -52,8 +52,8 @@ public class DischargerPower extends AbstractPower implements CloneablePowerInte
         type = PowerType.BUFF;
 
         // We load those txtures here.
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
 
@@ -90,17 +90,17 @@ public class DischargerPower extends AbstractPower implements CloneablePowerInte
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (this.amount >= 999) {
-            this.amount = 999;
+        if (amount >= 999) {
+            amount = 999;
         }
     }
 
     @Override
     public void onExhaust(AbstractCard card) {
         if (card.type == AbstractCard.CardType.STATUS) {
-            this.flash();
-            this.lightningAllEffect();
-            this.addToBot(new DamageAllEnemiesAction(this.owner, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE, true));
+            flash();
+            lightningAllEffect();
+            addToBot(new DamageAllEnemiesAction(owner, DamageInfo.createDamageMatrix(amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE, true));
         }
     }
 
@@ -111,11 +111,11 @@ public class DischargerPower extends AbstractPower implements CloneablePowerInte
         while(i.hasNext()) {
             m = (AbstractMonster)i.next();
             if (!m.isDeadOrEscaped() && !m.halfDead) {
-                this.addToBot(new VFXAction(new LightningEffect(m.drawX, m.drawY), 0.0F));
+                addToBot(new VFXAction(new LightningEffect(m.drawX, m.drawY), 0.0F));
             }
         }
 
-        this.addToBot(new SFXAction("ORB_LIGHTNING_EVOKE"));
+        addToBot(new SFXAction("ORB_LIGHTNING_EVOKE"));
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))

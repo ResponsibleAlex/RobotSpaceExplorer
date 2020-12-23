@@ -56,7 +56,7 @@ public class BlastShield extends AbstractDynamicCard {
         }
 
         if (blockAmount > 0) {
-            this.addToBot(new GainBlockAction(p, p, blockAmount));
+            addToBot(new GainBlockAction(p, p, blockAmount));
         }
     }
 

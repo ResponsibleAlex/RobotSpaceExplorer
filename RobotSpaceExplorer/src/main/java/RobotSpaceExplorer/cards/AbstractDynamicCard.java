@@ -31,17 +31,17 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
         beamEffect(p, m, 0.0F);
     }
     protected void beamEffect(AbstractPlayer p, AbstractMonster m, float duration) {
-        this.addToBot(new SFXAction("ATTACK_MAGIC_BEAM_SHORT", 0.5F));
-        this.addToBot(new VFXAction(new SmallLaserEffect(m.hb.cX, m.hb.cY, p.hb.cX, p.hb.cY), duration));
+        addToBot(new SFXAction("ATTACK_MAGIC_BEAM_SHORT", 0.5F));
+        addToBot(new VFXAction(new SmallLaserEffect(m.hb.cX, m.hb.cY, p.hb.cX, p.hb.cY), duration));
     }
 
     protected void lightningEffect(AbstractMonster m) {
-        this.addToTop(new VFXAction(new LightningEffect(m.drawX, m.drawY), 0.0F));
-        this.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
+        addToTop(new VFXAction(new LightningEffect(m.drawX, m.drawY), 0.0F));
+        addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
     }
     protected void lightningEffect(AbstractMonster m, float duration) {
-        this.addToTop(new VFXAction(new LightningEffect(m.drawX, m.drawY), duration));
-        this.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
+        addToTop(new VFXAction(new LightningEffect(m.drawX, m.drawY), duration));
+        addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
     }
 
     protected void lightningAllEffect() {
@@ -51,11 +51,11 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
         while(i.hasNext()) {
             m = (AbstractMonster)i.next();
             if (!m.isDeadOrEscaped() && !m.halfDead) {
-                this.addToTop(new VFXAction(new LightningEffect(m.drawX, m.drawY), 0.0F));
+                addToTop(new VFXAction(new LightningEffect(m.drawX, m.drawY), 0.0F));
             }
         }
 
-        this.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
+        addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
     }
 
     public static boolean shouldGlow(AbstractCard c) {

@@ -55,11 +55,11 @@ public class MiniDrones extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GainBlockAction(p, p, block));
+        addToBot(new GainBlockAction(p, p, block));
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-            this.addToBot(new SFXAction("ATTACK_DEFECT_BEAM"));
-            this.addToBot(new VFXAction(p, new SweepingBeamEffect(p.hb.cX, p.hb.cY, p.flipHorizontal), 0.4F));
-            this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
+            addToBot(new SFXAction("ATTACK_DEFECT_BEAM"));
+            addToBot(new VFXAction(p, new SweepingBeamEffect(p.hb.cX, p.hb.cY, p.flipHorizontal), 0.4F));
+            addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
         }
     }
 

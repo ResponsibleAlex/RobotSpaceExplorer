@@ -35,14 +35,14 @@ public class Arsenal extends AbstractDynamicCard {
 
     public Arsenal() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.exhaust = true;
+        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ArsenalAction(p, upgraded, freeToPlayOnce, energyOnUse));
+        addToBot(new ArsenalAction(p, upgraded, freeToPlayOnce, energyOnUse));
     }
 
 

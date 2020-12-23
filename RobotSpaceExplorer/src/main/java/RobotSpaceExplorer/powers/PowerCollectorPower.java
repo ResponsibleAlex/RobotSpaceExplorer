@@ -34,7 +34,7 @@ public class PowerCollectorPower extends AbstractPower implements CloneablePower
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
         this.amount = amount;
         if (this.amount >= 999) {
             this.amount = 999;
@@ -43,23 +43,23 @@ public class PowerCollectorPower extends AbstractPower implements CloneablePower
         type = PowerType.BUFF;
 
         // We load those txtures here.
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (this.amount >= 999) {
-            this.amount = 999;
+        if (amount >= 999) {
+            amount = 999;
         }
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (card.type == AbstractCard.CardType.POWER) {
-            this.addToBot(new ApplyPowerAction(owner, owner, new StrengthPower(owner, this.amount), this.amount));
+            addToBot(new ApplyPowerAction(owner, owner, new StrengthPower(owner, amount), amount));
         }
     }
 

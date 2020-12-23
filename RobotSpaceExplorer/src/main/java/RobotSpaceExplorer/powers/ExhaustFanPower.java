@@ -35,7 +35,7 @@ public class ExhaustFanPower extends AbstractPower implements CloneablePowerInte
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
         this.amount = amount;
         if (this.amount >= 999) {
             this.amount = 999;
@@ -44,28 +44,28 @@ public class ExhaustFanPower extends AbstractPower implements CloneablePowerInte
         type = PowerType.BUFF;
 
         // We load those txtures here.
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (this.amount >= 999) {
-            this.amount = 999;
+        if (amount >= 999) {
+            amount = 999;
         }
     }
 
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         if (card.type == AbstractCard.CardType.ATTACK) {
-            this.flash();
-            this.addToBot(new SFXAction("ATTACK_HEAVY"));
+            flash();
+            addToBot(new SFXAction("ATTACK_HEAVY"));
             if (Settings.FAST_MODE) {
-                this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.amount, true));
+                addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, amount, true));
             } else {
-                this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.amount));
+                addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, amount));
             }
         }
     }

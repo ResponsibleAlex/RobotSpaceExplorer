@@ -46,15 +46,15 @@ public class SurgingStrike extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = SURGE_STRENGTH;
-        this.tags.add(CardTags.STRIKE);
+        tags.add(CardTags.STRIKE);
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        this.addToBot(new ApplyPowerAction(p, p, new SurgePower(magicNumber), magicNumber));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        addToBot(new ApplyPowerAction(p, p, new SurgePower(magicNumber), magicNumber));
     }
 
 

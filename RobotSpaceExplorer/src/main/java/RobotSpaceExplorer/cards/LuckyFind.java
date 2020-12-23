@@ -39,7 +39,7 @@ public class LuckyFind extends AbstractDynamicCard {
 
     public LuckyFind() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.purgeOnUse = true;
+        purgeOnUse = true;
         tags.add(CardTags.HEALING);
     }
 
@@ -50,7 +50,7 @@ public class LuckyFind extends AbstractDynamicCard {
         AbstractDungeon.getCurrRoom().addRelicToRewards(AbstractRelic.RelicTier.COMMON);
 
         AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(this, (float)(Settings.WIDTH / 2), (float)(Settings.HEIGHT / 2)));
-        this.addToBot(new RemoveFromMasterDeckAction(this));
+        addToBot(new RemoveFromMasterDeckAction(this));
     }
 
     // Upgraded stats.

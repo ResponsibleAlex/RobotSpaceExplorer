@@ -47,7 +47,7 @@ public class GlueSpray extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GlueSprayAction(p, this.upgraded, this.freeToPlayOnce, this.energyOnUse));
+        addToBot(new GlueSprayAction(p, upgraded, freeToPlayOnce, energyOnUse));
     }
 
 

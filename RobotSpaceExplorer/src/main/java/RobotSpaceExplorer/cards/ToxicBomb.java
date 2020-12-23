@@ -58,16 +58,16 @@ public class ToxicBomb extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         // apply weak
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-            this.flash();
+            flash();
 
             for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
                 if (!monster.isDead && !monster.isDying) {
-                    this.addToBot(new ApplyPowerAction(monster, p, new WeakPower(monster, this.defaultSecondMagicNumber, false), this.defaultSecondMagicNumber));
+                    addToBot(new ApplyPowerAction(monster, p, new WeakPower(monster, defaultSecondMagicNumber, false), defaultSecondMagicNumber));
                 }
             }
         }
         // apply Bomb
-        this.addToBot(new ApplyPowerAction(p, p, new TheBombPower(p, 2, this.magicNumber), 2));
+        addToBot(new ApplyPowerAction(p, p, new TheBombPower(p, 2, magicNumber), 2));
     }
 
 

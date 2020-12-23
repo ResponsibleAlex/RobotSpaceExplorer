@@ -17,18 +17,18 @@ public class CometAction extends AbstractGameAction {
     AbstractMonster m;
 
     public CometAction(AbstractMonster monster, int solarFlareAmount) {
-        this.m = monster;
-        this.amount = solarFlareAmount;
-        this.p = AbstractDungeon.player;
-        this.actionType = ActionType.DAMAGE;
-        this.duration = Settings.ACTION_DUR_FAST;
+        m = monster;
+        amount = solarFlareAmount;
+        p = AbstractDungeon.player;
+        actionType = ActionType.DAMAGE;
+        duration = Settings.ACTION_DUR_FAST;
     }
 
     public void update() {
-        if (this.duration == Settings.ACTION_DUR_FAST) {
+        if (duration == Settings.ACTION_DUR_FAST) {
             // apply Solar Flare
-            this.addToBot(new ApplyPowerAction(p, p, new SolarFlarePower(amount), amount));
-            this.tickDuration();
+            addToBot(new ApplyPowerAction(p, p, new SolarFlarePower(amount), amount));
+            tickDuration();
         } else {
             // trigger Solar Flare
             int damage = amount;
@@ -37,12 +37,12 @@ public class CometAction extends AbstractGameAction {
                 damage += pow.amount;
                 pow.flash();
             }
-            this.addToBot(new DamageAllEnemiesAction((AbstractCreature)null, DamageInfo.createDamageMatrix(damage, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
+            addToBot(new DamageAllEnemiesAction((AbstractCreature)null, DamageInfo.createDamageMatrix(damage, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
 
             // deal damage = Solar Flare to enemy
             //this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
 
-            this.isDone = true;
+            isDone = true;
         }
     }
 }

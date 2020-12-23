@@ -55,9 +55,9 @@ public class Electropulse extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         lightningAllEffect();
-        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
-        this.addToBot(new MakeTempCardInHandAction(new StaticBuildup(), 1));
-        this.addToBot(new ApplyPowerAction(p, p, new SurgePower(magicNumber), magicNumber));
+        addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+        addToBot(new MakeTempCardInHandAction(new StaticBuildup(), 1));
+        addToBot(new ApplyPowerAction(p, p, new SurgePower(magicNumber), magicNumber));
     }
 
 

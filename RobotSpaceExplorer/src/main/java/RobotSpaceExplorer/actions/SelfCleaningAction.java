@@ -16,9 +16,9 @@ public class SelfCleaningAction extends AbstractGameAction {
     AbstractPlayer p;
 
     public SelfCleaningAction(int blockAmount) {
-        this.amount = blockAmount;
-        this.p = AbstractDungeon.player;
-        this.actionType = ActionType.CARD_MANIPULATION;
+        amount = blockAmount;
+        p = AbstractDungeon.player;
+        actionType = ActionType.CARD_MANIPULATION;
     }
 
     public void update() {
@@ -35,16 +35,16 @@ public class SelfCleaningAction extends AbstractGameAction {
         i = cardsToExhaust.iterator();
         while (i.hasNext()) {
             c = (AbstractCard) i.next();
-            this.addToTop(new DrawCardAction(1));
-            this.addToTop(new GainBlockAction(p, p, amount));
+            addToTop(new DrawCardAction(1));
+            addToTop(new GainBlockAction(p, p, amount));
         }
 
         i = cardsToExhaust.iterator();
         while (i.hasNext()) {
             c = (AbstractCard) i.next();
-            this.addToTop(new ExhaustSpecificCardAction(c, p.hand));
+            addToTop(new ExhaustSpecificCardAction(c, p.hand));
         }
 
-        this.isDone = true;
+        isDone = true;
     }
 }

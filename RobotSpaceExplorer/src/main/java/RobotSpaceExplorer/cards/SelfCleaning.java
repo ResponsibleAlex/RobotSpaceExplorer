@@ -48,8 +48,8 @@ public class SelfCleaning extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new MakeTempCardInHandAction(new Slimed(), 1));
-        this.addToBot(new SelfCleaningAction(magicNumber));
+        addToBot(new MakeTempCardInHandAction(new Slimed(), 1));
+        addToBot(new SelfCleaningAction(magicNumber));
     }
 
 

@@ -46,7 +46,7 @@ public class DroneSwarm extends AbstractDynamicCard {
         if (energyOnUse < EnergyPanel.totalCount) {
             energyOnUse = EnergyPanel.totalCount;
         }
-        this.addToBot(new DroneSwarmAction(freeToPlayOnce, energyOnUse, upgraded));
+        addToBot(new DroneSwarmAction(freeToPlayOnce, energyOnUse, upgraded));
     }
 
 

@@ -31,7 +31,7 @@ public class StarDustEnergyDownPower extends AbstractPower implements CloneableP
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
         this.amount = amount;
         if (this.amount >= 999) {
             this.amount = 999;
@@ -40,23 +40,23 @@ public class StarDustEnergyDownPower extends AbstractPower implements CloneableP
         type = PowerType.DEBUFF;
 
         // We load those txtures here.
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (this.amount >= 999) {
-            this.amount = 999;
+        if (amount >= 999) {
+            amount = 999;
         }
     }
 
     @Override
     public void atStartOfTurn() {
-        this.addToBot(new LoseEnergyAction(this.amount));
-        this.flash();
+        addToBot(new LoseEnergyAction(amount));
+        flash();
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
@@ -65,13 +65,13 @@ public class StarDustEnergyDownPower extends AbstractPower implements CloneableP
         StringBuilder sb = new StringBuilder();
         sb.append(DESCRIPTIONS[0]);
 
-        for(int i = 0; i < this.amount; ++i) {
+        for(int i = 0; i < amount; ++i) {
             sb.append("[E] ");
         }
 
         sb.append(DESCRIPTIONS[1]);
 
-        this.description = sb.toString();
+        description = sb.toString();
     }
 
     @Override

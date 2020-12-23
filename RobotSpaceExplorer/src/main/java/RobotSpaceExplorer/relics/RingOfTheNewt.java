@@ -30,22 +30,22 @@ public class RingOfTheNewt extends CustomRelic {
 
     @Override
     public void onEquip() {
-        this.counter = 0;
+        counter = 0;
     }
 
     @Override
     public void atTurnStart() {
-        if (this.counter == -1) {
-            this.counter += 2;
+        if (counter == -1) {
+            counter += 2;
         } else {
-            ++this.counter;
+            ++counter;
         }
 
-        if (this.counter == 2) {
-            this.counter = 0;
-            this.flash();
-            this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            this.addToBot(new DrawCardAction(1));
+        if (counter == 2) {
+            counter = 0;
+            flash();
+            addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            addToBot(new DrawCardAction(1));
         }
 
     }

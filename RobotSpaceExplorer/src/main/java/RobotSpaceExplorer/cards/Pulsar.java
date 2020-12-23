@@ -50,8 +50,8 @@ public class Pulsar extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GainBlockAction(p, p, block));
-        this.addToBot(new ApplyPowerAction(p, p, new SolarFlarePower(magicNumber), magicNumber));
+        addToBot(new GainBlockAction(p, p, block));
+        addToBot(new ApplyPowerAction(p, p, new SolarFlarePower(magicNumber), magicNumber));
     }
 
 
