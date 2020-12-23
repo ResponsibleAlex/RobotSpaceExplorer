@@ -64,7 +64,7 @@ public class TurboCore extends CustomRelic {
             Iterator<AbstractRelic> i = AbstractDungeon.player.relics.iterator();
             AbstractRelic r;
             while (i.hasNext()) {
-                r = (AbstractRelic)i.next();
+                r = i.next();
                 if (r.relicId.equals(ID)) {
                     r.flash();
                 }

@@ -92,7 +92,7 @@ public class BottledGravity extends CustomRelic implements CustomBottleRelic, Cu
         Iterator<AbstractCard> i = unbottled.group.iterator();
         AbstractCard c;
         while (i.hasNext()) {
-            c = (AbstractCard) i.next();
+            c = i.next();
             if (c.type != AbstractCard.CardType.CURSE &&
                     c.cost > 0) {
                 cards.group.add(c);

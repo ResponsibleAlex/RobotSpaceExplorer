@@ -19,7 +19,7 @@ public class CardGroupPatch {
             Iterator<AbstractCard> i = result.group.iterator();
             AbstractCard c;
             while (i.hasNext()) {
-                c = (AbstractCard)i.next();
+                c = i.next();
                 if (!BottledGravityPatch.inBottledGravity.get(c)) {
                     retVal.group.add(c);
                 }

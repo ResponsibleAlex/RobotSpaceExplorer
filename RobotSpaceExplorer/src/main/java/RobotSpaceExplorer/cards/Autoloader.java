@@ -60,7 +60,7 @@ public class Autoloader extends AbstractDynamicCard {
             canUse = false;
 
             while(i.hasNext()) {
-                AbstractCard c = (AbstractCard) i.next();
+                AbstractCard c = i.next();
                 if (c.type == CardType.ATTACK) {
                     canUse = true;
                     break;

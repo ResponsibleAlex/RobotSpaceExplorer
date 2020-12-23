@@ -49,7 +49,7 @@ public class Multitool extends AbstractDynamicCard {
             AbstractCard c;
 
             while(i.hasNext()) {
-                c = (AbstractCard)i.next();
+                c = i.next();
                 if (c.canUpgrade()) {
                     c.upgrade();
                     c.superFlash();

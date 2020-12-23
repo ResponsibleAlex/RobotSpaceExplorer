@@ -29,7 +29,7 @@ public class AutoloaderAction extends AbstractGameAction {
 
         if (duration == Settings.ACTION_DUR_FAST) {
             while (i.hasNext()) {
-                c = (AbstractCard) i.next();
+                c = i.next();
                 if (c.type != AbstractCard.CardType.ATTACK) {
                     nonAttacks.add(c);
                 }
@@ -40,7 +40,7 @@ public class AutoloaderAction extends AbstractGameAction {
                 i = p.hand.group.iterator();
 
                 while (i.hasNext()) {
-                    c = (AbstractCard) i.next();
+                    c = i.next();
                     if (c.type == AbstractCard.CardType.ATTACK) {
                         // the only valid card, purge and add to autoloader
                         loadIntoPower(c);
@@ -72,7 +72,7 @@ public class AutoloaderAction extends AbstractGameAction {
             i = AbstractDungeon.handCardSelectScreen.selectedCards.group.iterator();
 
             while(i.hasNext()) {
-                c = (AbstractCard)i.next();
+                c = i.next();
                 loadIntoPower(c);
             }
 
@@ -90,7 +90,7 @@ public class AutoloaderAction extends AbstractGameAction {
         AbstractCard c;
 
         while(i.hasNext()) {
-            c = (AbstractCard)i.next();
+            c = i.next();
             p.hand.addToTop(c);
         }
 

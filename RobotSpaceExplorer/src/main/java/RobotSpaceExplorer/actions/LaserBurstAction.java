@@ -31,7 +31,7 @@ public class LaserBurstAction extends AbstractGameAction {
             addToTop(new WaitAction(0.05F));
         }
 
-        target = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
+        target = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
         if (target != null) {
             card.calculateCardDamage((AbstractMonster) target);
             addToTop(new SFXAction("ATTACK_MAGIC_BEAM_SHORT", 0.5F));

@@ -128,7 +128,7 @@ public class SalvageAction extends AbstractGameAction {
             Iterator<AbstractCard> i = p.drawPile.group.iterator();
             AbstractCard c;
             while (i.hasNext()) {
-                c = (AbstractCard)i.next();
+                c = i.next();
                 if (c.cardID == LuckyStrike.ID) {
                     i.remove();
                     playLuckyStrike(c);
