@@ -32,7 +32,7 @@ public class ReloadAction extends AbstractGameAction {
     public void update()
     {
         AbstractCard card;
-        Iterator c;
+        Iterator<AbstractCard> c;
         CardGroup pile = p.exhaustPile.getAttacks();
 
         if (this.duration == Settings.ACTION_DUR_FAST) {

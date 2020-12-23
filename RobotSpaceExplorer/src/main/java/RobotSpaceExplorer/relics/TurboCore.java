@@ -68,7 +68,7 @@ public class TurboCore extends CustomRelic {
                     break;
                 }
             }
-            Iterator i = AbstractDungeon.player.relics.iterator();
+            Iterator<AbstractRelic> i = AbstractDungeon.player.relics.iterator();
             AbstractRelic r;
             while (i.hasNext()) {
                 r = (AbstractRelic)i.next();

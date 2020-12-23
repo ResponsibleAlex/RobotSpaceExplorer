@@ -19,7 +19,7 @@ public class RemoveFromMasterDeckAction extends AbstractGameAction {
         AbstractCard upgradeMatch = null;
         AbstractCard match = null;
 
-        Iterator i = AbstractDungeon.player.masterDeck.group.iterator();
+        Iterator<AbstractCard> i = AbstractDungeon.player.masterDeck.group.iterator();
         AbstractCard c;
         while (i.hasNext()) {
             c = (AbstractCard)i.next();

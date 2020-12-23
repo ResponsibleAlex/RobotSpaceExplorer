@@ -57,10 +57,7 @@ public class SalvageAction extends AbstractGameAction {
         this.duration = Settings.ACTION_DUR_FAST;
         p = AbstractDungeon.player;
 
-        Iterator i = p.relics.iterator();
-
-        while(i.hasNext()) {
-            AbstractRelic r = (AbstractRelic)i.next();
+        for (AbstractRelic r : p.relics) {
             if (r.relicId == ToughPlating.ID) {
                 hasToughPlating = true;
                 toughPlating = r;
@@ -133,7 +130,7 @@ public class SalvageAction extends AbstractGameAction {
         // if we salvaged at least one card, autoplay any Lucky Strikes
         // and refresh hand layout
         if (count > 0) {
-            Iterator i = p.drawPile.group.iterator();
+            Iterator<AbstractCard> i = p.drawPile.group.iterator();
             AbstractCard c;
             while (i.hasNext()) {
                 c = (AbstractCard)i.next();

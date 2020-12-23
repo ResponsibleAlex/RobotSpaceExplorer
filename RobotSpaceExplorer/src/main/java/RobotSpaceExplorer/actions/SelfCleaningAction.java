@@ -29,7 +29,7 @@ public class SelfCleaningAction extends AbstractGameAction {
         ArrayList<AbstractCard> cardsToExhaust = new ArrayList<>();
         AbstractCard c;
 
-        Iterator i = p.hand.getCardsOfType(AbstractCard.CardType.STATUS).group.iterator();
+        Iterator<AbstractCard> i = p.hand.getCardsOfType(AbstractCard.CardType.STATUS).group.iterator();
         while (i.hasNext()) {
             c = (AbstractCard) i.next();
             cardsToExhaust.add(c);

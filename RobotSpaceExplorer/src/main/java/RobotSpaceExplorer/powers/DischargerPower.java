@@ -74,7 +74,7 @@ public class DischargerPower extends AbstractPower implements CloneablePowerInte
         setGroupStaticBuildupsEthereal(g, false);
     }
     private void setGroupStaticBuildupsEthereal(CardGroup g, boolean flash) {
-        Iterator i;
+        Iterator<AbstractCard> i;
         AbstractCard c;
 
         i = g.group.iterator();
@@ -106,7 +106,7 @@ public class DischargerPower extends AbstractPower implements CloneablePowerInte
     }
 
     protected void lightningAllEffect() {
-        Iterator i = AbstractDungeon.getMonsters().monsters.iterator();
+        Iterator<AbstractMonster> i = AbstractDungeon.getMonsters().monsters.iterator();
         AbstractMonster m;
 
         while(i.hasNext()) {
