@@ -52,7 +52,7 @@ public class StaticBuildup extends AbstractDynamicCard {
         magicNumber = baseMagicNumber = WEAK;
 
         // if we have Discharger power, make this Ethereal then update description
-        if (AbstractDungeon.player != null &&
+        if (null != AbstractDungeon.player &&
                 AbstractDungeon.player.hasPower(DischargerPower.POWER_ID)) {
             setEthereal();
         } else {

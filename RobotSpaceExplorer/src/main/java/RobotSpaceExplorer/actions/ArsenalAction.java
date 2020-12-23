@@ -23,7 +23,7 @@ public class ArsenalAction extends AbstractGameAction {
 
     public void update() {
         int effect = EnergyPanel.totalCount;
-        if (energyOnUse != -1) {
+        if (-1 != energyOnUse) {
             effect = energyOnUse;
         }
 
@@ -38,7 +38,7 @@ public class ArsenalAction extends AbstractGameAction {
 
         // play a random attack effect# times
         CardGroup pile = p.exhaustPile.getAttacks();
-        if (pile.size() > 0) {
+        if (0 < pile.size()) {
             for (int i = 0; i < effect; i++) {
                 addToBot(new PlayExhaustedAttackAction(pile.getRandomCard(true)));
             }

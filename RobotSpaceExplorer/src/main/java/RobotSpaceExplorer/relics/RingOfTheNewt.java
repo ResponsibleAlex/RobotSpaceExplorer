@@ -35,13 +35,13 @@ public class RingOfTheNewt extends CustomRelic {
 
     @Override
     public void atTurnStart() {
-        if (counter == -1) {
+        if (-1 == counter) {
             counter += 2;
         } else {
             ++counter;
         }
 
-        if (counter == 2) {
+        if (2 == counter) {
             counter = 0;
             flash();
             addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));

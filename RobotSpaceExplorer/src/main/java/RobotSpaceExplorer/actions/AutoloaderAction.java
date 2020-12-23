@@ -30,18 +30,18 @@ public class AutoloaderAction extends AbstractGameAction {
         if (duration == Settings.ACTION_DUR_FAST) {
             while (i.hasNext()) {
                 c = i.next();
-                if (c.type != AbstractCard.CardType.ATTACK) {
+                if (AbstractCard.CardType.ATTACK != c.type) {
                     nonAttacks.add(c);
                 }
             }
 
-            if (p.hand.group.size() - nonAttacks.size() == 1) {
+            if (1 == p.hand.group.size() - nonAttacks.size()) {
                 // only 1 valid card
                 i = p.hand.group.iterator();
 
                 while (i.hasNext()) {
                     c = i.next();
-                    if (c.type == AbstractCard.CardType.ATTACK) {
+                    if (AbstractCard.CardType.ATTACK == c.type) {
                         // the only valid card, purge and add to autoloader
                         loadIntoPower(c);
                         isDone = true;
@@ -51,13 +51,13 @@ public class AutoloaderAction extends AbstractGameAction {
             }
 
             p.hand.group.removeAll(nonAttacks);
-            if (p.hand.group.size() > 1) {
+            if (1 < p.hand.group.size()) {
                 AbstractDungeon.handCardSelectScreen.open(text, 1, false, false, false, false);
                 tickDuration();
                 return;
             }
 
-            if (p.hand.group.size() == 1) {
+            if (1 == p.hand.group.size()) {
                 // only 1 valid card, should never reach here? from Armaments...
                 c = p.hand.getTopCard();
 

@@ -37,7 +37,7 @@ public class ExhaustFanPower extends AbstractPower implements CloneablePowerInte
 
         owner = AbstractDungeon.player;
         this.amount = amount;
-        if (this.amount >= 999) {
+        if (999 <= this.amount) {
             this.amount = 999;
         }
 
@@ -52,14 +52,14 @@ public class ExhaustFanPower extends AbstractPower implements CloneablePowerInte
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (amount >= 999) {
+        if (999 <= amount) {
             amount = 999;
         }
     }
 
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
-        if (card.type == AbstractCard.CardType.ATTACK) {
+        if (AbstractCard.CardType.ATTACK == card.type) {
             flash();
             addToBot(new SFXAction("ATTACK_HEAVY"));
             if (Settings.FAST_MODE) {

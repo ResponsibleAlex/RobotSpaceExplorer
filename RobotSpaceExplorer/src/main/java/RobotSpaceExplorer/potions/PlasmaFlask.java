@@ -36,7 +36,7 @@ public class PlasmaFlask extends AbstractPotion {
     public void use(AbstractCreature target) {
         target = AbstractDungeon.player;
         // If you are in combat
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
+        if (AbstractRoom.RoomPhase.COMBAT == AbstractDungeon.getCurrRoom().phase) {
             addToBot(new ApplyPowerAction(target, target, new SolarFlarePower(potency), potency));
         }
     }

@@ -49,7 +49,7 @@ public class MakeshiftVolley extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int count = AbstractDungeon.player.hand.size();
         count--; // this card still technically in hand, so ignore it for the count
-        if (count != 0) {
+        if (0 != count) {
             addToTop(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, count, true));
 
             for (int i = 0; i < count; i++) {

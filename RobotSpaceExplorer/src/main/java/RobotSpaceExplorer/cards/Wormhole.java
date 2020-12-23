@@ -78,7 +78,7 @@ public class Wormhole extends AbstractDynamicCard {
     }
 
     public static boolean canRemove(AbstractCard c) {
-        return c.type != CardType.STATUS
+        return CardType.STATUS != c.type
                 && !c.inBottleFlame && !c.inBottleLightning && !c.inBottleTornado
                 && !BottledGravityPatch.inBottledGravity.get(c)
                 && !c.cardID.equals(AscendersBane.ID) && !c.cardID.equals(Necronomicurse.ID)

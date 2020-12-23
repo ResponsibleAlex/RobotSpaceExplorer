@@ -39,7 +39,7 @@ public class LiquidFusion extends AbstractPotion {
 
     public void initializeData() {
         potency = getPotency();
-        if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(SacredBark.ID)) {
+        if (null != AbstractDungeon.player && AbstractDungeon.player.hasRelic(SacredBark.ID)) {
             description = DESCRIPTIONS[1] + DESCRIPTIONS[0];
         } else {
             description = DESCRIPTIONS[0];
@@ -53,12 +53,12 @@ public class LiquidFusion extends AbstractPotion {
     public void use(AbstractCreature target) {
         target = AbstractDungeon.player;
         // If you are in combat
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(SacredBark.ID)) {
+        if (AbstractRoom.RoomPhase.COMBAT == AbstractDungeon.getCurrRoom().phase) {
+            if (null != AbstractDungeon.player && AbstractDungeon.player.hasRelic(SacredBark.ID)) {
                 addToBot(new DrawCardAction(1));
             }
             for (AbstractCard c : AbstractDungeon.player.hand.group) {
-                if (c.costForTurn > 0) {
+                if (0 < c.costForTurn) {
                     c.setCostForTurn(0);
                     c.superFlash();
                 }

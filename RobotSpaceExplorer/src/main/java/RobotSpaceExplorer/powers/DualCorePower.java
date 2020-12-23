@@ -42,7 +42,7 @@ public class DualCorePower extends AbstractPower implements CloneablePowerInterf
 
         owner = AbstractDungeon.player;
         magicNumber = amount;
-        if (magicNumber >= 999) {
+        if (999 <= magicNumber) {
             magicNumber = 999;
         }
         this.amount = 5;
@@ -58,7 +58,7 @@ public class DualCorePower extends AbstractPower implements CloneablePowerInterf
 
     public void stackPower(int stackAmount) {
         magicNumber += stackAmount;
-        if (magicNumber >= 999) {
+        if (999 <= magicNumber) {
             magicNumber = 999;
         }
         updateDescription();
@@ -67,7 +67,7 @@ public class DualCorePower extends AbstractPower implements CloneablePowerInterf
     @Override
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         --amount;
-        if (amount == 0) {
+        if (0 == amount) {
             flash();
             amount = 5;
 
@@ -93,7 +93,7 @@ public class DualCorePower extends AbstractPower implements CloneablePowerInterf
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {
-        if (amount == 1) {
+        if (1 == amount) {
             description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] +
                     magicNumber + DESCRIPTIONS[3] + magicNumber + DESCRIPTIONS[4];
         } else {

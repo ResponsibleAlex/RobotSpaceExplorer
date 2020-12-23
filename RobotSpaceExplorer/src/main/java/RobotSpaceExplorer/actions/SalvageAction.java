@@ -73,7 +73,7 @@ public class SalvageAction extends AbstractGameAction {
         boolean salvagedThisTurn;
 
         for (int i = 0; i < cardsToSalvage; i++) {
-            if (hand.size() == 10) {
+            if (10 == hand.size()) {
                 p.createHandIsFullDialog();
                 break;
             } else if (!pile.isEmpty()) {
@@ -124,7 +124,7 @@ public class SalvageAction extends AbstractGameAction {
 
         // if we salvaged at least one card, autoplay any Lucky Strikes
         // and refresh hand layout
-        if (count > 0) {
+        if (0 < count) {
             Iterator<AbstractCard> i = p.drawPile.group.iterator();
             AbstractCard c;
             while (i.hasNext()) {
@@ -146,11 +146,11 @@ public class SalvageAction extends AbstractGameAction {
         
         if (hasScanner) {
             c = pile.getRandomCard(AbstractDungeon.cardRandomRng, AbstractCard.CardRarity.RARE);
-            if (c == null) {
+            if (null == c) {
                 c = pile.getRandomCard(AbstractDungeon.cardRandomRng, AbstractCard.CardRarity.UNCOMMON);
-                if (c == null) {
+                if (null == c) {
                     c = pile.getRandomCard(AbstractDungeon.cardRandomRng, AbstractCard.CardRarity.COMMON);
-                    if (c == null) {
+                    if (null == c) {
                         c = pile.getRandomCard(AbstractDungeon.cardRandomRng);
                     }
                 }

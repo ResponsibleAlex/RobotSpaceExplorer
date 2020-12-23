@@ -545,7 +545,7 @@ public class RobotSpaceExplorerMod implements
     public void receiveEditStrings() {
 
         String lang = "eng";
-        if (Settings.language == Settings.GameLanguage.ZHS) {
+        if (Settings.GameLanguage.ZHS == Settings.language) {
             lang = "zhs";
         }
 
@@ -586,7 +586,7 @@ public class RobotSpaceExplorerMod implements
     @Override
     public void receiveEditKeywords() {
         String lang = "eng";
-        if (Settings.language == Settings.GameLanguage.ZHS) {
+        if (Settings.GameLanguage.ZHS == Settings.language) {
             lang = "zhs";
         }
 
@@ -595,7 +595,7 @@ public class RobotSpaceExplorerMod implements
                                .readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
 
-        if (keywords != null) {
+        if (null != keywords) {
             for (Keyword keyword : keywords) {
                 BaseMod.addKeyword(modID.toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }

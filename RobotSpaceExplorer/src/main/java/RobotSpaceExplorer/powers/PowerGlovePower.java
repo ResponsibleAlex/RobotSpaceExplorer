@@ -33,7 +33,7 @@ public class PowerGlovePower extends AbstractPower implements CloneablePowerInte
 
         owner = AbstractDungeon.player;
         this.amount = amount;
-        if (this.amount >= 999) {
+        if (999 <= this.amount) {
             this.amount = 999;
         }
 
@@ -48,17 +48,17 @@ public class PowerGlovePower extends AbstractPower implements CloneablePowerInte
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (amount >= 999) {
+        if (999 <= amount) {
             amount = 999;
         }
     }
 
     @Override
     public int onAttackToChangeDamage(DamageInfo info, int damageAmount) {
-        if (info.owner != null
-                && info.type != DamageInfo.DamageType.HP_LOSS
-                && info.type != DamageInfo.DamageType.THORNS
-                && damageAmount > 0 && damageAmount <= 5) {
+        if (null != info.owner
+                && DamageInfo.DamageType.HP_LOSS != info.type
+                && DamageInfo.DamageType.THORNS != info.type
+                && 0 < damageAmount && 5 >= damageAmount) {
             flash();
             return damageAmount + amount;
         } else {

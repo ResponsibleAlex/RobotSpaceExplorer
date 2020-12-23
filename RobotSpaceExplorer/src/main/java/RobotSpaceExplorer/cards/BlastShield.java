@@ -47,15 +47,15 @@ public class BlastShield extends AbstractDynamicCard {
         int blockAmount = 0;
 
         // if monster is attacking
-        if (m != null && m.getIntentBaseDmg() >= 0) {
+        if (null != m && 0 <= m.getIntentBaseDmg()) {
             int multiplier = MonsterDamagePatch.monsterMultiplier.get(m);
-            if (multiplier == 0) {
+            if (0 == multiplier) {
                 multiplier = 1;
             }
             blockAmount = m.getIntentDmg() * multiplier;
         }
 
-        if (blockAmount > 0) {
+        if (0 < blockAmount) {
             addToBot(new GainBlockAction(p, p, blockAmount));
         }
     }

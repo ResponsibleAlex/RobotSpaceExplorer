@@ -31,9 +31,9 @@ public class RemoveFromMasterDeckAction extends AbstractGameAction {
             }
         }
 
-        if (upgradeMatch != null) {
+        if (null != upgradeMatch) {
             doRemovalFromMasterDeck(upgradeMatch);
-        } else if (match != null) {
+        } else if (null != match) {
             doRemovalFromMasterDeck(match);
         }
 

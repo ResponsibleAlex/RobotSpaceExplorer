@@ -64,7 +64,7 @@ public class AutoloaderPower extends AbstractPower implements CloneablePowerInte
         tmp.current_y = card.current_y;
         tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
         tmp.target_y = (float)Settings.HEIGHT / 2.0F;
-        if (m != null) {
+        if (null != m) {
             tmp.calculateCardDamage(m);
         }
 

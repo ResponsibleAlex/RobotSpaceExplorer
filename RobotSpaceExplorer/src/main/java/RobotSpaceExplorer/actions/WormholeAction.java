@@ -39,7 +39,7 @@ public class WormholeAction extends AbstractGameAction {
                 }
             }
 
-            if (p.hand.group.size() - cannotRemove.size() == 1) {
+            if (1 == p.hand.group.size() - cannotRemove.size()) {
                 // only 1 valid card
                 i = p.hand.group.iterator();
 
@@ -55,13 +55,13 @@ public class WormholeAction extends AbstractGameAction {
             }
 
             p.hand.group.removeAll(cannotRemove);
-            if (p.hand.group.size() > 1) {
+            if (1 < p.hand.group.size()) {
                 AbstractDungeon.handCardSelectScreen.open(text, 1, false, false, false, false);
                 tickDuration();
                 return;
             }
 
-            if (p.hand.group.size() == 1) {
+            if (1 == p.hand.group.size()) {
                 // only 1 valid card, should never reach here? from Armaments...
                 c = p.hand.getTopCard();
                 removeFromDeck(c);

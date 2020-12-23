@@ -58,7 +58,7 @@ public class SnowflakeEffect extends AbstractGameEffect {
 
         counter++;
         duration -= Gdx.graphics.getDeltaTime();
-        if (duration < 0.0F) {
+        if (0.0F > duration) {
             isDone = true;
         }
     }

@@ -21,7 +21,7 @@ public class AmmunitionAction extends AbstractGameAction {
     }
 
     public void update() {
-        if (numberOfAttacks == 0) {
+        if (0 == numberOfAttacks) {
             p.hand.refreshHandLayout();
             isDone = true;
         } else {

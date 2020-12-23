@@ -13,8 +13,8 @@ import java.util.Iterator;
 
 public class ReloadAction extends AbstractGameAction {
 
-    private boolean canChoose;
-    private AbstractPlayer p;
+    private final boolean canChoose;
+    private final AbstractPlayer p;
     private static final UIStrings uiStrings;
     public static final String[] TEXT;
 
@@ -34,7 +34,7 @@ public class ReloadAction extends AbstractGameAction {
         if (duration == Settings.ACTION_DUR_FAST) {
             if (pile.isEmpty()) {
                 isDone = true;
-            } else if (pile.size() == 1) {
+            } else if (1 == pile.size()) {
                 // only 1, get it and play it
                 card = pile.getTopCard();
                 addToBot(new PlayExhaustedAttackAction(card));

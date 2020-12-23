@@ -37,7 +37,7 @@ public class SurgePower extends AbstractPower implements CloneablePowerInterface
 
         owner = AbstractDungeon.player;
         this.amount = amount;
-        if (this.amount >= 999) {
+        if (999 <= this.amount) {
             this.amount = 999;
         }
 
@@ -53,7 +53,7 @@ public class SurgePower extends AbstractPower implements CloneablePowerInterface
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (amount >= 999) {
+        if (999 <= amount) {
             amount = 999;
         }
     }

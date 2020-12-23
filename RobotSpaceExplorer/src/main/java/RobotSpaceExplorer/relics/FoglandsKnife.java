@@ -28,7 +28,7 @@ public class FoglandsKnife extends CustomRelic {
 
     @Override
     public float atDamageModify(float damage, AbstractCard c) {
-        return c.costForTurn != 0 && (!c.freeToPlayOnce || c.cost == -1) ? damage : damage + 2.0F;
+        return 0 != c.costForTurn && (!c.freeToPlayOnce || -1 == c.cost) ? damage : damage + 2.0F;
     }
 
     @Override

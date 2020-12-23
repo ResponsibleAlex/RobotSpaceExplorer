@@ -59,9 +59,9 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
     }
 
     public static boolean shouldGlow(AbstractCard c) {
-        if (c.type == AbstractCard.CardType.STATUS && c.costForTurn < -1 && !AbstractDungeon.player.hasRelic("Medical Kit")) {
+        if (CardType.STATUS == c.type && -1 > c.costForTurn && !AbstractDungeon.player.hasRelic("Medical Kit")) {
             return false;
-        } else if (c.type == AbstractCard.CardType.CURSE && c.costForTurn < -1 && !AbstractDungeon.player.hasRelic("Blue Candle")) {
+        } else if (CardType.CURSE == c.type && -1 > c.costForTurn && !AbstractDungeon.player.hasRelic("Blue Candle")) {
             return false;
         } else {
             return c.hasEnoughEnergy();

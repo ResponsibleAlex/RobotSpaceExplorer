@@ -33,7 +33,7 @@ public class MultitoolPower extends AbstractPower implements CloneablePowerInter
 
         owner = AbstractDungeon.player;
         this.amount = amount;
-        if (this.amount >= 999) {
+        if (999 <= this.amount) {
             this.amount = 999;
         }
 
@@ -48,7 +48,7 @@ public class MultitoolPower extends AbstractPower implements CloneablePowerInter
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (amount >= 999) {
+        if (999 <= amount) {
             amount = 999;
         }
     }
@@ -64,9 +64,9 @@ public class MultitoolPower extends AbstractPower implements CloneablePowerInter
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {
-        if (amount == 1) {
+        if (1 == amount) {
             description = DESCRIPTIONS[0];
-        } else if (amount > 1) {
+        } else if (1 < amount) {
             description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
         }
     }

@@ -38,7 +38,7 @@ public class SolarFlarePower extends AbstractPower implements CloneablePowerInte
 
         owner = AbstractDungeon.player;
         this.amount = amount;
-        if (this.amount >= 999) {
+        if (999 <= this.amount) {
             this.amount = 999;
         }
 
@@ -54,7 +54,7 @@ public class SolarFlarePower extends AbstractPower implements CloneablePowerInte
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (amount >= 999) {
+        if (999 <= amount) {
             amount = 999;
         }
     }
@@ -65,7 +65,7 @@ public class SolarFlarePower extends AbstractPower implements CloneablePowerInte
                             .areMonstersBasicallyDead()) {
 
             AbstractMonster m = AbstractDungeon.getRandomMonster();
-            if (m != null && m.hb != null) {
+            if (null != m && null != m.hb) {
                 addToTop(new VFXAction(m, new InflameEffect(m), 0.2F));
                 addToBot(new DamageAction(m,
                         new DamageInfo(owner, amount, DamageInfo.DamageType.THORNS),

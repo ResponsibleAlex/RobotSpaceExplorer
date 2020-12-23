@@ -25,7 +25,7 @@ public class FrostEffect extends AbstractGameEffect {
 
     public void update() {
         timer -= Gdx.graphics.getDeltaTime();
-        if (timer < 0.0F) {
+        if (0.0F > timer) {
             timer += 0.15F;
 
             CardCrawlGame.sound.playA("ORB_FROST_EVOKE", MathUtils.random(0.7F, 0.8F));
@@ -42,7 +42,7 @@ public class FrostEffect extends AbstractGameEffect {
                     x, y + 120.0F, 0.0F));
 
             --count;
-            if (count == 0) {
+            if (0 == count) {
                 isDone = true;
             }
         }

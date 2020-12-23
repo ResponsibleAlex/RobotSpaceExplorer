@@ -25,7 +25,7 @@ public class GlueSprayAction extends AbstractGameAction {
 
     public void update() {
         int effect = EnergyPanel.totalCount;
-        if (energyOnUse != -1) {
+        if (-1 != energyOnUse) {
             effect = energyOnUse;
         }
 

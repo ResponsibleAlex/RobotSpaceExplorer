@@ -32,7 +32,7 @@ public class CometAction extends AbstractGameAction {
             // trigger Solar Flare
             int damage = amount;
             AbstractPower pow = p.getPower(SolarFlarePower.POWER_ID);
-            if (pow != null) {
+            if (null != pow) {
                 damage += pow.amount;
                 pow.flash();
             }

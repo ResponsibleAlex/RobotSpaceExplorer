@@ -40,7 +40,7 @@ public class ClockworkSextant extends CustomRelic {
             ++counter;
         }
 
-        if (counter == 2) {
+        if (2 == counter) {
             flash();
             addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ArtifactPower(AbstractDungeon.player, 1), 1));

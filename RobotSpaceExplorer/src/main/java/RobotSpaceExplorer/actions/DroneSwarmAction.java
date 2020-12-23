@@ -12,20 +12,18 @@ public class DroneSwarmAction extends AbstractGameAction {
     private final boolean freeToPlayOnce;
     private final AbstractPlayer p;
     private final int energyOnUse;
-    private final boolean upgraded;
 
     public DroneSwarmAction(boolean freeToPlayOnce, int energyOnUse, boolean upgraded) {
         actionType = ActionType.POWER;
         this.freeToPlayOnce = freeToPlayOnce;
         this.energyOnUse = energyOnUse;
-        this.upgraded = upgraded;
         p = AbstractDungeon.player;
     }
 
     @Override
     public void update() {
         int effect = EnergyPanel.totalCount;
-        if (energyOnUse != -1) {
+        if (-1 != energyOnUse) {
             effect = energyOnUse;
         }
         if (p.hasRelic(ChemicalX.ID)) {
@@ -34,7 +32,7 @@ public class DroneSwarmAction extends AbstractGameAction {
              .flash();
         }
 
-        if (effect > 0) {
+        if (0 < effect) {
             effect *= 2; // 2X
             addToBot(new ApplyPowerAction(p, p,
                     new DroneSwarmPower(effect), effect));

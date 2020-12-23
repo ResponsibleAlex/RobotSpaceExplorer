@@ -57,9 +57,9 @@ public class Exploration extends AbstractDynamicCard {
 
     public static AbstractRelic.RelicTier getRelicTier() {
         int roll = relicRng.random(0, 99);
-        if (roll < 50) {
+        if (50 > roll) {
             return AbstractRelic.RelicTier.COMMON;
-        } else if (roll < 90) {
+        } else if (90 > roll) {
             return AbstractRelic.RelicTier.UNCOMMON;
         } else {
             return AbstractRelic.RelicTier.RARE;
