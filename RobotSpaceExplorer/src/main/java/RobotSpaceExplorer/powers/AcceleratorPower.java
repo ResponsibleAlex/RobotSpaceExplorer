@@ -20,7 +20,7 @@ import static RobotSpaceExplorer.RobotSpaceExplorerMod.makePowerPath;
 
 public class AcceleratorPower extends AbstractPower implements CloneablePowerInterface {
 
-    private int zeroCostCardsPlayedThisTurn = 0;
+    private int zeroCostCardsPlayedThisTurn;
 
     public static final String POWER_ID = RobotSpaceExplorerMod.makeID("AcceleratorPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);

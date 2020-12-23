@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Collection;
 
 public class SelfCleaningAction extends AbstractGameAction {
 
@@ -23,27 +23,17 @@ public class SelfCleaningAction extends AbstractGameAction {
 
     public void update() {
         // exhaust and gain block/draw
-        ArrayList<AbstractCard> cardsToExhaust = new ArrayList<>();
-        AbstractCard c;
 
-        Iterator<AbstractCard> i = p.hand.getCardsOfType(AbstractCard.CardType.STATUS).group.iterator();
-        while (i.hasNext()) {
-            c = i.next();
-            cardsToExhaust.add(c);
-        }
+        Collection<AbstractCard> cardsToExhaust = new ArrayList<>(p.hand.getCardsOfType(AbstractCard.CardType.STATUS).group);
 
-        i = cardsToExhaust.iterator();
-        while (i.hasNext()) {
-            c = i.next();
+        for (AbstractCard ignored : cardsToExhaust) {
             addToTop(new DrawCardAction(1));
             addToTop(new GainBlockAction(p, p, amount));
         }
 
-        i = cardsToExhaust.iterator();
-        while (i.hasNext()) {
-            c = i.next();
-            addToTop(new ExhaustSpecificCardAction(c, p.hand));
-        }
+        cardsToExhaust.stream()
+                      .map(card -> new ExhaustSpecificCardAction(card, p.hand))
+                      .forEach(this::addToTop);
 
         isDone = true;
     }

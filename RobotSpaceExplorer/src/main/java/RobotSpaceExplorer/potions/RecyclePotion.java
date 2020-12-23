@@ -33,7 +33,6 @@ public class RecyclePotion extends AbstractPotion {
 
     @Override
     public void use(AbstractCreature target) {
-        target = AbstractDungeon.player;
         // If you are in combat
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             addToBot(new SalvageAction(potency, true));
