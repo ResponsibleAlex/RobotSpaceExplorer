@@ -1,5 +1,7 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -9,8 +11,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.vfx.StarBounceEffect;
 import com.megacrit.cardcrawl.vfx.combat.ViolentAttackEffect;
 
@@ -61,15 +61,12 @@ public class Blitz extends AbstractDynamicCard {
         if (Settings.FAST_MODE) {
             addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, ROBOT_ORANGE)));
 
-            for(i = 0; i < 5; ++i) {
-                addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
-            }
         } else {
             addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, ROBOT_ORANGE), 0.4F));
 
-            for(i = 0; i < 5; ++i) {
-                addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
-            }
+        }
+        for(i = 0; i < 5; ++i) {
+            addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
         }
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
     }

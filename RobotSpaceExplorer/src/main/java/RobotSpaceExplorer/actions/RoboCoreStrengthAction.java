@@ -12,8 +12,6 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.ClockworkSouvenir;
 import com.megacrit.cardcrawl.relics.MutagenicStrength;
 
-import java.util.Iterator;
-
 public class RoboCoreStrengthAction extends AbstractGameAction {
 
     AbstractPlayer p;

@@ -30,12 +30,9 @@ public class DroneSwarmAction extends AbstractGameAction {
         }
         if (p.hasRelic(ChemicalX.ID)) {
             effect += 2;
-            p.getRelic(ChemicalX.ID).flash();
+            p.getRelic(ChemicalX.ID)
+             .flash();
         }
-
-        /*if (this.upgraded) {
-            effect++;
-        }*/
 
         if (effect > 0) {
             effect *= 2; // 2X

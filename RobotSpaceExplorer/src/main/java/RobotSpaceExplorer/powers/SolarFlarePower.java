@@ -1,19 +1,19 @@
 package RobotSpaceExplorer.powers;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.util.TextureLoader;
 import com.megacrit.cardcrawl.vfx.combat.InflameEffect;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makePowerPath;
@@ -61,7 +61,8 @@ public class SolarFlarePower extends AbstractPower implements CloneablePowerInte
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+        if (!AbstractDungeon.getMonsters()
+                            .areMonstersBasicallyDead()) {
 
             AbstractMonster m = AbstractDungeon.getRandomMonster();
             if (m != null && m.hb != null) {
@@ -70,19 +71,6 @@ public class SolarFlarePower extends AbstractPower implements CloneablePowerInte
                         new DamageInfo(owner, amount, DamageInfo.DamageType.THORNS),
                         AbstractGameAction.AttackEffect.NONE, true));
             }
-
-            /*
-            Iterator monsters = AbstractDungeon.getMonsters().monsters.iterator();
-
-            while(monsters.hasNext()) {
-                AbstractMonster monster = (AbstractMonster)monsters.next();
-                if (!monster.isDead && !monster.isDying) {
-                    this.addToTop(new VFXAction(monster, new InflameEffect(monster), 0.2F));
-                }
-            }
-
-            this.addToBot(new DamageAllEnemiesAction((AbstractCreature)null, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE));
-            */
         }
     }
 
