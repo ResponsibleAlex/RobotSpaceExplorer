@@ -129,27 +129,27 @@ public class RobotSpaceExplorerMod implements
     // =============== MAKE IMAGE PATHS =================
 
     public static String makeCardPath(String resourcePath) {
-        return getModID() + "Resources/images/cards/" + resourcePath;
+        return modID + "Resources/images/cards/" + resourcePath;
     }
 
     public static String makeRelicPath(String resourcePath) {
-        return getModID() + "Resources/images/relics/" + resourcePath;
+        return modID + "Resources/images/relics/" + resourcePath;
     }
 
     public static String makeRelicOutlinePath(String resourcePath) {
-        return getModID() + "Resources/images/relics/outline/" + resourcePath;
+        return modID + "Resources/images/relics/outline/" + resourcePath;
     }
 
     public static String makeEffectPath(String resourcePath) {
-        return getModID() + "Resources/images/vfx/" + resourcePath;
+        return modID + "Resources/images/vfx/" + resourcePath;
     }
 
     public static String makePowerPath(String resourcePath) {
-        return getModID() + "Resources/images/powers/" + resourcePath;
+        return modID + "Resources/images/powers/" + resourcePath;
     }
 
     public static String makeEventPath(String resourcePath) {
-        return getModID() + "Resources/images/events/" + resourcePath;
+        return modID + "Resources/images/events/" + resourcePath;
     }
 
     // =============== /MAKE IMAGE PATHS/ =================
@@ -248,13 +248,13 @@ public class RobotSpaceExplorerMod implements
         IDCheckDontTouchPls EXCEPTION_STRINGS = coolG.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), IDCheckDontTouchPls.class); // NAH, NO EDIT
         String packageName = RobotSpaceExplorerMod.class.getPackage()
                                                         .getName(); // STILL NO EDIT ZONE
-        FileHandle resourcePathExists = Gdx.files.internal(getModID() + "Resources"); // PLEASE DON'T EDIT THINGS HERE, THANKS
+        FileHandle resourcePathExists = Gdx.files.internal(modID + "Resources"); // PLEASE DON'T EDIT THINGS HERE, THANKS
         if (!modID.equals(EXCEPTION_STRINGS.DEVID)) { // LEAVE THIS EDIT-LESS
-            if (!packageName.equals(getModID())) { // NOT HERE ETHER
-                throw new RuntimeException(EXCEPTION_STRINGS.PACKAGE_EXCEPTION + getModID()); // THIS IS A NO-NO
+            if (!packageName.equals(modID)) { // NOT HERE ETHER
+                throw new RuntimeException(EXCEPTION_STRINGS.PACKAGE_EXCEPTION + modID); // THIS IS A NO-NO
             } // WHY WOULD U EDIT THIS
             if (!resourcePathExists.exists()) { // DON'T CHANGE THIS
-                throw new RuntimeException(EXCEPTION_STRINGS.RESOURCE_FOLDER_EXCEPTION + getModID() + "Resources"); // NOT THIS
+                throw new RuntimeException(EXCEPTION_STRINGS.RESOURCE_FOLDER_EXCEPTION + modID + "Resources"); // NOT THIS
             }// NO
         }// NO
     }// NO
@@ -549,31 +549,31 @@ public class RobotSpaceExplorerMod implements
             lang = "zhs";
         }
 
-        logger.info("Beginning to edit strings for mod with ID: " + getModID());
+        logger.info("Beginning to edit strings for mod with ID: " + modID);
 
         // CardStrings
         BaseMod.loadCustomStringsFile(CardStrings.class,
-                getModID() + "Resources/localization/" + lang + "/DefaultMod-Card-Strings.json");
+                modID + "Resources/localization/" + lang + "/DefaultMod-Card-Strings.json");
 
         // PowerStrings
         BaseMod.loadCustomStringsFile(PowerStrings.class,
-                getModID() + "Resources/localization/" + lang + "/DefaultMod-Power-Strings.json");
+                modID + "Resources/localization/" + lang + "/DefaultMod-Power-Strings.json");
 
         // RelicStrings
         BaseMod.loadCustomStringsFile(RelicStrings.class,
-                getModID() + "Resources/localization/" + lang + "/DefaultMod-Relic-Strings.json");
+                modID + "Resources/localization/" + lang + "/DefaultMod-Relic-Strings.json");
 
         // Event Strings
         BaseMod.loadCustomStringsFile(EventStrings.class,
-                getModID() + "Resources/localization/" + lang + "/DefaultMod-Event-Strings.json");
+                modID + "Resources/localization/" + lang + "/DefaultMod-Event-Strings.json");
 
         // PotionStrings
         BaseMod.loadCustomStringsFile(PotionStrings.class,
-                getModID() + "Resources/localization/" + lang + "/DefaultMod-Potion-Strings.json");
+                modID + "Resources/localization/" + lang + "/DefaultMod-Potion-Strings.json");
 
         // CharacterStrings
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
-                getModID() + "Resources/localization/" + lang + "/DefaultMod-Character-Strings.json");
+                modID + "Resources/localization/" + lang + "/DefaultMod-Character-Strings.json");
 
 
         logger.info("Done editing strings");
@@ -591,13 +591,13 @@ public class RobotSpaceExplorerMod implements
         }
 
         Gson gson = new Gson();
-        String json = Gdx.files.internal(getModID() + "Resources/localization/" + lang + "/DefaultMod-Keyword-Strings.json")
+        String json = Gdx.files.internal(modID + "Resources/localization/" + lang + "/DefaultMod-Keyword-Strings.json")
                                .readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
 
         if (keywords != null) {
             for (Keyword keyword : keywords) {
-                BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+                BaseMod.addKeyword(modID.toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }
     }
@@ -607,6 +607,6 @@ public class RobotSpaceExplorerMod implements
     // this adds "ModName:" before the ID of any card/relic/power etc.
     // in order to avoid conflicts if any other mod uses the same ID.
     public static String makeID(String idText) {
-        return getModID() + ":" + idText;
+        return modID + ":" + idText;
     }
 }
