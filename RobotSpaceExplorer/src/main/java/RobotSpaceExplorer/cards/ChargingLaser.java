@@ -1,6 +1,7 @@
 package RobotSpaceExplorer.cards;
 
 import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.actions.ModifyAutoloaderChargingLaserAction;
 import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -63,6 +64,7 @@ public class ChargingLaser extends AbstractDynamicCard {
 
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
         addToBot(new ModifyDamageAction(uuid, magicNumber));
+        addToBot(new ModifyAutoloaderChargingLaserAction(uuid, magicNumber));
     }
 
     // Upgraded stats.
