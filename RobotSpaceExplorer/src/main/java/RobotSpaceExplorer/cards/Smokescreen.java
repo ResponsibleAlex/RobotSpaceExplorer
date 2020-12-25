@@ -1,16 +1,14 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.powers.WeakPower;
-
-import java.util.Iterator;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeCardPath;
 
@@ -56,13 +54,11 @@ public class Smokescreen extends AbstractDynamicCard {
                 new GainBlockAction(p, p, block));
 
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-            this.flash();
-            Iterator monsters = AbstractDungeon.getMonsters().monsters.iterator();
+            flash();
 
-            while(monsters.hasNext()) {
-                AbstractMonster monster = (AbstractMonster)monsters.next();
+            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
                 if (!monster.isDead && !monster.isDying) {
-                    this.addToBot(new ApplyPowerAction(monster, p, new WeakPower(monster, this.magicNumber, false), this.magicNumber));
+                    addToBot(new ApplyPowerAction(monster, p, new WeakPower(monster, magicNumber, false), magicNumber));
                 }
             }
         }

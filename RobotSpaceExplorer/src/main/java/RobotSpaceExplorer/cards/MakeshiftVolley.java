@@ -1,5 +1,7 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
@@ -7,8 +9,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeCardPath;
 
@@ -49,11 +49,11 @@ public class MakeshiftVolley extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int count = AbstractDungeon.player.hand.size();
         count--; // this card still technically in hand, so ignore it for the count
-        if (count != 0) {
-            this.addToTop(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, count, true));
+        if (0 != count) {
+            addToTop(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, count, true));
 
             for (int i = 0; i < count; i++) {
-                this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             }
         }
     }

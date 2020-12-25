@@ -8,20 +8,17 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.ClockworkSouvenir;
 import com.megacrit.cardcrawl.relics.MutagenicStrength;
 
-import java.util.Iterator;
-
 public class RoboCoreStrengthAction extends AbstractGameAction {
 
-    AbstractPlayer p;
+    final AbstractPlayer p;
 
     public RoboCoreStrengthAction(int strength) {
-        this.amount = strength;
-        this.actionType = ActionType.SPECIAL;
-        this.p = AbstractDungeon.player;
+        amount = strength;
+        actionType = ActionType.SPECIAL;
+        p = AbstractDungeon.player;
     }
 
     public void update() {
@@ -30,28 +27,20 @@ public class RoboCoreStrengthAction extends AbstractGameAction {
         // If you have both MutagenicStrength and ClockworkSouvenir,
         // try to let them all stack intuitively. Gremlin's Visage might
         // mess this up.
-        boolean hasMutagenic = false;
-        boolean hasSouvenir = false;
-        Iterator i = p.relics.iterator();
 
-        while(i.hasNext()) {
-            AbstractRelic r = (AbstractRelic)i.next();
-            if (r.relicId == MutagenicStrength.ID) {
-                hasMutagenic = true;
-            }
-            if (r.relicId == ClockworkSouvenir.ID) {
-                hasSouvenir = true;
-            }
-        }
+        boolean hasMutagenic = p.relics.stream()
+                                       .anyMatch(r -> r.relicId.equals(MutagenicStrength.ID));
+
+        boolean hasSouvenir = p.relics.stream()
+                                      .anyMatch(r -> r.relicId.equals(ClockworkSouvenir.ID));
 
         // if we have both relics, do some logic, otherwise apply the Strength down
         if (hasMutagenic && hasSouvenir) {
-
             if (p.hasPower(LoseStrengthPower.POWER_ID) && p.hasPower(ArtifactPower.POWER_ID)) {
                 // If we see some existing Strength Down and a charge of Artifact
                 // assume we need to clean it all up.
-                this.addToBot(new RemoveSpecificPowerAction(p, p, LoseStrengthPower.POWER_ID));
-                this.addToBot(new RemoveSpecificPowerAction(p, p, ArtifactPower.POWER_ID));
+                addToBot(new RemoveSpecificPowerAction(p, p, LoseStrengthPower.POWER_ID));
+                addToBot(new RemoveSpecificPowerAction(p, p, ArtifactPower.POWER_ID));
             } else if (p.hasPower(LoseStrengthPower.POWER_ID)) {
                 // If we see the Strength Down but no Artifact, assume something else
                 // removed the Artifact and apply our Strength Down
@@ -66,14 +55,14 @@ public class RoboCoreStrengthAction extends AbstractGameAction {
             strDown();
         }
 
-        this.isDone = true;
+        isDone = true;
     }
 
     public void strUp() {
-        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, this.amount), this.amount));
+        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, amount), amount));
     }
 
     public void strDown() {
-        this.addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(p, this.amount), this.amount));
+        addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(p, amount), amount));
     }
 }

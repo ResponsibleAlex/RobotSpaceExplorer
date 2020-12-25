@@ -1,20 +1,17 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import RobotSpaceExplorer.vfx.FrostEffect;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.powers.WeakPower;
-import com.megacrit.cardcrawl.vfx.combat.FrostOrbActivateEffect;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeCardPath;
 
@@ -58,9 +55,9 @@ public class FrostMissile extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new VFXAction(new FrostEffect(m.hb.cX, m.hb.cY)));
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
-        this.addToBot(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber));
+        addToBot(new VFXAction(new FrostEffect(m.hb.cX, m.hb.cY)));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+        addToBot(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false), magicNumber));
     }
 
 

@@ -1,13 +1,12 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import RobotSpaceExplorer.powers.SalvageNextTurnPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
-import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import com.megacrit.cardcrawl.powers.EnergizedPower;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeCardPath;
@@ -56,8 +55,8 @@ public class Calculate extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new EnergizedPower(p, defaultSecondMagicNumber), defaultSecondMagicNumber));
-        this.addToBot(new ApplyPowerAction(p, p, new SalvageNextTurnPower(magicNumber), magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new EnergizedPower(p, defaultSecondMagicNumber), defaultSecondMagicNumber));
+        addToBot(new ApplyPowerAction(p, p, new SalvageNextTurnPower(magicNumber), magicNumber));
     }
 
 

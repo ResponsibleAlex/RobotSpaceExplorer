@@ -1,13 +1,13 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
 import RobotSpaceExplorer.actions.AutoloaderAction;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 
 import java.util.Iterator;
 
@@ -47,7 +47,7 @@ public class Autoloader extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new AutoloaderAction(cardStrings.EXTENDED_DESCRIPTION[1]));
+        addToBot(new AutoloaderAction(cardStrings.EXTENDED_DESCRIPTION[1]));
     }
 
     @Override
@@ -56,19 +56,19 @@ public class Autoloader extends AbstractDynamicCard {
         if (!canUse) {
             return false;
         } else {
-            Iterator i = p.hand.group.iterator();
+            Iterator<AbstractCard> i = p.hand.group.iterator();
             canUse = false;
 
             while(i.hasNext()) {
-                AbstractCard c = (AbstractCard) i.next();
-                if (c.type == CardType.ATTACK) {
+                AbstractCard c = i.next();
+                if (CardType.ATTACK == c.type) {
                     canUse = true;
                     break;
                 }
             }
 
             if (!canUse)
-                this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
+                cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
             return canUse;
         }
     }

@@ -1,62 +1,54 @@
 package RobotSpaceExplorer.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-
 public class ArsenalAction extends AbstractGameAction {
-    private boolean freeToPlayOnce;
-    private AbstractPlayer p;
-    private int energyOnUse;
-    private boolean upgraded;
+    private final boolean freeToPlayOnce;
+    private final AbstractPlayer p;
+    private final int energyOnUse;
+    private final boolean upgraded;
 
     public ArsenalAction(AbstractPlayer p, boolean upgraded, boolean freeToPlayOnce, int energyOnUse) {
         this.p = p;
         this.freeToPlayOnce = freeToPlayOnce;
-        this.duration = Settings.ACTION_DUR_XFAST;
-        this.actionType = ActionType.SPECIAL;
+        duration = Settings.ACTION_DUR_XFAST;
+        actionType = ActionType.SPECIAL;
         this.energyOnUse = energyOnUse;
         this.upgraded = upgraded;
     }
 
     public void update() {
         int effect = EnergyPanel.totalCount;
-        if (this.energyOnUse != -1) {
-            effect = this.energyOnUse;
+        if (-1 != energyOnUse) {
+            effect = energyOnUse;
         }
 
-        if (this.p.hasRelic("Chemical X")) {
+        if (p.hasRelic("Chemical X")) {
             effect += 2;
-            this.p.getRelic("Chemical X").flash();
+            p.getRelic("Chemical X")
+             .flash();
         }
 
-        if (this.upgraded) {
+        if (upgraded) {
             ++effect;
         }
 
         // play a random attack effect# times
         CardGroup pile = p.exhaustPile.getAttacks();
-        if (pile.size() > 0) {
+        if (!pile.isEmpty()) {
             for (int i = 0; i < effect; i++) {
-                this.addToBot(new PlayExhaustedAttackAction(pile.getRandomCard(true)));
+                addToBot(new PlayExhaustedAttackAction(pile.getRandomCard(true)));
             }
         }
 
-        if (!this.freeToPlayOnce) {
-            this.p.energy.use(EnergyPanel.totalCount);
+        if (!freeToPlayOnce) {
+            p.energy.use(EnergyPanel.totalCount);
         }
 
-        this.isDone = true;
+        isDone = true;
     }
 }

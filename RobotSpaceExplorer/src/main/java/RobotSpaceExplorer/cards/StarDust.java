@@ -1,13 +1,13 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import RobotSpaceExplorer.powers.StarDustEnergyDownPower;
 import RobotSpaceExplorer.powers.StarDustPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeCardPath;
 
@@ -47,9 +47,9 @@ public class StarDust extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p,
+        addToBot(new ApplyPowerAction(p, p,
                 new StarDustPower(magicNumber), magicNumber));
-        this.addToBot(new ApplyPowerAction(p, p,
+        addToBot(new ApplyPowerAction(p, p,
                 new StarDustEnergyDownPower(1), 1));
     }
 

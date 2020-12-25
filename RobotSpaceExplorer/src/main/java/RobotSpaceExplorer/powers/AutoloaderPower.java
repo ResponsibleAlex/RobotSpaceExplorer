@@ -1,5 +1,7 @@
 package RobotSpaceExplorer.powers;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -11,8 +13,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.util.TextureLoader;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makePowerPath;
 
@@ -32,21 +32,21 @@ public class AutoloaderPower extends AbstractPower implements CloneablePowerInte
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("Autoloader32.png"));
 
     private static int IdOffset = 0;
-    private AbstractCard cardToPlay;
+    private final AbstractCard cardToPlay;
 
     public AutoloaderPower(final AbstractCard cardToPlay) {
         name = NAME;
         ID = POWER_ID + IdOffset;
         ++IdOffset;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
         this.cardToPlay = cardToPlay;
 
         type = PowerType.BUFF;
 
         // We load those txtures here.
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
@@ -64,7 +64,7 @@ public class AutoloaderPower extends AbstractPower implements CloneablePowerInte
         tmp.current_y = card.current_y;
         tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
         tmp.target_y = (float)Settings.HEIGHT / 2.0F;
-        if (m != null) {
+        if (null != m) {
             tmp.calculateCardDamage(m);
         }
 

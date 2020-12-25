@@ -1,10 +1,7 @@
 package RobotSpaceExplorer.relics;
 
 import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.actions.AmmunitionAction;
-import RobotSpaceExplorer.actions.ArsenalAction;
 import RobotSpaceExplorer.actions.PlayExhaustedAttackAction;
-import RobotSpaceExplorer.actions.PlayRandomMissileAction;
 import RobotSpaceExplorer.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
@@ -35,10 +32,10 @@ public class SlideRule extends CustomRelic {
     @Override
     public void onShuffle() {
         CardGroup pile = AbstractDungeon.player.exhaustPile.getAttacks();
-        if (pile.size() > 0) {
-            this.flash();
-            this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            this.addToBot(new PlayExhaustedAttackAction(pile.getRandomCard(true)));
+        if (0 < pile.size()) {
+            flash();
+            addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            addToBot(new PlayExhaustedAttackAction(pile.getRandomCard(true)));
         }
     }
 

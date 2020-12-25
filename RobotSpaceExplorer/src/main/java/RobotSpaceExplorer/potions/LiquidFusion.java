@@ -12,8 +12,6 @@ import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.relics.SacredBark;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
-import java.util.Iterator;
-
 public class LiquidFusion extends AbstractPotion {
     public static final String POTION_ID = RobotSpaceExplorerMod.makeID("LiquidFusion");
     private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
@@ -35,35 +33,32 @@ public class LiquidFusion extends AbstractPotion {
         isThrown = false;
 
         // Initialize the on-hover name + description
-        this.tips.clear();
+        tips.clear();
         tips.add(new PowerTip(name, description));
     }
 
     public void initializeData() {
-        this.potency = this.getPotency();
-        if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(SacredBark.ID)) {
-            this.description = DESCRIPTIONS[1] + DESCRIPTIONS[0];
+        potency = getPotency();
+        if (null != AbstractDungeon.player && AbstractDungeon.player.hasRelic(SacredBark.ID)) {
+            description = DESCRIPTIONS[1] + DESCRIPTIONS[0];
         } else {
-            this.description = DESCRIPTIONS[0];
+            description = DESCRIPTIONS[0];
         }
 
-        this.tips.clear();
-        this.tips.add(new PowerTip(this.name, this.description));
+        tips.clear();
+        tips.add(new PowerTip(name, description));
     }
 
     @Override
     public void use(AbstractCreature target) {
         target = AbstractDungeon.player;
         // If you are in combat
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            if (AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(SacredBark.ID)) {
-                this.addToBot(new DrawCardAction(1));
+        if (AbstractRoom.RoomPhase.COMBAT == AbstractDungeon.getCurrRoom().phase) {
+            if (null != AbstractDungeon.player && AbstractDungeon.player.hasRelic(SacredBark.ID)) {
+                addToBot(new DrawCardAction(1));
             }
-            Iterator i  = AbstractDungeon.player.hand.group.iterator();
-            AbstractCard c;
-            while (i.hasNext()) {
-                c = (AbstractCard)i.next();
-                if (c.costForTurn > 0) {
+            for (AbstractCard c : AbstractDungeon.player.hand.group) {
+                if (0 < c.costForTurn) {
                     c.setCostForTurn(0);
                     c.superFlash();
                 }

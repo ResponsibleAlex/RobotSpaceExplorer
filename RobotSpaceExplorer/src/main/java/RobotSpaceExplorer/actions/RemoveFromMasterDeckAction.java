@@ -4,47 +4,42 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-import java.util.Iterator;
-
 public class RemoveFromMasterDeckAction extends AbstractGameAction {
-    private AbstractCard cardToRemove;
+    private final AbstractCard cardToRemove;
 
     public RemoveFromMasterDeckAction(AbstractCard cardToRemove) {
         this.cardToRemove = cardToRemove;
 
-        this.actionType = ActionType.CARD_MANIPULATION;
+        actionType = ActionType.CARD_MANIPULATION;
     }
 
     public void update() {
         AbstractCard upgradeMatch = null;
         AbstractCard match = null;
 
-        Iterator i = AbstractDungeon.player.masterDeck.group.iterator();
-        AbstractCard c;
-        while (i.hasNext()) {
-            c = (AbstractCard)i.next();
-            if (c.cardID == this.cardToRemove.cardID && c.upgraded == this.cardToRemove.upgraded) {
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+            if (c.cardID.equals(cardToRemove.cardID) && c.upgraded == cardToRemove.upgraded) {
                 upgradeMatch = c;
                 break;
-            } else if (c.cardID == this.cardToRemove.cardID) {
+            } else if (c.cardID.equals(cardToRemove.cardID)) {
                 match = c;
             }
         }
 
-        if (upgradeMatch != null) {
+        if (null != upgradeMatch) {
             doRemovalFromMasterDeck(upgradeMatch);
-        } else if (match != null) {
+        } else if (null != match) {
             doRemovalFromMasterDeck(match);
         }
 
-        this.isDone = true;
+        isDone = true;
     }
 
     private void doRemovalFromMasterDeck(AbstractCard c) {
-        this.cardToRemove.lighten(true);
-        this.cardToRemove.stopGlowing();
-        this.cardToRemove.unhover();
-        this.cardToRemove.unfadeOut();
+        cardToRemove.lighten(true);
+        cardToRemove.stopGlowing();
+        cardToRemove.unhover();
+        cardToRemove.unfadeOut();
         AbstractDungeon.player.masterDeck.removeCard(c);
     }
 }

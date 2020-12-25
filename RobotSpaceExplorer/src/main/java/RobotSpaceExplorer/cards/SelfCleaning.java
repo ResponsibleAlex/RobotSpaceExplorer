@@ -1,13 +1,13 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
 import RobotSpaceExplorer.actions.SelfCleaningAction;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.status.Slimed;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeCardPath;
 
@@ -48,8 +48,8 @@ public class SelfCleaning extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new MakeTempCardInHandAction(new Slimed(), 1));
-        this.addToBot(new SelfCleaningAction(magicNumber));
+        addToBot(new MakeTempCardInHandAction(new Slimed(), 1));
+        addToBot(new SelfCleaningAction(magicNumber));
     }
 
 

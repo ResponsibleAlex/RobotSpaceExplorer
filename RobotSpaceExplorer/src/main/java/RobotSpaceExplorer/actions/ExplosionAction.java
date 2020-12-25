@@ -3,21 +3,17 @@ package RobotSpaceExplorer.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import java.util.ArrayList;
 
 public class ExplosionAction extends AbstractGameAction {
-    private AbstractCard aftershock;
+    private final AbstractCard aftershock;
 
     public ExplosionAction(AbstractCard cardToPlay) {
-        this.aftershock = cardToPlay;
+        aftershock = cardToPlay;
 
-        this.duration = Settings.ACTION_DUR_FAST;
-        this.actionType = ActionType.SPECIAL;
+        duration = Settings.ACTION_DUR_FAST;
+        actionType = ActionType.SPECIAL;
     }
 
     public void update() {
@@ -30,6 +26,6 @@ public class ExplosionAction extends AbstractGameAction {
 
         AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, true, 0, true, true), false);
 
-        this.isDone = true;
+        isDone = true;
     }
 }

@@ -1,5 +1,6 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
 import RobotSpaceExplorer.powers.DischargerPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -11,7 +12,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
@@ -52,7 +52,7 @@ public class StaticBuildup extends AbstractDynamicCard {
         magicNumber = baseMagicNumber = WEAK;
 
         // if we have Discharger power, make this Ethereal then update description
-        if (AbstractDungeon.player != null &&
+        if (null != AbstractDungeon.player &&
                 AbstractDungeon.player.hasPower(DischargerPower.POWER_ID)) {
             setEthereal();
         } else {
@@ -61,18 +61,18 @@ public class StaticBuildup extends AbstractDynamicCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (this.dontTriggerOnUseCard) {
-            this.addToBot(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, 1, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.LIGHTNING));
-            this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new WeakPower(AbstractDungeon.player, this.magicNumber, true), this.magicNumber));
+        if (dontTriggerOnUseCard) {
+            addToBot(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, 1, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.LIGHTNING));
+            addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new WeakPower(AbstractDungeon.player, magicNumber, true), magicNumber));
         }
     }
 
     public void triggerWhenDrawn() {
-        this.addToBot(new SetDontTriggerAction(this, false));
+        addToBot(new SetDontTriggerAction(this, false));
     }
 
     public void triggerOnEndOfTurnForPlayingCard() {
-        this.dontTriggerOnUseCard = true;
+        dontTriggerOnUseCard = true;
         AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(this, true));
     }
 
@@ -80,12 +80,12 @@ public class StaticBuildup extends AbstractDynamicCard {
     }
 
     public void setEthereal() {
-        this.isEthereal = true;
+        isEthereal = true;
         // Ethereal doesn't actually work here because the card
         // autoplays itself, so set exhaust = true
-        this.exhaust = true;
-        this.rawDescription = ETHEREAL_DESCRIPTION;
-        this.initializeDescription();
+        exhaust = true;
+        rawDescription = ETHEREAL_DESCRIPTION;
+        initializeDescription();
     }
 
     public AbstractCard makeCopy() {

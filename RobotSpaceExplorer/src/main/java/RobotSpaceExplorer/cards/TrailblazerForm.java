@@ -1,13 +1,13 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import RobotSpaceExplorer.powers.TrailblazerPower;
 import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeCardPath;
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
@@ -43,14 +43,14 @@ public class TrailblazerForm extends AbstractDynamicCard {
         magicNumber = baseMagicNumber = MAGIC_NUMBER;
         defaultSecondMagicNumber = defaultBaseSecondMagicNumber = SECOND_MAGIC_NUMBER;
         isEthereal = true;
-        this.tags.add(BaseModCardTags.FORM);
+        tags.add(BaseModCardTags.FORM);
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p,
+        addToBot(new ApplyPowerAction(p, p,
                 new TrailblazerPower(magicNumber), magicNumber));
     }
 

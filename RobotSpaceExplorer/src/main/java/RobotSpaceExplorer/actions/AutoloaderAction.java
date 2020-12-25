@@ -12,94 +12,73 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class AutoloaderAction extends AbstractGameAction {
-    private AbstractPlayer p;
-    private ArrayList<AbstractCard> nonAttacks = new ArrayList();
-    private String text;
+    private final AbstractPlayer p;
+    private final ArrayList<AbstractCard> nonAttacks = new ArrayList<>();
+    private final String text;
 
     public AutoloaderAction(String chooseACardText) {
-        this.text = chooseACardText;
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
+        text = chooseACardText;
+        actionType = ActionType.CARD_MANIPULATION;
+        duration = Settings.ACTION_DUR_FAST;
         p = AbstractDungeon.player;
     }
 
     public void update() {
-        Iterator i = p.hand.group.iterator();
-        AbstractCard c;
 
-        if (this.duration == Settings.ACTION_DUR_FAST) {
-            while (i.hasNext()) {
-                c = (AbstractCard) i.next();
-                if (c.type != AbstractCard.CardType.ATTACK) {
-                    nonAttacks.add(c);
-                }
-            }
+        if (duration == Settings.ACTION_DUR_FAST) {
+            p.hand.group.stream()
+                        .filter(c -> AbstractCard.CardType.ATTACK != c.type)
+                        .forEach(nonAttacks::add);
 
-            if (this.p.hand.group.size() - this.nonAttacks.size() == 1) {
+            if (1 == p.hand.group.size() - nonAttacks.size()) {
                 // only 1 valid card
-                i = this.p.hand.group.iterator();
 
-                while (i.hasNext()) {
-                    c = (AbstractCard) i.next();
-                    if (c.type == AbstractCard.CardType.ATTACK) {
+                for (AbstractCard c : p.hand.group) {
+                    if (AbstractCard.CardType.ATTACK == c.type) {
                         // the only valid card, purge and add to autoloader
                         loadIntoPower(c);
-                        this.isDone = true;
+                        isDone = true;
                         return;
                     }
                 }
             }
 
-            this.p.hand.group.removeAll(this.nonAttacks);
-            if (this.p.hand.group.size() > 1) {
+            p.hand.group.removeAll(nonAttacks);
+            if (1 < p.hand.group.size()) {
                 AbstractDungeon.handCardSelectScreen.open(text, 1, false, false, false, false);
-                this.tickDuration();
+                tickDuration();
                 return;
             }
 
-            if (this.p.hand.group.size() == 1) {
+            if (1 == p.hand.group.size()) {
                 // only 1 valid card, should never reach here? from Armaments...
-                c = this.p.hand.getTopCard();
+                loadIntoPower(p.hand.getTopCard());
 
-                loadIntoPower(c);
-
-                this.returnCards();
-                this.isDone = true;
+                returnCards();
+                isDone = true;
             }
         }
 
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
-            i = AbstractDungeon.handCardSelectScreen.selectedCards.group.iterator();
+            AbstractDungeon.handCardSelectScreen.selectedCards.group.forEach(this::loadIntoPower);
 
-            while(i.hasNext()) {
-                c = (AbstractCard)i.next();
-                loadIntoPower(c);
-            }
-
-            this.returnCards();
+            returnCards();
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
-            this.isDone = true;
+            isDone = true;
         }
 
-        this.tickDuration();
+        tickDuration();
     }
 
     private void returnCards() {
-        Iterator i = this.nonAttacks.iterator();
-        AbstractCard c;
+        nonAttacks.forEach(c -> p.hand.addToTop(c));
 
-        while(i.hasNext()) {
-            c = (AbstractCard)i.next();
-            this.p.hand.addToTop(c);
-        }
-
-        this.p.hand.refreshHandLayout();
+        p.hand.refreshHandLayout();
     }
 
     private void loadIntoPower(AbstractCard c) {
-        this.addToBot(new ApplyPowerAction(p, p,
-                new AutoloaderPower(c), 0));
+        addToBot(new ApplyPowerAction(p, p, new AutoloaderPower(c), 0));
         AbstractDungeon.player.hand.removeCard(c);
     }
 }

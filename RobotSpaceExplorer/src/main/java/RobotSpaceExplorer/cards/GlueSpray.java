@@ -1,11 +1,11 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
 import RobotSpaceExplorer.actions.GlueSprayAction;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeCardPath;
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
@@ -47,7 +47,7 @@ public class GlueSpray extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GlueSprayAction(p, this.upgraded, this.freeToPlayOnce, this.energyOnUse));
+        addToBot(new GlueSprayAction(p, upgraded, freeToPlayOnce, energyOnUse));
     }
 
 

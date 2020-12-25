@@ -1,16 +1,15 @@
 package RobotSpaceExplorer.powers;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.UpgradeRandomCardAction;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.util.TextureLoader;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makePowerPath;
 
@@ -32,42 +31,42 @@ public class MultitoolPower extends AbstractPower implements CloneablePowerInter
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
         this.amount = amount;
-        if (this.amount >= 999) {
+        if (999 <= this.amount) {
             this.amount = 999;
         }
 
         type = PowerType.BUFF;
 
         // We load those txtures here.
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (this.amount >= 999) {
-            this.amount = 999;
+        if (999 <= amount) {
+            amount = 999;
         }
     }
 
     @Override
     public void atStartOfTurnPostDraw() {
         for (int i = 0; i < amount; i++) {
-            this.flash();
-            this.addToBot(new UpgradeRandomCardAction());
+            flash();
+            addToBot(new UpgradeRandomCardAction());
         }
     }
 
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {
-        if (amount == 1) {
+        if (1 == amount) {
             description = DESCRIPTIONS[0];
-        } else if (amount > 1) {
+        } else if (1 < amount) {
             description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
         }
     }

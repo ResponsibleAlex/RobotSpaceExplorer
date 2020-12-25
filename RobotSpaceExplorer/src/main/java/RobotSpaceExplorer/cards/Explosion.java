@@ -1,13 +1,13 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
 import RobotSpaceExplorer.actions.ExplosionAction;
 import RobotSpaceExplorer.actions.PlayRandomMissileAction;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 
 import java.util.ArrayList;
 
@@ -51,19 +51,16 @@ public class Explosion extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new PlayRandomMissileAction(this.upgraded));
+        addToBot(new PlayRandomMissileAction(upgraded));
 
         ArrayList<AbstractCard> cards = AbstractDungeon.actionManager.cardsPlayedThisCombat;
-        int size = cards.size();
-        for (int i = 0; i < size; ++i) {
-            AbstractCard c = cards.get(i);
-            if (c.exhaust && c.type == AbstractCard.CardType.ATTACK) {
-                this.addToBot(new ExplosionAction(this.cardsToPreview));
-            }
-        }
+        cards.stream()
+             .filter(c -> c.exhaust && CardType.ATTACK == c.type)
+             .map(c -> new ExplosionAction(cardsToPreview))
+             .forEach(this::addToBot);
 
         // extra to account for the random missile
-        this.addToBot(new ExplosionAction(this.cardsToPreview));
+        addToBot(new ExplosionAction(cardsToPreview));
     }
 
 

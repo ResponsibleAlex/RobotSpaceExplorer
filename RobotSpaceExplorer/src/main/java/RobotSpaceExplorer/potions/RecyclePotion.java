@@ -2,7 +2,6 @@ package RobotSpaceExplorer.potions;
 
 import RobotSpaceExplorer.RobotSpaceExplorerMod;
 import RobotSpaceExplorer.actions.SalvageAction;
-import basemod.BaseMod;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -26,18 +25,17 @@ public class RecyclePotion extends AbstractPotion {
     }
 
     public void initializeData() {
-        this.potency = this.getPotency();
-        this.description = DESCRIPTIONS[0] + potency + DESCRIPTIONS[1];
-        this.tips.clear();
-        this.tips.add(new PowerTip(this.name, this.description));
+        potency = getPotency();
+        description = DESCRIPTIONS[0] + potency + DESCRIPTIONS[1];
+        tips.clear();
+        tips.add(new PowerTip(name, description));
     }
 
     @Override
     public void use(AbstractCreature target) {
-        target = AbstractDungeon.player;
         // If you are in combat
-        if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            this.addToBot(new SalvageAction(this.potency, true));
+        if (AbstractRoom.RoomPhase.COMBAT == AbstractDungeon.getCurrRoom().phase) {
+            addToBot(new SalvageAction(potency, true));
         }
     }
 

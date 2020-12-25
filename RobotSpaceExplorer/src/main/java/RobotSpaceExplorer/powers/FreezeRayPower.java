@@ -1,5 +1,7 @@
 package RobotSpaceExplorer.powers;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.util.TextureLoader;
 import RobotSpaceExplorer.vfx.FrostEffect;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
@@ -13,8 +15,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.util.TextureLoader;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makePowerPath;
@@ -37,34 +37,34 @@ public class FreezeRayPower extends AbstractPower implements CloneablePowerInter
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
         this.amount = amount;
-        if (this.amount >= 999) {
+        if (999 <= this.amount) {
             this.amount = 999;
         }
 
         type = PowerType.BUFF;
 
         // We load those txtures here.
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (this.amount >= 999) {
-            this.amount = 999;
+        if (999 <= amount) {
+            amount = 999;
         }
     }
 
     @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (power.type == PowerType.DEBUFF && power.ID.equals(WeakPower.POWER_ID) && source == this.owner && target != this.owner && !target.hasPower("Artifact")) {
-            this.flash();
-            this.addToBot(new VFXAction(new FrostEffect(target.hb.cX, target.hb.cY)));
-            this.addToBot(new DamageAction(target, new DamageInfo(this.owner, this.amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
+        if (PowerType.DEBUFF == power.type && power.ID.equals(WeakPower.POWER_ID) && source == owner && target != owner && !target.hasPower("Artifact")) {
+            flash();
+            addToBot(new VFXAction(new FrostEffect(target.hb.cX, target.hb.cY)));
+            addToBot(new DamageAction(target, new DamageInfo(owner, amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
         }
     }
 

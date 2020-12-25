@@ -1,18 +1,18 @@
 package RobotSpaceExplorer.powers;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.util.TextureLoader;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makePowerPath;
 
@@ -20,7 +20,7 @@ import static RobotSpaceExplorer.RobotSpaceExplorerMod.makePowerPath;
 
 public class AcceleratorPower extends AbstractPower implements CloneablePowerInterface {
 
-    private int zeroCostCardsPlayedThisTurn = 0;
+    private int zeroCostCardsPlayedThisTurn;
 
     public static final String POWER_ID = RobotSpaceExplorerMod.makeID("AcceleratorPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -36,9 +36,9 @@ public class AcceleratorPower extends AbstractPower implements CloneablePowerInt
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
         this.amount = amount;
-        if (this.amount >= 999) {
+        if (999 <= this.amount) {
             this.amount = 999;
         }
         zeroCostCardsPlayedThisTurn = 0;
@@ -46,27 +46,27 @@ public class AcceleratorPower extends AbstractPower implements CloneablePowerInt
         type = PowerType.BUFF;
 
         // We load those txtures here.
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (this.amount >= 999) {
-            this.amount = 999;
+        if (999 <= amount) {
+            amount = 999;
         }
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.costForTurn == 0) {
+        if (0 == card.costForTurn) {
             zeroCostCardsPlayedThisTurn++;
             if (zeroCostCardsPlayedThisTurn <= amount) {
-                this.flash();
-                this.addToBot(new DrawCardAction(owner, 1));
-                this.addToBot(new GainEnergyAction(1));
+                flash();
+                addToBot(new DrawCardAction(owner, 1));
+                addToBot(new GainEnergyAction(1));
             }
         }
     }
@@ -79,9 +79,9 @@ public class AcceleratorPower extends AbstractPower implements CloneablePowerInt
     // Update the description when you apply this power. (i.e. add or remove an "s" in keyword(s))
     @Override
     public void updateDescription() {
-        if (amount == 1) {
+        if (1 == amount) {
             description = DESCRIPTIONS[0];
-        } else if (amount > 1) {
+        } else if (1 < amount) {
             description = DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
         }
     }

@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class PlayExhaustedAttackAction extends AbstractGameAction {
-    private AbstractPlayer p = AbstractDungeon.player;
     private AbstractCard card;
 
     public PlayExhaustedAttackAction(AbstractCard exhaustedAttack) {
@@ -17,22 +16,23 @@ public class PlayExhaustedAttackAction extends AbstractGameAction {
         init();
     }
     public PlayExhaustedAttackAction() {
+        AbstractPlayer p = AbstractDungeon.player;
         CardGroup pile = p.exhaustPile.getAttacks();
-        if (pile.size() > 0) {
+        if (0 < pile.size()) {
             card = pile.getRandomCard(true);
         }
         init();
     }
     private void init() {
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
+        actionType = ActionType.CARD_MANIPULATION;
+        duration = Settings.ACTION_DUR_FAST;
     }
 
     public void update() {
-        if (card != null) {
+        if (null != card) {
             playCard();
         }
-        this.isDone = true;
+        isDone = true;
     }
 
     private void playCard() {

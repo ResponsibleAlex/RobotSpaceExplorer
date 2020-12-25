@@ -1,5 +1,8 @@
 package RobotSpaceExplorer.relics;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.patches.relics.BottledGravityPatch;
+import RobotSpaceExplorer.util.TextureLoader;
 import basemod.abstracts.CustomBottleRelic;
 import basemod.abstracts.CustomRelic;
 import basemod.abstracts.CustomSavable;
@@ -11,9 +14,6 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.patches.relics.BottledGravityPatch;
-import RobotSpaceExplorer.util.TextureLoader;
 
 import java.util.Iterator;
 import java.util.function.Predicate;
@@ -47,7 +47,7 @@ public class BottledGravity extends CustomRelic implements CustomBottleRelic, Cu
 
     @Override
     public Integer onSave() {
-        if (card != null) {
+        if (null != card) {
             return AbstractDungeon.player.masterDeck.group.indexOf(card);
         } else {
             return -1;
@@ -56,12 +56,12 @@ public class BottledGravity extends CustomRelic implements CustomBottleRelic, Cu
 
     @Override
     public void onLoad(Integer cardIndex) {
-        if (cardIndex == null) {
+        if (null == cardIndex) {
             return;
         }
-        if (cardIndex >= 0 && cardIndex < AbstractDungeon.player.masterDeck.group.size()) {
+        if (0 <= cardIndex && cardIndex < AbstractDungeon.player.masterDeck.group.size()) {
             card = AbstractDungeon.player.masterDeck.group.get(cardIndex);
-            if (card != null) {
+            if (null != card) {
                 BottledGravityPatch.inBottledGravity.set(card, true);
                 setDescriptionAfterLoading();
             }
@@ -89,12 +89,12 @@ public class BottledGravity extends CustomRelic implements CustomBottleRelic, Cu
         CardGroup cards = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         CardGroup unbottled = CardGroup.getGroupWithoutBottledCards(AbstractDungeon.player.masterDeck);
 
-        Iterator i = unbottled.group.iterator();
+        Iterator<AbstractCard> i = unbottled.group.iterator();
         AbstractCard c;
         while (i.hasNext()) {
-            c = (AbstractCard) i.next();
-            if (c.type != AbstractCard.CardType.CURSE &&
-                    c.cost > 0) {
+            c = i.next();
+            if (AbstractCard.CardType.CURSE != c.type &&
+                    0 < c.cost) {
                 cards.group.add(c);
             }
         }
@@ -104,14 +104,14 @@ public class BottledGravity extends CustomRelic implements CustomBottleRelic, Cu
 
     @Override
     public boolean canSpawn() {
-        return getEligibleCards().group.size() > 0;
+        return 0 < getEligibleCards().group.size();
     }
 
     @Override
     public void onUnequip() { // 1. On unequip
-        if (card != null) { // If the bottled card exists (prevents the game from crashing if we removed the bottled card from our deck for example.)
+        if (null != card) { // If the bottled card exists (prevents the game from crashing if we removed the bottled card from our deck for example.)
             AbstractCard cardInDeck = AbstractDungeon.player.masterDeck.getSpecificCard(card); // 2. Get the card
-            if (cardInDeck != null) {
+            if (null != cardInDeck) {
                 BottledGravityPatch.inBottledGravity.set(cardInDeck, false); // In our SpireField - set the card to no longer be bottled. (Unbottle it)
             }
         }
@@ -127,7 +127,7 @@ public class BottledGravity extends CustomRelic implements CustomBottleRelic, Cu
             card = AbstractDungeon.gridSelectScreen.selectedCards.get(0); // The custom Savable "card" is going to equal
             // The card from the selection screen (it's only 1, so it's at index 0)
             BottledGravityPatch.inBottledGravity.set(card, true); // Use our custom spire field to set that card to be bottled.
-            if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.INCOMPLETE) {
+            if (AbstractRoom.RoomPhase.INCOMPLETE == AbstractDungeon.getCurrRoom().phase) {
                 AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
             }
             AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE; // The room phase can now be set to complete (From INCOMPLETE in onEquip)
@@ -140,11 +140,10 @@ public class BottledGravity extends CustomRelic implements CustomBottleRelic, Cu
     @Override
     public void atBattleStartPreDraw() {
         AbstractCard c;
-        Iterator i = AbstractDungeon.player.drawPile.group.iterator();
-        while (i.hasNext()) {
-            c = (AbstractCard)i.next();
+        for (AbstractCard abstractCard : AbstractDungeon.player.drawPile.group) {
+            c = abstractCard;
             if (BottledGravityPatch.inBottledGravity.get(c)) {
-                if (c.cost > 0) {
+                if (0 < c.cost) {
                     c.cost = c.cost - 1;
                     c.setCostForTurn(c.cost);
                 }
@@ -154,10 +153,10 @@ public class BottledGravity extends CustomRelic implements CustomBottleRelic, Cu
 
     // Change description after relic is already loaded to reflect the bottled card.
     public void setDescriptionAfterLoading() {
-        this.description = FontHelper.colorString(card.name, "y") + DESCRIPTIONS[1];
-        this.tips.clear();
-        this.tips.add(new PowerTip(this.name, this.description));
-        this.initializeTips();
+        description = FontHelper.colorString(card.name, "y") + DESCRIPTIONS[1];
+        tips.clear();
+        tips.add(new PowerTip(name, description));
+        initializeTips();
     }
 
     // Standard description

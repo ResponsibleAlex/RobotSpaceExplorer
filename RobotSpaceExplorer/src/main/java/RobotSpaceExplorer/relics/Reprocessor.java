@@ -30,11 +30,11 @@ public class Reprocessor extends CustomRelic {
 
     @Override
     public void atTurnStart() {
-        if (AbstractDungeon.player.discardPile.size() > 0 &&
-                AbstractDungeon.player.hand.size() < 10) {
-            this.flash();
-            this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            this.addToBot(new SalvageAction(1));
+        if (0 < AbstractDungeon.player.discardPile.size() &&
+                10 > AbstractDungeon.player.hand.size()) {
+            flash();
+            addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            addToBot(new SalvageAction(1));
         }
     }
 

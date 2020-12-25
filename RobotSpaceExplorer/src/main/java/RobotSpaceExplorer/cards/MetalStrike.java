@@ -1,7 +1,8 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -9,15 +10,9 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.powers.WeakPower;
-import com.megacrit.cardcrawl.vfx.combat.ClashEffect;
-
-import java.util.Iterator;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeCardPath;
-import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 public class MetalStrike extends AbstractDynamicCard {
 
@@ -58,33 +53,24 @@ public class MetalStrike extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        this.addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new WeakPower(m, this.magicNumber, false), this.magicNumber));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new WeakPower(m, magicNumber, false), magicNumber));
 
         // if monster is attacking
-        if (m != null && m.getIntentBaseDmg() >= 0) {
-
-            // if card is also upgraded
-            /*if (upgraded) {
-                this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-                this.addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new WeakPower(m, this.magicNumber, false), this.magicNumber));
-            }*/
-
+        if (null != m && 0 <= m.getIntentBaseDmg()) {
             //this.addToBot(new VFXAction(new ClashEffect(m.hb.cX, m.hb.cY), 0.1F));
-            this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-            this.addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new WeakPower(m, this.magicNumber, false), this.magicNumber));
+            addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+            addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new WeakPower(m, magicNumber, false), magicNumber));
 
         }
     }
 
     public void triggerOnGlowCheck() {
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        Iterator var1 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+        glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        while(var1.hasNext()) {
-            AbstractMonster m = (AbstractMonster)var1.next();
-            if (!m.isDeadOrEscaped() && m.getIntentBaseDmg() >= 0) {
-                this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (!m.isDeadOrEscaped() && 0 <= m.getIntentBaseDmg()) {
+                glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
                 break;
             }
         }
@@ -97,7 +83,6 @@ public class MetalStrike extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DAMAGE);
-            //rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

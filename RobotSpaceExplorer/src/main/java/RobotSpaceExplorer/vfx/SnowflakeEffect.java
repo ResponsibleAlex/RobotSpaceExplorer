@@ -13,17 +13,17 @@ import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeEffectPath;
 
 public class SnowflakeEffect extends AbstractGameEffect {
     private static final String imgSrc = makeEffectPath("Snowflake.png");
-    private static Texture img = ImageMaster.loadImage(imgSrc);
+    private static final Texture img = ImageMaster.loadImage(imgSrc);
 
     private float x;
     private float y;
-    private float dest_x;
-    private float dest_y;
-    private float x_drift;
+    private final float dest_x;
+    private final float dest_y;
+    private final float x_drift;
 
-    private float rotation_delta;
+    private final float rotation_delta;
     private float counter;
-    private float counter_max;
+    private final float counter_max;
 
     public SnowflakeEffect(float x, float y, float dest_x, float dest_y, float x_drift) {
         this.x = x;
@@ -32,41 +32,41 @@ public class SnowflakeEffect extends AbstractGameEffect {
         this.dest_y = dest_y + (float)Math.random() * 30.0F - 15.0F;
         this.x_drift = x_drift;
 
-        this.counter = 0.0F;
-        this.counter_max = 17.0F;
+        counter = 0.0F;
+        counter_max = 17.0F;
 
         // rotate between -10 and 10 degrees per update
-        this.rotation_delta = (float)Math.random() * 20.0F - 10.0F;
+        rotation_delta = (float)Math.random() * 20.0F - 10.0F;
 
-        this.renderBehind = false;
-        this.color = new Color(1.0F, 1.0F, 1.0F, 0.9F);
-        this.scale = MathUtils.random(1.0F, 2.0F) * Settings.scale;
-        this.startingDuration = this.duration = Settings.ACTION_DUR_MED;
+        renderBehind = false;
+        color = new Color(1.0F, 1.0F, 1.0F, 0.9F);
+        scale = MathUtils.random(1.0F, 2.0F) * Settings.scale;
+        startingDuration = duration = Settings.ACTION_DUR_MED;
     }
 
     @Override
     public void update() {
-        if (this.counter >= this.counter_max) {
-            this.y -= 4.0F;
-            this.x += x_drift;
+        if (counter >= counter_max) {
+            y -= 4.0F;
+            x += x_drift;
         } else {
-            this.x += (this.dest_x - this.x) / this.counter_max;
-            this.y += (this.dest_y - this.y) / this.counter_max;
+            x += (dest_x - x) / counter_max;
+            y += (dest_y - y) / counter_max;
         }
 
-        this.rotation += rotation_delta;
+        rotation += rotation_delta;
 
-        this.counter++;
-        this.duration -= Gdx.graphics.getDeltaTime();
-        if (this.duration < 0.0F) {
-            this.isDone = true;
+        counter++;
+        duration -= Gdx.graphics.getDeltaTime();
+        if (0.0F > duration) {
+            isDone = true;
         }
     }
 
     public void render(SpriteBatch sb) {
-        sb.setColor(this.color);
+        sb.setColor(color);
         sb.setBlendFunction(770, 1);
-        sb.draw(img, this.x - 40.0F, this.y - 40.0F, 40.0F, 40.0F, 80.0F, 80.0F, this.scale, this.scale, this.rotation, 0, 0, 80, 80, false, false);
+        sb.draw(img, x - 40.0F, y - 40.0F, 40.0F, 40.0F, 80.0F, 80.0F, scale, scale, rotation, 0, 0, 80, 80, false, false);
         sb.setBlendFunction(770, 771);
     }
 

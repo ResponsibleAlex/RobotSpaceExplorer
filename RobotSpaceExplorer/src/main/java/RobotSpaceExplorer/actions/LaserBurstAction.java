@@ -15,31 +15,31 @@ import com.megacrit.cardcrawl.vfx.combat.SmallLaserEffect;
 
 public class LaserBurstAction extends AbstractGameAction {
 
-    private AbstractCard card;
-    private AbstractPlayer p;
+    private final AbstractCard card;
+    private final AbstractPlayer p;
 
     public LaserBurstAction(AbstractCard card) {
         this.card = card;
-        this.p = AbstractDungeon.player;
+        p = AbstractDungeon.player;
 
-        this.actionType = ActionType.DAMAGE;
+        actionType = ActionType.DAMAGE;
     }
 
     public void update() {
 
         if (!Settings.FAST_MODE) {
-            this.addToTop(new WaitAction(0.05F));
+            addToTop(new WaitAction(0.05F));
         }
 
-        this.target = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
-        if (this.target != null) {
-            this.card.calculateCardDamage((AbstractMonster) this.target);
-            this.addToTop(new SFXAction("ATTACK_MAGIC_BEAM_SHORT", 0.5F));
-            this.addToTop(new VFXAction(new SmallLaserEffect(target.hb.cX, target.hb.cY, p.hb.cX, p.hb.cY), 0.0F));
+        target = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+        if (null != target) {
+            card.calculateCardDamage((AbstractMonster) target);
+            addToTop(new SFXAction("ATTACK_MAGIC_BEAM_SHORT", 0.5F));
+            addToTop(new VFXAction(new SmallLaserEffect(target.hb.cX, target.hb.cY, p.hb.cX, p.hb.cY), 0.0F));
 
-            this.addToTop(new DamageAction(this.target, new DamageInfo(AbstractDungeon.player, this.card.damage, this.card.damageTypeForTurn), AttackEffect.NONE));
+            addToTop(new DamageAction(target, new DamageInfo(AbstractDungeon.player, card.damage, card.damageTypeForTurn), AttackEffect.NONE));
         }
 
-        this.isDone = true;
+        isDone = true;
     }
 }

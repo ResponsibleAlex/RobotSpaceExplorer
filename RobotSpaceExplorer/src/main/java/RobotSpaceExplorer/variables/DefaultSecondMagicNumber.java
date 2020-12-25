@@ -1,8 +1,8 @@
 package RobotSpaceExplorer.variables;
 
+import RobotSpaceExplorer.cards.AbstractDefaultCard;
 import basemod.abstracts.DynamicVariable;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import RobotSpaceExplorer.cards.AbstractDefaultCard;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeID;
 

@@ -1,20 +1,20 @@
 package RobotSpaceExplorer.powers;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.util.TextureLoader;
 import com.megacrit.cardcrawl.vfx.combat.SweepingBeamEffect;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makePowerPath;
@@ -37,38 +37,38 @@ public class DroneSwarmPower extends AbstractPower implements CloneablePowerInte
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
         this.amount = amount;
-        if (this.amount >= 999) {
+        if (999 <= this.amount) {
             this.amount = 999;
         }
 
         type = PowerType.BUFF;
 
         // We load those txtures here.
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (this.amount >= 999) {
-            this.amount = 999;
+        if (999 <= amount) {
+            amount = 999;
         }
     }
 
     @Override
     public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
-        if (amount > 0) {
-            this.flash();
-            this.addToBot(new GainBlockAction(this.owner, this.owner, this.amount));
+        if (0 < amount) {
+            flash();
+            addToBot(new GainBlockAction(owner, owner, amount));
 
             if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-                this.addToBot(new SFXAction("ATTACK_DEFECT_BEAM"));
-                this.addToBot(new VFXAction(owner, new SweepingBeamEffect(owner.hb.cX, owner.hb.cY, owner.flipHorizontal), 0.4F));
-                this.addToBot(new DamageAllEnemiesAction((AbstractCreature)null, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
+                addToBot(new SFXAction("ATTACK_DEFECT_BEAM"));
+                addToBot(new VFXAction(owner, new SweepingBeamEffect(owner.hb.cX, owner.hb.cY, owner.flipHorizontal), 0.4F));
+                addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
             }
         }
     }

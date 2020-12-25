@@ -1,12 +1,12 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeCardPath;
 
@@ -49,10 +49,10 @@ public class DoubleFind extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard c = AbstractDungeon.returnTrulyRandomCardInCombat().makeCopy();
         c.setCostForTurn(0);
-        this.addToBot(new MakeTempCardInHandAction(c, true));
+        addToBot(new MakeTempCardInHandAction(c, true));
         AbstractCard c2 = AbstractDungeon.returnTrulyRandomCardInCombat().makeCopy();
         c2.setCostForTurn(0);
-        this.addToBot(new MakeTempCardInHandAction(c2, true));
+        addToBot(new MakeTempCardInHandAction(c2, true));
     }
 
 

@@ -1,16 +1,14 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.powers.TheBombPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
-
-import java.util.Iterator;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeCardPath;
 
@@ -58,18 +56,16 @@ public class ToxicBomb extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         // apply weak
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-            this.flash();
-            Iterator monsters = AbstractDungeon.getMonsters().monsters.iterator();
+            flash();
 
-            while(monsters.hasNext()) {
-                AbstractMonster monster = (AbstractMonster)monsters.next();
+            for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
                 if (!monster.isDead && !monster.isDying) {
-                    this.addToBot(new ApplyPowerAction(monster, p, new WeakPower(monster, this.defaultSecondMagicNumber, false), this.defaultSecondMagicNumber));
+                    addToBot(new ApplyPowerAction(monster, p, new WeakPower(monster, defaultSecondMagicNumber, false), defaultSecondMagicNumber));
                 }
             }
         }
         // apply Bomb
-        this.addToBot(new ApplyPowerAction(p, p, new TheBombPower(p, 2, this.magicNumber), 2));
+        addToBot(new ApplyPowerAction(p, p, new TheBombPower(p, 2, magicNumber), 2));
     }
 
 

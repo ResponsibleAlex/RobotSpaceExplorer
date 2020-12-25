@@ -10,33 +10,25 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.stream.Collectors;
 
 public class ExhaustStaticBuildupsAction extends AbstractGameAction {
-    AbstractPlayer p = AbstractDungeon.player;
+    final AbstractPlayer p = AbstractDungeon.player;
 
     public ExhaustStaticBuildupsAction() {
-        this.actionType = ActionType.EXHAUST;
-        this.duration = Settings.ACTION_DUR_FAST;
+        actionType = ActionType.EXHAUST;
+        duration = Settings.ACTION_DUR_FAST;
     }
 
     public void update() {
-        ArrayList<AbstractCard> cardsToExhaust = new ArrayList<>();
-        Iterator i = p.hand.group.iterator();
-        AbstractCard c;
+        ArrayList<AbstractCard> cardsToExhaust = p.hand.group.stream()
+                                                             .filter(c -> c.cardID.equals(StaticBuildup.ID))
+                                                             .collect(Collectors.toCollection(ArrayList::new));
 
-        while (i.hasNext()) {
-            c = (AbstractCard) i.next();
-            if (c.cardID.equals(StaticBuildup.ID)) {
-                cardsToExhaust.add(c);
-            }
-        }
+        cardsToExhaust.stream()
+                      .map(c -> new ExhaustSpecificCardAction(c, p.hand))
+                      .forEach(this::addToTop);
 
-        i = cardsToExhaust.iterator();
-        while (i.hasNext()) {
-            c = (AbstractCard) i.next();
-            this.addToTop(new ExhaustSpecificCardAction(c, p.hand));
-        }
-
-        this.isDone = true;
+        isDone = true;
     }
 }

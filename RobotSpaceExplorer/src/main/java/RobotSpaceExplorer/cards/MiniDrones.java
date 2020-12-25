@@ -1,18 +1,16 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.vfx.combat.SweepingBeamEffect;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makeCardPath;
@@ -57,11 +55,11 @@ public class MiniDrones extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GainBlockAction(p, p, block));
+        addToBot(new GainBlockAction(p, p, block));
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-            this.addToBot(new SFXAction("ATTACK_DEFECT_BEAM"));
-            this.addToBot(new VFXAction(p, new SweepingBeamEffect(p.hb.cX, p.hb.cY, p.flipHorizontal), 0.4F));
-            this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
+            addToBot(new SFXAction("ATTACK_DEFECT_BEAM"));
+            addToBot(new VFXAction(p, new SweepingBeamEffect(p.hb.cX, p.hb.cY, p.flipHorizontal), 0.4F));
+            addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
         }
     }
 

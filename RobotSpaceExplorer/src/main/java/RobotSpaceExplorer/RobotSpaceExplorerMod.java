@@ -1,34 +1,29 @@
 package RobotSpaceExplorer;
 
+import RobotSpaceExplorer.cards.*;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import RobotSpaceExplorer.potions.LiquidFusion;
 import RobotSpaceExplorer.potions.PlasmaFlask;
 import RobotSpaceExplorer.potions.RecyclePotion;
 import RobotSpaceExplorer.relics.*;
+import RobotSpaceExplorer.util.IDCheckDontTouchPls;
+import RobotSpaceExplorer.variables.DefaultCustomVariable;
+import RobotSpaceExplorer.variables.DefaultSecondMagicNumber;
 import basemod.BaseMod;
-import basemod.ModLabeledToggleButton;
-import basemod.ModPanel;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardHelper;
-import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import RobotSpaceExplorer.cards.*;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
-import RobotSpaceExplorer.util.IDCheckDontTouchPls;
-import RobotSpaceExplorer.util.TextureLoader;
-import RobotSpaceExplorer.variables.DefaultCustomVariable;
-import RobotSpaceExplorer.variables.DefaultSecondMagicNumber;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -77,7 +72,7 @@ public class RobotSpaceExplorerMod implements
     private static String modID;
 
     // Mod-settings settings. This is if you want an on/off savable button
-    public static Properties theDefaultDefaultSettings = new Properties();
+    public static final Properties theDefaultDefaultSettings = new Properties();
     public static final String ENABLE_PLACEHOLDER_SETTINGS = "enablePlaceholder";
     public static boolean enablePlaceholder = true; // The boolean we'll be setting on/off (true/false)
 
@@ -85,37 +80,37 @@ public class RobotSpaceExplorerMod implements
     private static final String MODNAME = "Robot Space Explorer";
     private static final String AUTHOR = "ResponsibleAlex";
     private static final String DESCRIPTION = "The Robot Space Explorer playable character.";
-    
+
     // =============== INPUT TEXTURE LOCATION =================
-    
+
     // Colors (RGB)
     // Character Color
     public static final Color ROBOT_ORANGE = CardHelper.getColor(235.0f, 94.0f, 0.0f);
-    
+
     // Potion Colors in RGB
     public static final Color POTION_BLUEWHITE = CardHelper.getColor(230.0f, 230.0f, 255.0f); // Near White
     public static final Color POTION_DARKREDBROWN = CardHelper.getColor(100.0f, 25.0f, 10.0f); // Super Dark Red/Brown
-    
+
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
     // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-  
+
     // Card backgrounds - The actual rectangular card.
     private static final String ATTACK_DEFAULT_GRAY = "RobotSpaceExplorerResources/images/512/bg_attack_default_gray.png";
     private static final String SKILL_DEFAULT_GRAY = "RobotSpaceExplorerResources/images/512/bg_skill_default_gray.png";
     private static final String POWER_DEFAULT_GRAY = "RobotSpaceExplorerResources/images/512/bg_power_default_gray.png";
-    
+
     private static final String ENERGY_ORB_DEFAULT_GRAY = "RobotSpaceExplorerResources/images/512/card_default_gray_orb.png";
     private static final String CARD_ENERGY_ORB = "RobotSpaceExplorerResources/images/512/card_small_orb.png";
     private static final String ENERGY_ORB_DEFAULT_GRAY_PORTRAIT = "RobotSpaceExplorerResources/images/1024/card_default_gray_orb.png";
-    
+
     private static final String ATTACK_DEFAULT_GRAY_PORTRAIT = "RobotSpaceExplorerResources/images/1024/bg_attack_default_gray.png";
     private static final String SKILL_DEFAULT_GRAY_PORTRAIT = "RobotSpaceExplorerResources/images/1024/bg_skill_default_gray.png";
     private static final String POWER_DEFAULT_GRAY_PORTRAIT = "RobotSpaceExplorerResources/images/1024/bg_power_default_gray.png";
-    
+
     // Character assets
     private static final String THE_DEFAULT_BUTTON = "RobotSpaceExplorerResources/images/charSelect/DefaultCharacterButton.png";
     private static final String THE_DEFAULT_PORTRAIT = "RobotSpaceExplorerResources/images/charSelect/DefaultCharacterPortraitBG.png";
@@ -126,47 +121,47 @@ public class RobotSpaceExplorerMod implements
 
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
     public static final String BADGE_IMAGE = "RobotSpaceExplorerResources/images/Badge.png";
-    
+
     // Atlas and JSON files for the Animations
     public static final String THE_DEFAULT_SKELETON_ATLAS = "RobotSpaceExplorerResources/images/char/defaultCharacter/skeleton.atlas";
     public static final String THE_DEFAULT_SKELETON_JSON = "RobotSpaceExplorerResources/images/char/defaultCharacter/skeleton.json";
-    
+
     // =============== MAKE IMAGE PATHS =================
-    
+
     public static String makeCardPath(String resourcePath) {
-        return getModID() + "Resources/images/cards/" + resourcePath;
+        return modID + "Resources/images/cards/" + resourcePath;
     }
-    
+
     public static String makeRelicPath(String resourcePath) {
-        return getModID() + "Resources/images/relics/" + resourcePath;
+        return modID + "Resources/images/relics/" + resourcePath;
     }
-    
+
     public static String makeRelicOutlinePath(String resourcePath) {
-        return getModID() + "Resources/images/relics/outline/" + resourcePath;
+        return modID + "Resources/images/relics/outline/" + resourcePath;
     }
-    
+
     public static String makeEffectPath(String resourcePath) {
-        return getModID() + "Resources/images/vfx/" + resourcePath;
+        return modID + "Resources/images/vfx/" + resourcePath;
     }
-    
+
     public static String makePowerPath(String resourcePath) {
-        return getModID() + "Resources/images/powers/" + resourcePath;
+        return modID + "Resources/images/powers/" + resourcePath;
     }
-    
+
     public static String makeEventPath(String resourcePath) {
-        return getModID() + "Resources/images/events/" + resourcePath;
+        return modID + "Resources/images/events/" + resourcePath;
     }
-    
+
     // =============== /MAKE IMAGE PATHS/ =================
-    
+
     // =============== /INPUT TEXTURE LOCATION/ =================
-    
-    
+
+
     // =============== SUBSCRIBE, CREATE THE COLOR_GRAY, INITIALIZE =================
-    
+
     public RobotSpaceExplorerMod() {
         logger.info("Subscribe to BaseMod hooks");
-        
+
         BaseMod.subscribe(this);
         
       /*
@@ -178,34 +173,34 @@ public class RobotSpaceExplorerMod implements
          | (__| __ |/ _ \ | .` | (_ | _|  | |\/| | (_) | |) |  | | | |) |
           \___|_||_/_/ \_\|_|\_|\___|___| |_|  |_|\___/|___/  |___||___(_)
       */
-      
+
         setModID("RobotSpaceExplorer");
         // cool
         // TODO: NOW READ THIS!!!!!!!!!!!!!!!:
-        
+
         // 1. Go to your resources folder in the project panel, and refactor> rename theDefaultResources to
         // yourModIDResources.
-        
+
         // 2. Click on the localization > eng folder and press ctrl+shift+r, then select "Directory" (rather than in Project)
         // replace all instances of theDefault with yourModID.
         // Because your mod ID isn't the default. Your cards (and everything else) should have Your mod id. Not mine.
-        
+
         // 3. FINALLY and most importantly: Scroll up a bit. You may have noticed the image locations above don't use getModID()
         // Change their locations to reflect your actual ID rather than theDefault. They get loaded before getID is a thing.
-        
+
         logger.info("Done subscribing");
-        
+
         logger.info("Creating the color " + RobotSpaceExplorer.Enums.ROBOT_ORANGE.toString());
-        
+
         BaseMod.addColor(RobotSpaceExplorer.Enums.ROBOT_ORANGE, ROBOT_ORANGE, ROBOT_ORANGE, ROBOT_ORANGE,
                 ROBOT_ORANGE, ROBOT_ORANGE, ROBOT_ORANGE, ROBOT_ORANGE,
                 ATTACK_DEFAULT_GRAY, SKILL_DEFAULT_GRAY, POWER_DEFAULT_GRAY, ENERGY_ORB_DEFAULT_GRAY,
                 ATTACK_DEFAULT_GRAY_PORTRAIT, SKILL_DEFAULT_GRAY_PORTRAIT, POWER_DEFAULT_GRAY_PORTRAIT,
                 ENERGY_ORB_DEFAULT_GRAY_PORTRAIT, CARD_ENERGY_ORB);
-        
+
         logger.info("Done creating the color");
-        
-        
+
+
         logger.info("Adding mod settings");
         // This loads the mod settings.
         // The actual mod Button is added below in receivePostInitialize()
@@ -219,13 +214,13 @@ public class RobotSpaceExplorerMod implements
             e.printStackTrace();
         }
         logger.info("Done adding mod settings");
-        
+
     }
-    
+
     // ====== NO EDIT AREA ======
     // DON'T TOUCH THIS STUFF. IT IS HERE FOR STANDARDIZATION BETWEEN MODS AND TO ENSURE GOOD CODE PRACTICES.
     // IF YOU MODIFY THIS I WILL HUNT YOU DOWN AND DOWNVOTE YOUR MOD ON WORKSHOP
-    
+
     public static void setModID(String ID) { // DON'T EDIT
         Gson coolG = new Gson(); // EY DON'T EDIT THIS
         //   String IDjson = Gdx.files.internal("IDCheckStringsDONT-EDIT-AT-ALL.json").readString(String.valueOf(StandardCharsets.UTF_8)); // i hate u Gdx.files
@@ -241,112 +236,68 @@ public class RobotSpaceExplorerMod implements
         } // NO
         logger.info("Success! ID is " + modID); // WHY WOULD U WANT IT NOT TO LOG?? DON'T EDIT THIS.
     } // NO
-    
+
     public static String getModID() { // NO
         return modID; // DOUBLE NO
     } // NU-UH
-    
+
     private static void pathCheck() { // ALSO NO
         Gson coolG = new Gson(); // NOPE DON'T EDIT THIS
         //   String IDjson = Gdx.files.internal("IDCheckStringsDONT-EDIT-AT-ALL.json").readString(String.valueOf(StandardCharsets.UTF_8)); // i still hate u btw Gdx.files
         InputStream in = RobotSpaceExplorerMod.class.getResourceAsStream("/IDCheckStringsDONT-EDIT-AT-ALL.json"); // DON'T EDIT THISSSSS
         IDCheckDontTouchPls EXCEPTION_STRINGS = coolG.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), IDCheckDontTouchPls.class); // NAH, NO EDIT
-        String packageName = RobotSpaceExplorerMod.class.getPackage().getName(); // STILL NO EDIT ZONE
-        FileHandle resourcePathExists = Gdx.files.internal(getModID() + "Resources"); // PLEASE DON'T EDIT THINGS HERE, THANKS
+        String packageName = RobotSpaceExplorerMod.class.getPackage()
+                                                        .getName(); // STILL NO EDIT ZONE
+        FileHandle resourcePathExists = Gdx.files.internal(modID + "Resources"); // PLEASE DON'T EDIT THINGS HERE, THANKS
         if (!modID.equals(EXCEPTION_STRINGS.DEVID)) { // LEAVE THIS EDIT-LESS
-            if (!packageName.equals(getModID())) { // NOT HERE ETHER
-                throw new RuntimeException(EXCEPTION_STRINGS.PACKAGE_EXCEPTION + getModID()); // THIS IS A NO-NO
+            if (!packageName.equals(modID)) { // NOT HERE ETHER
+                throw new RuntimeException(EXCEPTION_STRINGS.PACKAGE_EXCEPTION + modID); // THIS IS A NO-NO
             } // WHY WOULD U EDIT THIS
             if (!resourcePathExists.exists()) { // DON'T CHANGE THIS
-                throw new RuntimeException(EXCEPTION_STRINGS.RESOURCE_FOLDER_EXCEPTION + getModID() + "Resources"); // NOT THIS
+                throw new RuntimeException(EXCEPTION_STRINGS.RESOURCE_FOLDER_EXCEPTION + modID + "Resources"); // NOT THIS
             }// NO
         }// NO
     }// NO
-    
+
     // ====== YOU CAN EDIT AGAIN ======
-    
-    
+
+
     @SuppressWarnings("unused")
     public static void initialize() {
         logger.info("========================= Initializing Default Mod. Hi. =========================");
         RobotSpaceExplorerMod defaultmod = new RobotSpaceExplorerMod();
         logger.info("========================= /Default Mod Initialized. Hello World./ =========================");
     }
-    
+
     // ============== /SUBSCRIBE, CREATE THE COLOR_GRAY, INITIALIZE/ =================
-    
-    
+
+
     // =============== LOAD THE CHARACTER =================
-    
+
     @Override
     public void receiveEditCharacters() {
         logger.info("Beginning to edit characters. " + "Add " + RobotSpaceExplorer.Enums.RobotSpaceExplorer.toString());
-        
+
         BaseMod.addCharacter(new RobotSpaceExplorer("Robot Space Explorer", RobotSpaceExplorer.Enums.RobotSpaceExplorer),
                 THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, RobotSpaceExplorer.Enums.RobotSpaceExplorer);
-        
+
         receiveEditPotions();
         logger.info("Added " + RobotSpaceExplorer.Enums.RobotSpaceExplorer.toString());
     }
-    
+
     // =============== /LOAD THE CHARACTER/ =================
-    
-    
+
+
     // =============== POST-INITIALIZE =================
-    
+
     @Override
     public void receivePostInitialize() {
-        /*
-        logger.info("Loading badge image and mod options");
-        
-        // Load the Mod Badge
-        Texture badgeTexture = TextureLoader.getTexture(BADGE_IMAGE);
-        
-        // Create the Mod Menu
-        ModPanel settingsPanel = new ModPanel();
-        
-        // Create the on/off button:
-        ModLabeledToggleButton enableNormalsButton = new ModLabeledToggleButton("This is the text which goes next to the checkbox.",
-                350.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, // Position (trial and error it), color, font
-                enablePlaceholder, // Boolean it uses
-                settingsPanel, // The mod panel in which this button will be in
-                (label) -> {}, // thing??????? idk
-                (button) -> { // The actual button:
-            
-            enablePlaceholder = button.enabled; // The boolean true/false will be whether the button is enabled or not
-            try {
-                // And based on that boolean, set the settings and save them
-                SpireConfig config = new SpireConfig("defaultMod", "theDefaultConfig", theDefaultDefaultSettings);
-                config.setBool(ENABLE_PLACEHOLDER_SETTINGS, enablePlaceholder);
-                config.save();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-        
-        settingsPanel.addUIElement(enableNormalsButton); // Add the button to the settings panel. Button is a go.
-        
-        BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
-        
-        // =============== EVENTS =================
-        
-        // No events planned for this mod
-        // BaseMod.addEvent(IdentityCrisisEvent.ID, IdentityCrisisEvent.class, TheCity.ID);
-
-        // =============== /EVENTS/ =================
-        logger.info("Done loading badge Image and mod options");
-        */
     }
-    
-    // =============== / POST-INITIALIZE/ =================
-    
-    
-    // ================ ADD POTIONS ===================
-    
+
     public void receiveEditPotions() {
         logger.info("Beginning to edit potions");
-        
+
         // Class Specific Potion. If you want your potion to not be class-specific,
         // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
         // Remember, you can press ctrl+P inside parentheses like addPotions)
@@ -359,16 +310,16 @@ public class RobotSpaceExplorerMod implements
 
         logger.info("Done editing potions");
     }
-    
+
     // ================ /ADD POTIONS/ ===================
-    
-    
+
+
     // ================ ADD RELICS ===================
-    
+
     @Override
     public void receiveEditRelics() {
         logger.info("Adding relics");
-        
+
         // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
         BaseMod.addRelicToCustomPool(new RoboCore(), RobotSpaceExplorer.Enums.ROBOT_ORANGE);
         BaseMod.addRelicToCustomPool(new Reprocessor(), RobotSpaceExplorer.Enums.ROBOT_ORANGE);
@@ -396,12 +347,12 @@ public class RobotSpaceExplorerMod implements
         UnlockTracker.markRelicAsSeen(SlideRule.ID);
         logger.info("Done adding relics!");
     }
-    
+
     // ================ /ADD RELICS/ ===================
-    
-    
+
+
     // ================ ADD CARDS ===================
-    
+
     @Override
     public void receiveEditCards() {
         logger.info("Adding variables");
@@ -412,7 +363,7 @@ public class RobotSpaceExplorerMod implements
         // Add the Custom Dynamic variables
         BaseMod.addDynamicVariable(new DefaultCustomVariable());
         BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
-        
+
         logger.info("Adding cards");
         // Add the cards
         // Don't comment out/delete these cards (yet). You need 1 of each type and rarity (technically) for your game not to crash
@@ -426,7 +377,6 @@ public class RobotSpaceExplorerMod implements
         BaseMod.addCard(new MiniLasers());
         BaseMod.addCard(new SurgingStrike());
         BaseMod.addCard(new LaserBurst());
-        //BaseMod.addCard(new LavaMissile());
         BaseMod.addCard(new FrostMissile());
         BaseMod.addCard(new ScrapMissile());
         BaseMod.addCard(new ImprovisedAttack());
@@ -509,7 +459,6 @@ public class RobotSpaceExplorerMod implements
         UnlockTracker.unlockCard(MiniLasers.ID);
         UnlockTracker.unlockCard(SurgingStrike.ID);
         UnlockTracker.unlockCard(LaserBurst.ID);
-        //UnlockTracker.unlockCard(LavaMissile.ID);
         UnlockTracker.unlockCard(FrostMissile.ID);
         UnlockTracker.unlockCard(ScrapMissile.ID);
         UnlockTracker.unlockCard(ImprovisedAttack.ID);
@@ -582,82 +531,82 @@ public class RobotSpaceExplorerMod implements
 
         logger.info("Done adding cards!");
     }
-    
+
     // There are better ways to do this than listing every single individual card, but I do not want to complicate things
     // in a "tutorial" mod. This will do and it's completely ok to use. If you ever want to clean up and
     // shorten all the imports, go look take a look at other mods, such as Hubris.
-    
+
     // ================ /ADD CARDS/ ===================
-    
-    
+
+
     // ================ LOAD THE TEXT ===================
 
     @Override
     public void receiveEditStrings() {
 
         String lang = "eng";
-        if (Settings.language == Settings.GameLanguage.ZHS) {
+        if (Settings.GameLanguage.ZHS == Settings.language) {
             lang = "zhs";
         }
 
-        logger.info("Beginning to edit strings for mod with ID: " + getModID());
-        
+        logger.info("Beginning to edit strings for mod with ID: " + modID);
+
         // CardStrings
         BaseMod.loadCustomStringsFile(CardStrings.class,
-                getModID() + "Resources/localization/" + lang + "/DefaultMod-Card-Strings.json");
-        
+                modID + "Resources/localization/" + lang + "/DefaultMod-Card-Strings.json");
+
         // PowerStrings
         BaseMod.loadCustomStringsFile(PowerStrings.class,
-                getModID() + "Resources/localization/" + lang + "/DefaultMod-Power-Strings.json");
-        
+                modID + "Resources/localization/" + lang + "/DefaultMod-Power-Strings.json");
+
         // RelicStrings
         BaseMod.loadCustomStringsFile(RelicStrings.class,
-                getModID() + "Resources/localization/" + lang + "/DefaultMod-Relic-Strings.json");
-        
+                modID + "Resources/localization/" + lang + "/DefaultMod-Relic-Strings.json");
+
         // Event Strings
         BaseMod.loadCustomStringsFile(EventStrings.class,
-                getModID() + "Resources/localization/" + lang + "/DefaultMod-Event-Strings.json");
-        
+                modID + "Resources/localization/" + lang + "/DefaultMod-Event-Strings.json");
+
         // PotionStrings
         BaseMod.loadCustomStringsFile(PotionStrings.class,
-                getModID() + "Resources/localization/" + lang + "/DefaultMod-Potion-Strings.json");
-        
+                modID + "Resources/localization/" + lang + "/DefaultMod-Potion-Strings.json");
+
         // CharacterStrings
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
-                getModID() + "Resources/localization/" + lang + "/DefaultMod-Character-Strings.json");
-        
+                modID + "Resources/localization/" + lang + "/DefaultMod-Character-Strings.json");
+
 
         logger.info("Done editing strings");
     }
-    
+
     // ================ /LOAD THE TEXT/ ===================
-    
+
     // ================ LOAD THE KEYWORDS ===================
-    
+
     @Override
     public void receiveEditKeywords() {
         String lang = "eng";
-        if (Settings.language == Settings.GameLanguage.ZHS) {
+        if (Settings.GameLanguage.ZHS == Settings.language) {
             lang = "zhs";
         }
 
         Gson gson = new Gson();
-        String json = Gdx.files.internal(getModID() + "Resources/localization/" + lang + "/DefaultMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String json = Gdx.files.internal(modID + "Resources/localization/" + lang + "/DefaultMod-Keyword-Strings.json")
+                               .readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
-        
-        if (keywords != null) {
+
+        if (null != keywords) {
             for (Keyword keyword : keywords) {
-                BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
-                //  getModID().toLowerCase() makes your keyword mod specific (it won't show up in other cards that use that word)
+                BaseMod.addKeyword(modID.toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }
     }
-    
+
     // ================ /LOAD THE KEYWORDS/ ===================    
-    
+
     // this adds "ModName:" before the ID of any card/relic/power etc.
     // in order to avoid conflicts if any other mod uses the same ID.
     public static String makeID(String idText) {
-        return getModID() + ":" + idText;
+        return modID + ":" + idText;
     }
 }

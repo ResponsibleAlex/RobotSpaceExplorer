@@ -1,12 +1,12 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import RobotSpaceExplorer.powers.MultitoolPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 
 import java.util.Iterator;
 
@@ -44,12 +44,12 @@ public class Multitool extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (this.upgraded) {
-            Iterator i = p.hand.group.iterator();
+        if (upgraded) {
+            Iterator<AbstractCard> i = p.hand.group.iterator();
             AbstractCard c;
 
             while(i.hasNext()) {
-                c = (AbstractCard)i.next();
+                c = i.next();
                 if (c.canUpgrade()) {
                     c.upgrade();
                     c.superFlash();
@@ -57,7 +57,7 @@ public class Multitool extends AbstractDynamicCard {
                 }
             }
         }
-        this.addToBot(new ApplyPowerAction(p, p,
+        addToBot(new ApplyPowerAction(p, p,
                 new MultitoolPower(1), 1));
     }
 

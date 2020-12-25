@@ -1,23 +1,23 @@
 package RobotSpaceExplorer.powers;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.util.TextureLoader;
 import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 
 import static RobotSpaceExplorer.RobotSpaceExplorerMod.makePowerPath;
@@ -40,42 +40,42 @@ public class MiniBoostersPower extends AbstractPower implements CloneablePowerIn
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
         this.amount = amount;
-        if (this.amount >= 999) {
+        if (999 <= this.amount) {
             this.amount = 999;
         }
 
         type = PowerType.BUFF;
 
         // We load those txtures here.
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (this.amount >= 999) {
-            this.amount = 999;
+        if (999 <= amount) {
+            amount = 999;
         }
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.costForTurn == 0) {
-            this.flash();
-            this.addToBot(new SFXAction("ATTACK_HEAVY"));
+        if (0 == card.costForTurn) {
+            flash();
+            addToBot(new SFXAction("ATTACK_HEAVY"));
             if (Settings.FAST_MODE) {
-                this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.amount, true));
-                this.addToBot(new VFXAction(new CleaveEffect()));
+                addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, amount, true));
+                addToBot(new VFXAction(new CleaveEffect()));
             } else {
-                this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.amount));
-                this.addToBot(new VFXAction(this.owner, new CleaveEffect(), 0.2F));
+                addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, amount));
+                addToBot(new VFXAction(owner, new CleaveEffect(), 0.2F));
             }
 
-            this.addToBot(new DamageAllEnemiesAction(this.owner, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE, true));
+            addToBot(new DamageAllEnemiesAction(owner, DamageInfo.createDamageMatrix(amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE, true));
         }
     }
 

@@ -1,6 +1,8 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
 import RobotSpaceExplorer.actions.WormholeAction;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import RobotSpaceExplorer.patches.relics.BottledGravityPatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.curses.AscendersBane;
@@ -10,8 +12,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 
 import java.util.Iterator;
 
@@ -51,7 +51,7 @@ public class Wormhole extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new WormholeAction(this, cardStrings.EXTENDED_DESCRIPTION[1]));
+        addToBot(new WormholeAction(this, cardStrings.EXTENDED_DESCRIPTION[1]));
     }
 
     @Override
@@ -60,11 +60,11 @@ public class Wormhole extends AbstractDynamicCard {
         if (!canUse) {
             return false;
         } else {
-            Iterator i = p.hand.group.iterator();
+            Iterator<AbstractCard> i = p.hand.group.iterator();
             canUse = false;
 
-            while(i.hasNext()) {
-                AbstractCard c = (AbstractCard) i.next();
+            while (i.hasNext()) {
+                AbstractCard c = i.next();
                 if (canRemove(c)) {
                     canUse = true;
                     break;
@@ -72,20 +72,17 @@ public class Wormhole extends AbstractDynamicCard {
             }
 
             if (!canUse)
-                this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
+                cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
             return canUse;
         }
     }
 
     public static boolean canRemove(AbstractCard c) {
-        if (c.type == CardType.STATUS
-                || c.inBottleFlame || c.inBottleLightning || c.inBottleTornado
-                || BottledGravityPatch.inBottledGravity.get(c)
-                || c.cardID.equals(AscendersBane.ID) || c.cardID.equals(Necronomicurse.ID)
-                || c.cardID.equals(CurseOfTheBell.ID)) {
-            return false;
-        }
-        return true;
+        return CardType.STATUS != c.type
+                && !c.inBottleFlame && !c.inBottleLightning && !c.inBottleTornado
+                && !BottledGravityPatch.inBottledGravity.get(c)
+                && !c.cardID.equals(AscendersBane.ID) && !c.cardID.equals(Necronomicurse.ID)
+                && !c.cardID.equals(CurseOfTheBell.ID);
     }
 
     // Upgraded stats.

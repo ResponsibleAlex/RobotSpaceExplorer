@@ -1,5 +1,6 @@
 package RobotSpaceExplorer.actions;
 
+import RobotSpaceExplorer.cards.AbstractDynamicCard;
 import RobotSpaceExplorer.cards.Wormhole;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -21,99 +22,77 @@ public class WormholeAction extends AbstractGameAction {
 
     public WormholeAction(AbstractCard wormholeCard, String chooseACardText) {
         this.wormholeCard = wormholeCard;
-        this.text = chooseACardText;
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
+        text = chooseACardText;
+        actionType = ActionType.CARD_MANIPULATION;
+        duration = Settings.ACTION_DUR_FAST;
         p = AbstractDungeon.player;
     }
 
     public void update() {
-        Iterator i = p.hand.group.iterator();
-        AbstractCard c;
 
-        if (this.duration == Settings.ACTION_DUR_FAST) {
-            while (i.hasNext()) {
-                c = (AbstractCard) i.next();
-                if (!Wormhole.canRemove(c)) {
-                    cannotRemove.add(c);
-                }
-            }
+        if (duration == Settings.ACTION_DUR_FAST) {
+            p.hand.group.stream()
+                        .filter(c -> !Wormhole.canRemove(c))
+                        .forEach(cannotRemove::add);
 
-            if (this.p.hand.group.size() - this.cannotRemove.size() == 1) {
+            if (1 == p.hand.group.size() - cannotRemove.size()) {
                 // only 1 valid card
-                i = this.p.hand.group.iterator();
 
-                while (i.hasNext()) {
-                    c = (AbstractCard) i.next();
+                for (AbstractCard c : p.hand.group) {
                     if (Wormhole.canRemove(c)) {
                         // the only valid card, do removal on c
                         removeFromDeck(c);
-                        this.isDone = true;
+                        isDone = true;
                         return;
                     }
                 }
             }
 
-            this.p.hand.group.removeAll(this.cannotRemove);
-            if (this.p.hand.group.size() > 1) {
+            p.hand.group.removeAll(cannotRemove);
+            if (1 < p.hand.group.size()) {
                 AbstractDungeon.handCardSelectScreen.open(text, 1, false, false, false, false);
-                this.tickDuration();
+                tickDuration();
                 return;
             }
 
-            if (this.p.hand.group.size() == 1) {
+            if (1 == p.hand.group.size()) {
                 // only 1 valid card, should never reach here? from Armaments...
-                c = this.p.hand.getTopCard();
+                AbstractCard c = p.hand.getTopCard();
                 removeFromDeck(c);
-                this.returnCards();
-                this.isDone = true;
+                returnCards();
+                isDone = true;
             }
         }
 
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
-            i = AbstractDungeon.handCardSelectScreen.selectedCards.group.iterator();
+            AbstractDungeon.handCardSelectScreen.selectedCards.group.forEach(this::removeFromDeck);
 
-            while (i.hasNext()) {
-                c = (AbstractCard) i.next();
-                removeFromDeck(c);
-            }
-
-            this.returnCards();
+            returnCards();
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
-            this.isDone = true;
+            isDone = true;
         }
 
-        this.tickDuration();
+        tickDuration();
     }
 
     private void returnCards() {
-        Iterator i = this.cannotRemove.iterator();
-        AbstractCard c;
+        cannotRemove.forEach(c -> p.hand.addToTop(c));
 
-        while (i.hasNext()) {
-            c = (AbstractCard) i.next();
-            this.p.hand.addToTop(c);
-        }
-
-        this.p.hand.refreshHandLayout();
+        p.hand.refreshHandLayout();
 
         // glow if playable
-        i = p.hand.group.iterator();
-        while (i.hasNext()) {
-            c = (AbstractCard) i.next();
-            if (shouldGlow(c)) {
-                c.beginGlowing();
-            }
-        }
+        p.hand.group.stream()
+                    .filter(AbstractDynamicCard::shouldGlow)
+                    .forEach(AbstractCard::beginGlowing);
     }
 
     private void removeFromDeck(AbstractCard c) {
         AbstractDungeon.topLevelEffects.add(new PurgeCardEffect(c, (float) (Settings.WIDTH / 2), (float) (Settings.HEIGHT / 2)));
 
-        this.addToBot(new RemoveFromMasterDeckAction(c));
+        addToBot(new RemoveFromMasterDeckAction(c));
         AbstractDungeon.player.hand.removeCard(c);
 
-        this.addToBot(new RemoveFromMasterDeckAction(this.wormholeCard));
+        addToBot(new RemoveFromMasterDeckAction(wormholeCard));
     }
 }

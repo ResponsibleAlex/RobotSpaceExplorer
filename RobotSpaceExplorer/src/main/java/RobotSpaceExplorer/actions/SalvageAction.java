@@ -1,26 +1,21 @@
 package RobotSpaceExplorer.actions;
 
-import RobotSpaceExplorer.cards.AbstractDynamicCard;
 import RobotSpaceExplorer.cards.LuckyStrike;
 import RobotSpaceExplorer.patches.SalvagePatch;
 import RobotSpaceExplorer.powers.ScannerPower;
 import RobotSpaceExplorer.relics.SearchSpecs;
 import RobotSpaceExplorer.relics.ToughPlating;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
-import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.Iterator;
@@ -29,7 +24,7 @@ import static RobotSpaceExplorer.cards.AbstractDynamicCard.shouldGlow;
 
 public class SalvageAction extends AbstractGameAction {
 
-    private int cardsToSalvage;
+    private final int cardsToSalvage;
     private boolean upgradeCards = false;
     private boolean hasToughPlating = false;
     private AbstractRelic toughPlating = null;
@@ -40,32 +35,29 @@ public class SalvageAction extends AbstractGameAction {
     private AbstractPlayer p;
 
     public SalvageAction(int numberOfCardsToSalvage) {
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.cardsToSalvage = numberOfCardsToSalvage;
-        this.init();
+        actionType = ActionType.CARD_MANIPULATION;
+        cardsToSalvage = numberOfCardsToSalvage;
+        init();
     }
 
     public SalvageAction(int numberOfCardsToSalvage, boolean upgradeSalvageCards) {
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.cardsToSalvage = numberOfCardsToSalvage;
-        this.upgradeCards = upgradeSalvageCards;
-        this.init();
+        actionType = ActionType.CARD_MANIPULATION;
+        cardsToSalvage = numberOfCardsToSalvage;
+        upgradeCards = upgradeSalvageCards;
+        init();
     }
 
     private void init() {
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = Settings.ACTION_DUR_FAST;
+        actionType = ActionType.CARD_MANIPULATION;
+        duration = Settings.ACTION_DUR_FAST;
         p = AbstractDungeon.player;
 
-        Iterator i = p.relics.iterator();
-
-        while(i.hasNext()) {
-            AbstractRelic r = (AbstractRelic)i.next();
-            if (r.relicId == ToughPlating.ID) {
+        for (AbstractRelic r : p.relics) {
+            if (r.relicId.equals(ToughPlating.ID)) {
                 hasToughPlating = true;
                 toughPlating = r;
             }
-            if (r.relicId == SearchSpecs.ID) {
+            if (r.relicId.equals(SearchSpecs.ID)) {
                 hasSearchSpecs = true;
                 searchSpecs = r;
             }
@@ -78,24 +70,23 @@ public class SalvageAction extends AbstractGameAction {
         CardGroup pile = p.discardPile;
         CardGroup hand = p.hand;
         int count = 0;
-        boolean salvagedThisTurn;
 
         for (int i = 0; i < cardsToSalvage; i++) {
-            if (hand.size() == 10) {
+            if (10 == hand.size()) {
                 p.createHandIsFullDialog();
                 break;
             } else if (!pile.isEmpty()) {
 
                 // perform the salvage action
                 count++;
-                AbstractCard c = this.getRandomSalvage(pile);
+                AbstractCard c = getRandomSalvage(pile);
                 hand.addToHand(c);
                 pile.removeCard(c);
                 c.lighten(false);
                 c.unhover();
                 c.applyPowers();
 
-                if (this.upgradeCards) {
+                if (upgradeCards) {
                     if (c.canUpgrade() && !c.upgraded) {
                         c.upgrade();
                         c.superFlash();
@@ -108,12 +99,12 @@ public class SalvageAction extends AbstractGameAction {
                 p.hand.refreshHandLayout();
 
                 // if this is the first time we salvaged a card this turn
-                salvagedThisTurn = SalvagePatch.salvagedThisTurn.get(AbstractDungeon.actionManager);
+                boolean salvagedThisTurn = SalvagePatch.salvagedThisTurn.get(AbstractDungeon.actionManager);
                 if (!salvagedThisTurn) {
                     // if we have search specs, gain [E]
                     if (hasSearchSpecs) {
-                        this.addToBot(new RelicAboveCreatureAction(p, searchSpecs));
-                        this.addToBot(new GainEnergyAction(1));
+                        addToBot(new RelicAboveCreatureAction(p, searchSpecs));
+                        addToBot(new GainEnergyAction(1));
                     }
 
                     // set "salvagedThisTurn" to true
@@ -122,8 +113,8 @@ public class SalvageAction extends AbstractGameAction {
 
                 // gain block for each card salvaged if we have the Tough Plating relic
                 if (hasToughPlating) {
-                    this.addToBot(new RelicAboveCreatureAction(p, toughPlating));
-                    this.addToBot(new GainBlockAction(p, p, TOUGH_PLATING_BLOCK));
+                    addToBot(new RelicAboveCreatureAction(p, toughPlating));
+                    addToBot(new GainBlockAction(p, p, TOUGH_PLATING_BLOCK));
                 }
 
                 tickDuration();
@@ -132,12 +123,11 @@ public class SalvageAction extends AbstractGameAction {
 
         // if we salvaged at least one card, autoplay any Lucky Strikes
         // and refresh hand layout
-        if (count > 0) {
-            Iterator i = p.drawPile.group.iterator();
-            AbstractCard c;
+        if (0 < count) {
+            Iterator<AbstractCard> i = p.drawPile.group.iterator();
             while (i.hasNext()) {
-                c = (AbstractCard)i.next();
-                if (c.cardID == LuckyStrike.ID) {
+                AbstractCard c = i.next();
+                if (c.cardID.equals(LuckyStrike.ID)) {
                     i.remove();
                     playLuckyStrike(c);
                 }
@@ -146,19 +136,19 @@ public class SalvageAction extends AbstractGameAction {
             hand.refreshHandLayout();
         }
 
-        this.isDone = true;
+        isDone = true;
     }
 
     private AbstractCard getRandomSalvage(CardGroup pile) {
         AbstractCard c;
-        
+
         if (hasScanner) {
             c = pile.getRandomCard(AbstractDungeon.cardRandomRng, AbstractCard.CardRarity.RARE);
-            if (c == null) {
+            if (null == c) {
                 c = pile.getRandomCard(AbstractDungeon.cardRandomRng, AbstractCard.CardRarity.UNCOMMON);
-                if (c == null) {
+                if (null == c) {
                     c = pile.getRandomCard(AbstractDungeon.cardRandomRng, AbstractCard.CardRarity.COMMON);
-                    if (c == null) {
+                    if (null == c) {
                         c = pile.getRandomCard(AbstractDungeon.cardRandomRng);
                     }
                 }
@@ -166,7 +156,7 @@ public class SalvageAction extends AbstractGameAction {
         } else {
             c = pile.getRandomCard(true);
         }
-        
+
         return c;
     }
 
@@ -174,13 +164,13 @@ public class SalvageAction extends AbstractGameAction {
         AbstractDungeon.player.drawPile.group.remove(c);
         AbstractDungeon.getCurrRoom().souls.remove(c);
 
-        this.addToTop(new NewQueueCardAction(c, AbstractDungeon.getRandomMonster(),
+        addToTop(new NewQueueCardAction(c, AbstractDungeon.getRandomMonster(),
                 false, true));
 
         if (!Settings.FAST_MODE) {
-            this.addToTop(new WaitAction(Settings.ACTION_DUR_MED));
+            addToTop(new WaitAction(Settings.ACTION_DUR_MED));
         } else {
-            this.addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
+            addToTop(new WaitAction(Settings.ACTION_DUR_FASTER));
         }
     }
 }

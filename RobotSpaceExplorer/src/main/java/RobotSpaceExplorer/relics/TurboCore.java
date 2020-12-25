@@ -5,18 +5,11 @@ import RobotSpaceExplorer.actions.RoboCoreStrengthAction;
 import RobotSpaceExplorer.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.LoseDexterityPower;
-import com.megacrit.cardcrawl.powers.LoseStrengthPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.relics.ClockworkSouvenir;
-import com.megacrit.cardcrawl.relics.MutagenicStrength;
 
 import java.util.Iterator;
 
@@ -40,18 +33,18 @@ public class TurboCore extends CustomRelic {
     // Description
     @Override
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0] + STRENGTH + this.DESCRIPTIONS[1];
+        return DESCRIPTIONS[0] + STRENGTH + DESCRIPTIONS[1];
     }
 
     @Override
     public void atBattleStart() {
-        this.flash();
-        this.addToTop(new RoboCoreStrengthAction(STRENGTH));
+        flash();
+        addToTop(new RoboCoreStrengthAction(STRENGTH));
 
-        this.addToBot(new DrawCardAction(AbstractDungeon.player, CARDS, false));
-        this.addToBot(new GainEnergyAction(ENERGY));
+        addToBot(new DrawCardAction(AbstractDungeon.player, CARDS, false));
+        addToBot(new GainEnergyAction(ENERGY));
 
-        this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+        addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
     }
 
     @Override
@@ -68,11 +61,11 @@ public class TurboCore extends CustomRelic {
                     break;
                 }
             }
-            Iterator i = AbstractDungeon.player.relics.iterator();
+            Iterator<AbstractRelic> i = AbstractDungeon.player.relics.iterator();
             AbstractRelic r;
             while (i.hasNext()) {
-                r = (AbstractRelic)i.next();
-                if (r.relicId.equals(this.ID)) {
+                r = i.next();
+                if (r.relicId.equals(ID)) {
                     r.flash();
                 }
             }

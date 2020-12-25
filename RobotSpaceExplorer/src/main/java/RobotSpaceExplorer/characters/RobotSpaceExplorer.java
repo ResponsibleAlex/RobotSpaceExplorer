@@ -1,5 +1,7 @@
 package RobotSpaceExplorer.characters;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.cards.*;
 import RobotSpaceExplorer.relics.RoboCore;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpineAnimation;
@@ -26,8 +28,6 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.cards.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -152,7 +152,7 @@ public class RobotSpaceExplorer extends CustomPlayer {
     @Override
     public void damage(DamageInfo info)
     {
-        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output > currentBlock) {
+        if (null != info.owner && DamageInfo.DamageType.THORNS != info.type && info.output > currentBlock) {
             AnimationState.TrackEntry e = state.setAnimation(0, "hit", false);
             state.addAnimation(0,"idle", true, 0.0f);
             e.setTimeScale(1f);

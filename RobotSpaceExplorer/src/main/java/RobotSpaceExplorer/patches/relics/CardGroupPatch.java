@@ -16,10 +16,10 @@ public class CardGroupPatch {
         public static CardGroup Postfix(CardGroup result) {
             CardGroup retVal = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
-            Iterator i = result.group.iterator();
+            Iterator<AbstractCard> i = result.group.iterator();
             AbstractCard c;
             while (i.hasNext()) {
-                c = (AbstractCard)i.next();
+                c = i.next();
                 if (!BottledGravityPatch.inBottledGravity.get(c)) {
                     retVal.group.add(c);
                 }

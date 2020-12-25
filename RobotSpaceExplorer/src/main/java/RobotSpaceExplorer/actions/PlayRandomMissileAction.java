@@ -12,32 +12,30 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class PlayRandomMissileAction extends AbstractGameAction {
 
     private static CardGroup missileGroup = null;
-    private boolean upgradeMissile;
+    private final boolean upgradeMissile;
 
     public PlayRandomMissileAction(boolean upgradeMissile) {
         this.upgradeMissile = upgradeMissile;
         initMissiles();
 
-        this.startDuration = Settings.ACTION_DUR_FAST;
-        this.duration = this.startDuration;
-        this.actionType = ActionType.DAMAGE;
+        startDuration = Settings.ACTION_DUR_FAST;
+        duration = startDuration;
+        actionType = ActionType.DAMAGE;
     }
 
     public void update() {
-        if (this.duration == this.startDuration) {
+        if (duration == startDuration) {
             playRandomMissile();
         }
 
-        this.tickDuration();
+        tickDuration();
     }
 
-    // BigMissile, FrostMissile, LavaMissile, ShockMissile, SlimeMissile
     private void initMissiles() {
-        if (missileGroup == null) {
+        if (null == missileGroup) {
             missileGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
             missileGroup.addToTop(new BigMissile());
             missileGroup.addToTop(new FrostMissile());
-            //missileGroup.addToTop(new LavaMissile());
             missileGroup.addToTop(new ShockMissile());
             missileGroup.addToTop(new SlimeMissile());
             missileGroup.addToTop(new PlasmaMissile());
@@ -57,7 +55,7 @@ public class PlayRandomMissileAction extends AbstractGameAction {
         tmp.current_y = card.current_y;
         tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
         tmp.target_y = (float)Settings.HEIGHT / 2.0F;
-        if (m != null) {
+        if (null != m) {
             tmp.calculateCardDamage(m);
         }
 

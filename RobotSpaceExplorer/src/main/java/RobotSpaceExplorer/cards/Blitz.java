@@ -1,5 +1,7 @@
 package RobotSpaceExplorer.cards;
 
+import RobotSpaceExplorer.RobotSpaceExplorerMod;
+import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -9,8 +11,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import RobotSpaceExplorer.RobotSpaceExplorerMod;
-import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import com.megacrit.cardcrawl.vfx.StarBounceEffect;
 import com.megacrit.cardcrawl.vfx.combat.ViolentAttackEffect;
 
@@ -56,22 +56,19 @@ public class Blitz extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GainBlockAction(p, p, block));
+        addToBot(new GainBlockAction(p, p, block));
         int i;
         if (Settings.FAST_MODE) {
-            this.addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, ROBOT_ORANGE)));
+            addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, ROBOT_ORANGE)));
 
-            for(i = 0; i < 5; ++i) {
-                this.addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
-            }
         } else {
-            this.addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, ROBOT_ORANGE), 0.4F));
+            addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, ROBOT_ORANGE), 0.4F));
 
-            for(i = 0; i < 5; ++i) {
-                this.addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
-            }
         }
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+        for(i = 0; 5 > i; ++i) {
+            addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
+        }
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
     }
 
 
