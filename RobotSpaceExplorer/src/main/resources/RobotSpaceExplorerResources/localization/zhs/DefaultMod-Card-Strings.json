@@ -198,7 +198,7 @@
   },
   "RobotSpaceExplorer:Probe": {
     "NAME": "探测",
-    "DESCRIPTION": "造成 !D! 伤害。 NL 在下回合，robotspaceexplorer:捞捕 !M! 。"
+    "DESCRIPTION": "造成 !D! 伤害。 NL 在下回合， robotspaceexplorer:捞捕 !M! 。"
   },
   "RobotSpaceExplorer:Explosion": {
     "NAME": "爆炸",
@@ -264,7 +264,7 @@
   },
   "RobotSpaceExplorer:StunGrenade": {
     "NAME": "震眩榴弹",
-    "DESCRIPTION": "造成 !D! 伤害并施加 !M! 虚弱 to 所有敌人。 NL 消耗 。"
+    "DESCRIPTION": "对所有敌人造成 !D! 伤害并施加 !M! 虚弱。 NL 消耗 。"
   },
   "RobotSpaceExplorer:ScrapToss": {
     "NAME": "废料投掷",
@@ -285,7 +285,7 @@
   },
   "RobotSpaceExplorer:ImprovisedAttack": {
     "NAME": "即兴进攻",
-    "DESCRIPTION": "造成 !D! 伤害。 NL 如果本回合进行过 robotspaceexplorer:捕捞 ，多造成 !M! 次伤害。"
+    "DESCRIPTION": "造成 !D! 伤害。 NL 如果本回合进行过 robotspaceexplorer:捞捕 ，多造成 !M! 次伤害。"
   },
   "RobotSpaceExplorer:Blitz": {
     "NAME": "闪电战",
