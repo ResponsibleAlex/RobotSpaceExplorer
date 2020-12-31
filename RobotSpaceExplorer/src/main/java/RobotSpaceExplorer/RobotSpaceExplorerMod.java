@@ -1,5 +1,6 @@
 package RobotSpaceExplorer;
 
+import RobotSpaceExplorer.actions.ModifyAutoloaderDamageAction;
 import RobotSpaceExplorer.cards.*;
 import RobotSpaceExplorer.characters.RobotSpaceExplorer;
 import RobotSpaceExplorer.potions.LiquidFusion;
@@ -19,6 +20,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -29,6 +31,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
+import java.util.UUID;
 
 //TODO: DON'T MASS RENAME/REFACTOR
 //TODO: DON'T MASS RENAME/REFACTOR
@@ -77,8 +80,11 @@ public class RobotSpaceExplorerMod implements
     public static boolean enablePlaceholder = true; // The boolean we'll be setting on/off (true/false)
 
     //This is for the in-game mod settings panel.
+    @SuppressWarnings("unused")
     private static final String MODNAME = "Robot Space Explorer";
+    @SuppressWarnings("unused")
     private static final String AUTHOR = "ResponsibleAlex";
+    @SuppressWarnings("unused")
     private static final String DESCRIPTION = "The Robot Space Explorer playable character.";
 
     // =============== INPUT TEXTURE LOCATION =================
@@ -89,14 +95,6 @@ public class RobotSpaceExplorerMod implements
 
     // Potion Colors in RGB
     public static final Color POTION_BLUEWHITE = CardHelper.getColor(230.0f, 230.0f, 255.0f); // Near White
-    public static final Color POTION_DARKREDBROWN = CardHelper.getColor(100.0f, 25.0f, 10.0f); // Super Dark Red/Brown
-
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
 
     // Card backgrounds - The actual rectangular card.
     private static final String ATTACK_DEFAULT_GRAY = "RobotSpaceExplorerResources/images/512/bg_attack_default_gray.png";
@@ -116,11 +114,11 @@ public class RobotSpaceExplorerMod implements
     private static final String THE_DEFAULT_PORTRAIT = "RobotSpaceExplorerResources/images/charSelect/DefaultCharacterPortraitBG.png";
     public static final String THE_DEFAULT_SHOULDER_1 = "RobotSpaceExplorerResources/images/char/defaultCharacter/shoulder.png";
     public static final String THE_DEFAULT_SHOULDER_2 = "RobotSpaceExplorerResources/images/char/defaultCharacter/shoulder2.png";
-    public static final String THE_DEFAULT_IMAGE = "RobotSpaceExplorerResources/images/char/defaultCharacter/main.png";
+    //public static final String THE_DEFAULT_IMAGE = "RobotSpaceExplorerResources/images/char/defaultCharacter/main.png";
     public static final String THE_DEFAULT_CORPSE = "RobotSpaceExplorerResources/images/char/defaultCharacter/corpse.png";
 
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
-    public static final String BADGE_IMAGE = "RobotSpaceExplorerResources/images/Badge.png";
+    //public static final String BADGE_IMAGE = "RobotSpaceExplorerResources/images/Badge.png";
 
     // Atlas and JSON files for the Animations
     public static final String THE_DEFAULT_SKELETON_ATLAS = "RobotSpaceExplorerResources/images/char/defaultCharacter/skeleton.atlas";
@@ -148,6 +146,7 @@ public class RobotSpaceExplorerMod implements
         return modID + "Resources/images/powers/" + resourcePath;
     }
 
+    @SuppressWarnings("unused")
     public static String makeEventPath(String resourcePath) {
         return modID + "Resources/images/events/" + resourcePath;
     }
@@ -237,6 +236,7 @@ public class RobotSpaceExplorerMod implements
         logger.info("Success! ID is " + modID); // WHY WOULD U WANT IT NOT TO LOG?? DON'T EDIT THIS.
     } // NO
 
+    @SuppressWarnings("unused")
     public static String getModID() { // NO
         return modID; // DOUBLE NO
     } // NU-UH
@@ -608,5 +608,10 @@ public class RobotSpaceExplorerMod implements
     // in order to avoid conflicts if any other mod uses the same ID.
     public static String makeID(String idText) {
         return modID + ":" + idText;
+    }
+
+    public static void modifyAutoloadDamageAction(UUID targetUUID, int amount) {
+        AbstractDungeon.actionManager.addToBottom(
+                new ModifyAutoloaderDamageAction(targetUUID, amount));
     }
 }

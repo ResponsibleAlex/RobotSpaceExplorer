@@ -6,7 +6,7 @@
     <groupId>robotspaceexplorer</groupId>
     <artifactId>RobotSpaceExplorer</artifactId>
     <name>Robot Space Explorer</name>
-    <version>1.0.6</version>
+    <version>1.0.8</version>
     <description>A collaboration with my 7 year-old son, a new character for Slay the Spire.</description>
 
     <properties>

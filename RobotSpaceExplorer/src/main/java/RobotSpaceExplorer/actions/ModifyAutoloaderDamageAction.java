@@ -8,10 +8,10 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import java.util.UUID;
 
-public class ModifyAutoloaderChargingLaserAction  extends AbstractGameAction {
+public class ModifyAutoloaderDamageAction extends AbstractGameAction {
     private final UUID uuid;
 
-    public ModifyAutoloaderChargingLaserAction(UUID targetUUID, int amount) {
+    public ModifyAutoloaderDamageAction(UUID targetUUID, int amount) {
         this.setValues(this.target, this.source, amount);
         this.actionType = ActionType.CARD_MANIPULATION;
         this.uuid = targetUUID;
