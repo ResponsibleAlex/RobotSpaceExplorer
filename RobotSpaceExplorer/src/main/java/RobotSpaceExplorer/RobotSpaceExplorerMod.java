@@ -547,6 +547,8 @@ public class RobotSpaceExplorerMod implements
         String lang = "eng";
         if (Settings.GameLanguage.ZHS == Settings.language) {
             lang = "zhs";
+        } else if (Settings.GameLanguage.KOR == Settings.language) {
+            lang = "kor";
         }
 
         logger.info("Beginning to edit strings for mod with ID: " + modID);
@@ -585,9 +587,12 @@ public class RobotSpaceExplorerMod implements
 
     @Override
     public void receiveEditKeywords() {
+
         String lang = "eng";
         if (Settings.GameLanguage.ZHS == Settings.language) {
             lang = "zhs";
+        } else if (Settings.GameLanguage.KOR == Settings.language) {
+            lang = "kor";
         }
 
         Gson gson = new Gson();

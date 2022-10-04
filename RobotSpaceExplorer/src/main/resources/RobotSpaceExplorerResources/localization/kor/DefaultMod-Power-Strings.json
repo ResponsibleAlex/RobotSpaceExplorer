@@ -1,0 +1,142 @@
+{
+        "RobotSpaceExplorer:DualCorePower": {
+                "NAME": "듀얼 코어",
+                "DESCRIPTIONS": [
+                        "이번 턴에 #b",
+                        " 장의 카드를 사용하면, #y활력 을 #b",
+                        " 장의 카드를 사용하면, #y활력 을 #b",
+                        " 얻고 #y방어도를 #b",
+                        " 얻습니다."
+                ]
+        },
+        "RobotSpaceExplorer:PowerGlovePower": {
+                "NAME": "파워 글러브",
+                "DESCRIPTIONS": [
+                        "막히지 않은 피해를 #y5 이하로 줄 때마다, 그 피해량을 #b",
+                        " 로 늘립니다."
+                ]
+        },
+        "RobotSpaceExplorer:ScannerPower": {
+                "NAME": "스캐너",
+                "DESCRIPTIONS": [
+                        "#y샐비지 할 때마다, 등급이 높은 카드를 우선으로 가져옵니다."
+                ]
+        },
+        "RobotSpaceExplorer:DroneSwarmPower": {
+                "NAME": "드론 무리",
+                "DESCRIPTIONS": [
+                        "매 턴 종료시, #y방어도를 #b",
+                        " 얻고 적 전체에게 피해를 #b",
+                        " 줍니다."
+                ]
+        },
+        "RobotSpaceExplorer:TrailblazerPower": {
+                "NAME": "개척자",
+                "DESCRIPTIONS": [
+                        "매 턴 시작시, #y인공물을 #b",
+                        " 얻고 #y판금 #y갑옷 을 #b",
+                        " 얻습니다."
+                ]
+        },
+        "RobotSpaceExplorer:MultitoolPower": {
+                "NAME": "멀티툴",
+                "DESCRIPTIONS": [
+                        "매 턴 시작시, 손패의 무작위 카드 1장을 이번 전투 동안 #y강화합니다.",
+                        "매 턴 시작시, 손패의 무작위 카드 #b",
+                        " 장을 이번 전투 동안 #y강화합니다."
+                ]
+        },
+        "RobotSpaceExplorer:AcceleratorPower": {
+                "NAME": "가속 장치",
+                "DESCRIPTIONS": [
+                        "매 턴 처음으로 비용이 0 인 카드를 사용하면, 카드를 #y1 장 뽑고 [E] 를 얻습니다.",
+                        "매 턴 처음으로 비용이 0 인 카드를 #b",
+                        " 번 사용하면, 카드를 #y1 장 뽑고 [E] 를 얻습니다."
+                ]
+        },
+        "RobotSpaceExplorer:AutoloaderPower": {
+                "NAME": "자동 장전 장치",
+                "DESCRIPTIONS": [
+                        "매 턴 시작시 ",
+                        " 카드를 사용합니다."
+                ]
+        },
+        "RobotSpaceExplorer:PowerCollectorPower": {
+                "NAME": "전력 수집기",
+                "DESCRIPTIONS": [
+                        "#y파워 카드를 사용할 때마다, #y힘을 #b",
+                        " 얻습니다."
+                ]
+        },
+        "RobotSpaceExplorer:DischargerPower": {
+                "NAME": "방전기",
+                "DESCRIPTIONS": [
+                        "이제 #y정전기 #y축적 카드가 #y휘발성이 됩니다. #y상태이상 카드가 #y소멸될 때마다, 적 전체에게 피해를 #b",
+                        " 줍니다."
+                ]
+        },
+        "RobotSpaceExplorer:FreezeRayPower": {
+                "NAME": "동결 광선",
+                "DESCRIPTIONS": [
+                        "적에게 #y약화를 부여할 때마다, 피해를 #b",
+                        " 줍니다."
+                ]
+        },
+        "RobotSpaceExplorer:StarDustEnergyDownPower": {
+                "NAME": "에너지 감소",
+                "DESCRIPTIONS": [
+                        "매 턴 시작시, 에너지를 ",
+                        " 잃습니다."
+                ]
+        },
+        "RobotSpaceExplorer:StarDustPower": {
+                "NAME": "소성단",
+                "DESCRIPTIONS": [
+                        "매 턴 시작시, #y태양광 #y플레어 를 #b",
+                        " 얻습니다."
+                ]
+        },
+        "RobotSpaceExplorer:ExhaustFanPower": {
+                "NAME": "배기 송풍기",
+                "DESCRIPTIONS": [
+                        "공격 카드를 사용할 때마다, #y방어도를 #b",
+                        " 얻습니다."
+                ]
+        },
+        "RobotSpaceExplorer:MiniBoostersPower": {
+                "NAME": "미니 부스터즈",
+                "DESCRIPTIONS": [
+                        "비용이 #y0 인 카드를 사용할 때마다, 적 전체에게 피해를 #b",
+                        " 주고 #y방어도를 #b",
+                        " 얻습니다."
+                ]
+        },
+        "RobotSpaceExplorer:SalvageNextTurnPower": {
+                "NAME": "스캐닝",
+                "DESCRIPTIONS": [
+                        "턴 시작시, 카드를 #b",
+                        " 장 #y샐비지 합니다."
+                ]
+        },
+        "RobotSpaceExplorer:SolarFlarePower": {
+                "NAME": "태양광 플레어",
+                "DESCRIPTIONS": [
+                        "턴 종료시, 무작위 적에게 피해를 #b",
+                        " 줍니다."
+                ]
+        },
+        "RobotSpaceExplorer:SwiftStepPower": {
+                "NAME": "재빠른 몸짓",
+                "DESCRIPTIONS": [
+                        "이번 턴에 카드를 사용할 때마다, #y방어도를 #b",
+                        " 얻습니다."
+                ]
+        },
+        "RobotSpaceExplorer:SurgePower": {
+                "NAME": "서지",
+                "DESCRIPTIONS": [
+                        "다음 턴 시작시, #y임시 #y힘을 #b",
+                        " 얻고 나에게 부여된 약화를 전부 제거합니다."
+                ]
+        }
+}

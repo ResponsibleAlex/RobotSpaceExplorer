@@ -1,0 +1,338 @@
+{
+  "RobotSpaceExplorer:DualCore": {
+    "NAME": "듀얼 코어",
+    "DESCRIPTION": "한 턴에 카드를 5 장 사용할 때마다, 활력 을 !M! 얻고 방어도를 !M! 얻습니다."
+  },
+  "RobotSpaceExplorer:PowerGlove": {
+    "NAME": "파워 글러브",
+    "DESCRIPTION": "막히지 않은 피해를 5 이하로 줄 때마다, NL 그 피해량을 !M! 늘립니다."
+  },
+  "RobotSpaceExplorer:Scanner": {
+    "NAME": "스캐너",
+    "DESCRIPTION": "robotspaceexplorer:샐비지 할 때마다, 등급이 높은 카드를 우선으로 가져옵니다."
+  },
+  "RobotSpaceExplorer:DroneSwarm": {
+    "NAME": "드론 무리",
+    "DESCRIPTION": "매 턴 종료시, 적 전체에게 피해를 2X 만큼 주고 방어도를 2X 만큼 얻습니다.",
+    "UPGRADE_DESCRIPTION": "선천성. NL 매 턴 종료시, 적 전체에게 피해를 2X 만큼 주고 방어도를 2X 만큼 얻습니다."
+  },
+  "RobotSpaceExplorer:TrailblazerForm": {
+    "NAME": "개척자의 형상",
+    "DESCRIPTION": "휘발성. NL 매 턴 시작시, 인공물을 !M! 얻고 판금 갑옷 을 !RobotSpaceExplorer:SecondMagic! 얻습니다.",
+    "UPGRADE_DESCRIPTION": "매 턴 시작시, 인공물을 !M! 얻고 판금 갑옷 을 !RobotSpaceExplorer:SecondMagic! 얻습니다."
+  },
+  "RobotSpaceExplorer:Multitool": {
+    "NAME": "멀티툴",
+    "DESCRIPTION": "매 턴 시작시, 손패의 무작위 카드 1장을 이번 전투 동안 강화합니다.",
+    "UPGRADE_DESCRIPTION": "손패의 모든 카드를 이번 전투 동안 강화합니다. NL "
+  },
+  "RobotSpaceExplorer:Accelerator": {
+    "NAME": "가속 장치",
+    "DESCRIPTION": "매 턴 처음으로 비용이 0 인 카드를 사용하면, 카드를 1 장 뽑고 [E] 를 얻습니다."
+  },
+  "RobotSpaceExplorer:Autoloader": {
+    "NAME": "자동 장전 장치",
+    "DESCRIPTION": "휘발성. NL 손패의 공격 카드 1 장을 선택하여, 이번 전투동안 그 카드를 영구적으로 제외시킵니다. 매 턴 시작시, 해당 카드를 사용합니다.",
+    "UPGRADE_DESCRIPTION": "손패의 공격 카드 1 장을 선택하여, 이번 전투동안 그 카드를 영구적으로 제외시킵니다. 매 턴 시작시, 해당 카드를 사용합니다.",
+    "EXTENDED_DESCRIPTION": [
+      "지금 손패에 공격 카드가 없어!",
+      "자동 장전 장치에 삽입할 공격 카드를 선택하세요"
+    ]
+  },
+  "RobotSpaceExplorer:PowerCollector": {
+    "NAME": "전력 수집기",
+    "DESCRIPTION": "파워 카드를 사용할 때마다, 힘을 2 얻습니다.",
+    "UPGRADE_DESCRIPTION": "선천성. NL 파워 카드를 사용할 때마다, 힘을 2 얻습니다."
+  },
+  "RobotSpaceExplorer:Discharger": {
+    "NAME": "방전기",
+    "DESCRIPTION": "*정전기 *축적 카드에 휘발성을 부여합니다. 상태이상 카드가 소멸될 때마다, 적 전체에게 피해를 !M! 줍니다."
+  },
+  "RobotSpaceExplorer:FreezeRay": {
+    "NAME": "동결 광선",
+    "DESCRIPTION": "적에게 약화를 부여할 때마다, 피해를 !M! 줍니다."
+  },
+  "RobotSpaceExplorer:StarDust": {
+    "NAME": "소성단",
+    "DESCRIPTION": "매 턴 시작시, [E] 를 1 적게 얻고 robotspaceexplorer:태양광_플레어 를 !M! 얻습니다."
+  },
+  "RobotSpaceExplorer:ExhaustFan": {
+    "NAME": "배기 송풍기",
+    "DESCRIPTION": "민첩 을 !RobotSpaceExplorer:SecondMagic! 잃습니다. NL 공격 카드를 사용할 때마다 방어도를 !M! 얻습니다."
+  },
+  "RobotSpaceExplorer:MiniBoosters": {
+    "NAME": "미니 부스터즈",
+    "DESCRIPTION": "비용이 0 인 카드를 사용할 때마다, 적 전체에게 피해를 !M! 주고 방어도를 !M! 얻습니다."
+  },
+  "RobotSpaceExplorer:BlastShield": {
+    "NAME": "폭증 장벽",
+    "DESCRIPTION": "적의 공격 피해와 동일한 양의 방어도를 얻습니다. NL 소멸."
+  },
+  "RobotSpaceExplorer:Wormhole": {
+    "NAME": "웜홀",
+    "DESCRIPTION": "손패의 카드 1 장을 선택합니다. 선택한 카드와 이 카드를 덱에서 영구적으로 제거합니다.",
+    "EXTENDED_DESCRIPTION": [
+      "제거할 카드가 없어!",
+      "덱에서 영구적으로 제거할 카드 1 장을 선택하세요."
+    ]
+  },
+  "RobotSpaceExplorer:Arsenal": {
+    "NAME": "병기고",
+    "DESCRIPTION": "소멸 카드 더미에 있는 무작위 공격 카드 X 장을 사용합니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "소멸 카드 더미에 있는 무작위 공격 카드 X+1 장을 사용합니다. NL 소멸."
+  },
+  "RobotSpaceExplorer:Exploration": {
+    "NAME": "탐사",
+    "DESCRIPTION": "전투 종료시, 무작위 유물 1개를 얻습니다. NL 이 카드를 덱에서 영구적으로 제거합니다."
+  },
+  "RobotSpaceExplorer:ScrapShield": {
+    "NAME": "고철 방패",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 카드를 !M! 장 robotspaceexplorer:샐비지 합니다."
+  },
+  "RobotSpaceExplorer:SurgingShield": {
+    "NAME": "서지 방패",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL robotspaceexplorer:서지 를 !M! 얻습니다."
+  },
+  "RobotSpaceExplorer:Comet": {
+    "NAME": "혜성",
+    "DESCRIPTION": "robotspaceexplorer:태양광_플레어 를 !M! 얻습니다. 그 후 현재 보유한 robotspaceexplorer:태양광_플레어 만큼 적 전체에게 피해를 줍니다."
+  },
+  "RobotSpaceExplorer:GlueSpray": {
+    "NAME": "접착 스프레이",
+    "DESCRIPTION": "*접착총 X 장을 얻습니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "강화된 *접착총 X 장을 얻습니다. NL 소멸."
+  },
+  "RobotSpaceExplorer:ToxicBomb": {
+    "NAME": "독성 폭탄",
+    "DESCRIPTION": "적 전체에게 약화를 !RobotSpaceExplorer:SecondMagic! 부여합니다. NL 2 턴 후에, 적 전체에게 피해를 !M! 줍니다."
+  },
+  "RobotSpaceExplorer:FreezingShield": {
+    "NAME": "동결 장벽",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 이번 턴 동안 적의 힘을 !M! 감소시킵니다."
+  },
+  "RobotSpaceExplorer:SelfCleaning": {
+    "NAME": "자가 청소",
+    "DESCRIPTION": "*점액투성이 1 장을 얻습니다. 그 후 손패의 모든 상태이상 카드를 소멸시킵니다. 소멸시킨 카드 1장당, 방어도를 !M! 얻고 카드를 1 장 뽑습니다."
+  },
+  "RobotSpaceExplorer:Calculate": {
+    "NAME": "계산",
+    "DESCRIPTION": "다음 턴 시작시, [E] 를 얻고 카드를 !M! 장 robotspaceexplorer:샐비지 합니다.",
+    "UPGRADE_DESCRIPTION": "다음 턴 시작시, [E] [E] 를 얻고 카드를 !M! 장 robotspaceexplorer:샐비지 합니다"
+  },
+  "RobotSpaceExplorer:Electroshield": {
+    "NAME": "자기장 방패",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL *정전기 *축적 을 얻습니다."
+  },
+  "RobotSpaceExplorer:GearShield": {
+    "NAME": "기어 방패",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 인공물을 !M! 얻습니다. NL 소멸."
+  },
+  "RobotSpaceExplorer:RigExplosive": {
+    "NAME": "폭발성 장비",
+    "DESCRIPTION": "화염 포션 1개를 얻습니다. NL 소멸."
+  },
+  "RobotSpaceExplorer:DoubleFind": {
+    "NAME": "1+1 탐색",
+    "DESCRIPTION": "무작위 카드 2 장을 얻습니다. 이번 턴 동안 그 카드의 비용이 0 이 됩니다. NL 소멸."
+  },
+  "RobotSpaceExplorer:IronShell": {
+    "NAME": "강철 쉘",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 이번 전투 동안 이 카드의 방어도가 !M! 증가합니다."
+  },
+  "RobotSpaceExplorer:DoubleBlock": {
+    "NAME": "이중 수비",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 다음 턴에 방어도를 !B! 얻습니다."
+  },
+  "RobotSpaceExplorer:Smokescreen": {
+    "NAME": "연기 장막",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 적 전체에게 약화를 !M! 부여합니다."
+  },
+  "RobotSpaceExplorer:TurboDodge": {
+    "NAME": "터보 회피",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 다음 턴에 [E] 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "방어도를 !B! 얻습니다. NL 다음 턴에 [E] [E] 를 얻습니다."
+  },
+  "RobotSpaceExplorer:Fix": {
+    "NAME": "정밀 수리",
+    "DESCRIPTION": "인공물을 !M! 얻습니다. NL 체력을 !RobotSpaceExplorer:SecondMagic! 회복합니다. NL 소멸."
+  },
+  "RobotSpaceExplorer:Reload": {
+    "NAME": "재장전",
+    "DESCRIPTION": "소멸 카드 더미에 있는 무작위 공격 카드 1장을 사용합니다.",
+    "UPGRADE_DESCRIPTION": "소멸 카드 더미에 있는 공격 카드 1장을 선택해 사용합니다."
+  },
+  "RobotSpaceExplorer:JunkDive": {
+    "NAME": "폐물 재활용",
+    "DESCRIPTION": "카드를 !M! 장 robotspaceexplorer:샐비지 합니다. NL 소멸."
+  },
+  "RobotSpaceExplorer:Jetpack": {
+    "NAME": "제트팩",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 임시 민첩을 !M! 얻습니다."
+  },
+  "RobotSpaceExplorer:Ammunition": {
+    "NAME": "탄약",
+    "DESCRIPTION": "소멸된 무작위 공격 카드 !M! 장을 다시 손으로 가져옵니다. NL 소멸."
+  },
+  "RobotSpaceExplorer:GlueShot": {
+    "NAME": "접착총",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 약화를 !M! 부여합니다. NL 소멸."
+  },
+  "RobotSpaceExplorer:FranticSearch": {
+    "NAME": "허둥지둥 탐색",
+    "DESCRIPTION": "카드를 2 장 robotspaceexplorer:샐비지 합니다. NL 카드를 !M! 장 뽑습니다.",
+    "UPGRADE_DESCRIPTION": "카드를 2 장 robotspaceexplorer:샐비지 합니다. NL 카드를 !M! 장 뽑습니다."
+  },
+  "RobotSpaceExplorer:Counterblock": {
+    "NAME": "정밀 방어",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 다음 턴에 카드를 추가로 !M! 장 뽑습니다.",
+    "UPGRADE_DESCRIPTION": "방어도를 !B! 얻습니다. NL 다음 턴에 카드를 추가로 !M! 장 뽑습니다."
+  },
+  "RobotSpaceExplorer:Pulsar": {
+    "NAME": "펄서",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL robotspaceexplorer:태양광_플레어 를 !M! 얻습니다."
+  },
+  "RobotSpaceExplorer:SwiftStep": {
+    "NAME": "재빠른 몸짓",
+    "DESCRIPTION": "이번 턴에 카드를 사용할 때마다, 방어도를 !M! 얻습니다.",
+    "UPGRADE_DESCRIPTION": "이번 턴에 카드를 사용할 때마다, 방어도를 !M! 얻습니다. NL 카드를 1 장 robotspaceexplorer:샐비지 합니다."
+  },
+  "RobotSpaceExplorer:Probe": {
+    "NAME": "탐사정",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 다음 턴에 카드를 !M! 장 robotspaceexplorer:샐비지 합니다."
+  },
+  "RobotSpaceExplorer:Explosion": {
+    "NAME": "대폭발",
+    "DESCRIPTION": "무작위 robotspaceexplorer:미사일 카드를 사용합니다. 그 후 이번 전투에서 소멸된 공격 카드 1장당, *여진 1장을 사용합니다.",
+    "UPGRADE_DESCRIPTION": "강화된 무작위 robotspaceexplorer:미사일 카드를 사용합니다. 그 후 이번 전투에서 소멸된 공격 카드 1장당, *여진+ 1장을 사용합니다."
+  },
+  "RobotSpaceExplorer:Aftershock": {
+    "NAME": "여진",
+    "DESCRIPTION": "피해를 !D! 줍니다."
+  },
+  "RobotSpaceExplorer:HighVoltage": {
+    "NAME": "고전압",
+    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL *정전기 *축적 2장을 얻습니다."
+  },
+  "RobotSpaceExplorer:Blaster": {
+    "NAME": "블래스터",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 약화를 !M! 부여합니다. NL 취약을 !M! 부여합니다."
+  },
+  "RobotSpaceExplorer:Asteroid": {
+    "NAME": "소행성",
+    "DESCRIPTION": "피해를 !D! 줍니다."
+  },
+  "RobotSpaceExplorer:ShockMissile": {
+    "NAME": "충격 미사일",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 지정한 적의 힘을 !M! 감소시킵니다. NL 소멸."
+  },
+  "RobotSpaceExplorer:ChargingLaser": {
+    "NAME": "충전형 레이저",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 이번 전투 동안 이 카드의 피해량이 !M! 증가합니다."
+  },
+  "RobotSpaceExplorer:ShovelStrike": {
+    "NAME": "삽 타격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 카드를 !M! 장 robotspaceexplorer:샐비지 합니다."
+  },
+  "RobotSpaceExplorer:MakeshiftVolley": {
+    "NAME": "급조 수제 발리슛",
+    "DESCRIPTION": "손패의 카드를 전부 버립니다. NL 버린 카드 1장당, 무작위 적에게 피해를 !D! 줍니다."
+  },
+  "RobotSpaceExplorer:BigMissile": {
+    "NAME": "대형 미사일",
+    "DESCRIPTION": "지정한 적의 방어도를 전부 제거합니다. NL 피해를 !D! 줍니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "지정한 적의 방어도와 인공물을 전부 제거합니다. NL 피해를 !D! 줍니다. NL 소멸."
+  },
+  "RobotSpaceExplorer:Electropulse": {
+    "NAME": "전격 펄스",
+    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL *정전기 *축적 1 장을 얻습니다. NL robotspaceexplorer:서지 를 !M! 얻습니다."
+  },
+  "RobotSpaceExplorer:StarLightning": {
+    "NAME": "별의 번개",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 방어도를 !B! 얻습니다. NL  robotspaceexplorer:태양광_플레어 를 !M! 얻습니다."
+  },
+  "RobotSpaceExplorer:LuckyStrike": {
+    "NAME": "행운의 타격",
+    "DESCRIPTION": "피해를 !D! 줍니다. 카드를 robotspaceexplorer:샐비지 했을때, 이 카드가 뽑을 카드 더미에 있었다면, 자동으로 사용합니다."
+  },
+  "RobotSpaceExplorer:SlimeMissile": {
+    "NAME": "점액 미사일",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 점액덩어리 1 장을 얻습니다. NL 소멸."
+  },
+  "RobotSpaceExplorer:PlasmaMissile": {
+    "NAME": "플라즈마 미사일",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL robotspaceexplorer:태양광_플레어 를 !M! 얻습니다. NL 소멸."
+  },
+  "RobotSpaceExplorer:StunGrenade": {
+    "NAME": "섬광탄",
+    "DESCRIPTION": "피해를 !D! 줍니다. 적 전체에게 약화를 !M! 부여합니다. NL 소멸."
+  },
+  "RobotSpaceExplorer:ScrapToss": {
+    "NAME": "고철 토스",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 카드를 !M! 장 robotspaceexplorer:샐비지 합니다. NL 이 카드를 뽑을 카드 더미에 넣습니다."
+  },
+  "RobotSpaceExplorer:MetalStrike": {
+    "NAME": "금속 타격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 약화를 !M! 부여합니다. NL 지정한 적의 의도가 공격 이었다면, 이 효과를 한 번 더 반복합니다."
+  },
+  "RobotSpaceExplorer:ShockKick": {
+    "NAME": "전격 킥",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 약화를 !M! 부여합니다. NL *정전기 *축적 1 장을 얻습니다."
+  },
+  "RobotSpaceExplorer:StaticBuildup": {
+    "NAME": "정전기 축적",
+    "DESCRIPTION": "턴 종료시, 피해를 !M! 받고 약화를 !M! 받습니다.",
+    "UPGRADE_DESCRIPTION": "턴 종료시, 피해를 !M! 받고 약화를 !M! 받습니다. NL 휘발성."
+  },
+  "RobotSpaceExplorer:ImprovisedAttack": {
+    "NAME": "허둥지둥 공격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 이번 턴에 카드를 robotspaceexplorer:샐비지 했다면, 이 카드의 공격 횟수가 !M! 증가합니다."
+  },
+  "RobotSpaceExplorer:Blitz": {
+    "NAME": "블리츠",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 방어도를 !B! 얻습니다."
+  },
+  "RobotSpaceExplorer:ScrapMissile": {
+    "NAME": "고철 미사일",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 카드를 !M! 장 robotspaceexplorer:샐비지 합니다. NL 소멸."
+  },
+  "RobotSpaceExplorer:FrostMissile": {
+    "NAME": "꽁꽁 미사일",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 약화를 !M! 부여합니다. NL 소멸."
+  },
+  "RobotSpaceExplorer:LavaMissile": {
+    "NAME": "용암 미사일",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 취약을 !M! 부여합니다. NL 소멸."
+  },
+  "RobotSpaceExplorer:LaserBurst": {
+    "NAME": "레이저 방출",
+    "DESCRIPTION": "무작위 적들에게 !D! 피해를 !M! 번 줍니다."
+  },
+  "RobotSpaceExplorer:SurgingStrike": {
+    "NAME": "서지 타격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL robotspaceexplorer:서지 를 !M! 얻습니다."
+  },
+  "RobotSpaceExplorer:MiniLasers": {
+    "NAME": "소형 레이저",
+    "DESCRIPTION": "!D! 피해를 !M! 번 줍니다."
+  },
+  "RobotSpaceExplorer:Scan": {
+    "NAME": "스캔",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 카드를 1 장 robotspaceexplorer:샐비지 합니다."
+  },
+  "RobotSpaceExplorer:LuckyFind": {
+    "NAME": "행운의 발견",
+    "DESCRIPTION": "전투 종료시, 무작위 유물 1개를 얻습니다. NL 이 카드를 덱에서 영구적으로 제거합니다."
+  },
+  "RobotSpaceExplorer:MiniDrones": {
+    "NAME": "소형 드론",
+    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL 방어도를 !B! 얻습니다."
+  },
+  "RobotSpaceExplorer:Strike": {
+    "NAME": "타격",
+    "DESCRIPTION": "피해를 !D! 줍니다."
+  },
+  "RobotSpaceExplorer:Defend": {
+    "NAME": "수비",
+    "DESCRIPTION": "방어도를 !B! 얻습니다."
+  }
+}

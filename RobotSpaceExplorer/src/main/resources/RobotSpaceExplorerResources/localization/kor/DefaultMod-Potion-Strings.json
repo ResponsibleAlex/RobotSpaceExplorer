@@ -1,0 +1,23 @@
+{
+        "RobotSpaceExplorer:RecyclePotion": {
+                "NAME": "재활용 포션",
+                "DESCRIPTIONS": [
+                        "카드 ",
+                        " 장을 #y샐비지 하고 #y강화 합니다."
+                ]
+        },
+        "RobotSpaceExplorer:PlasmaFlask": {
+                "NAME": "플라즈마 플라스크",
+                "DESCRIPTIONS": [
+                        "#y태양광 #y플레어 를 ",
+                        " 얻습니다."
+                ]
+        },
+        "RobotSpaceExplorer:LiquidFusion": {
+                "NAME": "액상 융합액",
+                "DESCRIPTIONS": [
+                        "이번 턴 동안 손패에 존재하는 모든 카드의 비용을 사용하기 전까지 0으로 만듭니다.",
+                        "카드를 1 장 뽑습니다. "
+                ]
+        }
+}

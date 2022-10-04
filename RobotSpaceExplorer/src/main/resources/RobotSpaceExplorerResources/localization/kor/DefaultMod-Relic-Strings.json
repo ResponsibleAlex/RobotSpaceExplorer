@@ -1,0 +1,84 @@
+{
+  "RobotSpaceExplorer:RingOfTheNewt": {
+    "NAME": "붉은배영원의 반지",
+    "FLAVOR": "버려진 것으로 보이는 이상한 화석화된 반지입니다.",
+    "DESCRIPTIONS": [
+      "#b2 턴마다, 추가로 카드를 #b1 장 더 뽑습니다."
+    ]
+  },
+  "RobotSpaceExplorer:SlideRule": {
+    "NAME": "계산자",
+    "FLAVOR": "\"Log(10) of 800 은 2.903...\"",
+    "DESCRIPTIONS": [
+      "뽑을 카드 더미를 섞을때마다, #y소멸 카드 더미에 있는 무작위 #y공격 카드를 사용합니다."
+    ]
+  },
+  "RobotSpaceExplorer:FoglandsKnife": {
+    "NAME": "안개지대 나이프",
+    "FLAVOR": "안개지대의 어쌔신들이 사용한 작은 칼로, 버려진 것으로 보입니다.",
+    "DESCRIPTIONS": [
+      "비용이 #b0 인 #y공격 카드의 피해량이 #b2 증가합니다."
+    ]
+  },
+  "RobotSpaceExplorer:ClockworkSextant": {
+    "NAME": "시계장치 육분선",
+    "FLAVOR": "\"이게 진짜 정말로 선원들이 썼던 물건인걸까요?\"",
+    "DESCRIPTIONS": [
+      "#b2번째 턴 시작시, #y인공물을 #b1 얻습니다."
+    ]
+  },
+  "RobotSpaceExplorer:PlasmaHourglass": {
+    "NAME": "플라즈마 모래시계",
+    "FLAVOR": "순수한 플라즈마로 소용돌이치고 있는 과학적 경이입니다.",
+    "DESCRIPTIONS": [
+      "매 턴 시작시, #y태양광 #y플레어 를 #b1 얻습니다."
+    ]
+  },
+  "RobotSpaceExplorer:Reprocessor": {
+    "NAME": "재처리 장치",
+    "FLAVOR": "이 진보된 장치는 우주 비행사들이 귀중한 자원을 재사용할 수 있게 해줍니다.",
+    "DESCRIPTIONS": [
+      "매 턴 시작시, 카드를 #b1 장 #y샐비지 합니다."
+    ]
+  },
+  "RobotSpaceExplorer:ToughPlating": {
+    "NAME": "튼튼한 철판",
+    "FLAVOR": "우주의 깊숙한 곳을 탐험하는 동안 압력을 버텨내기 유용한 강력한 외골격입니다.",
+    "DESCRIPTIONS": [
+      "#y샐비지 할 때마다, #y방어도를 #b2 얻습니다."
+    ]
+  },
+  "RobotSpaceExplorer:SearchSpecs": {
+    "NAME": "탐색 렌즈",
+    "FLAVOR": "요즘 유행하는 이 장신구는 로봇 탐험가들에 의해 널리 사용되었습니다.",
+    "DESCRIPTIONS": [
+      "매 턴 처음으로 #y샐비지 를 하면, [E] 를 얻습니다."
+    ]
+  },
+  "RobotSpaceExplorer:TurboCore": {
+    "NAME": "터보 코어",
+    "FLAVOR": "위협이 감지되었을때 작동하는 강화된 파워 드라이브 입니다.",
+    "DESCRIPTIONS": [
+      "#r로보 #r코어 를 대체합니다. NL 전투 시작시, #y임시 #y힘을 #b",
+      " 얻고, 카드를 추가로 #b1 장 더 뽑고, #b1 [E] 를 얻습니다 ."
+    ]
+  },
+  "RobotSpaceExplorer:RoboCore": {
+    "NAME": "로보 코어",
+    "FLAVOR": "위협이 감지되었을때 작동하는 제식 파워 드라이브 입니다.",
+    "DESCRIPTIONS": [
+      "전투 시작시, #y임시 #y힘을 #b",
+      " 얻고 카드를 추가로 #b1 장 더 뽑습니다."
+    ]
+  },
+  "RobotSpaceExplorer:BottledGravity": {
+    "NAME": "병 속의 중력",
+    "FLAVOR": "순수한 중력의 본질이 왠지 병을 더 가볍게 만드는것 같습니다.",
+    "DESCRIPTIONS": [
+      "카드를 1 장 선택합니다. 선택한 ",
+      " 카드의 비용이 영구적으로 [E] 감소합니다.",
+      " ",
+      " 에 넣을 카드를 선택하세요."
+    ]
+  }
+}

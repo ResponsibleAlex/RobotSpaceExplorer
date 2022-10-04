@@ -6,13 +6,13 @@
     <groupId>robotspaceexplorer</groupId>
     <artifactId>RobotSpaceExplorer</artifactId>
     <name>Robot Space Explorer</name>
-    <version>1.0.8</version>
+    <version>1.0.9</version>
     <description>A collaboration with my 7 year-old son, a new character for Slay the Spire.</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <SlayTheSpire.version>12-22-2020</SlayTheSpire.version>
+        <SlayTheSpire.version>03-07-2022</SlayTheSpire.version>
         <ModTheSpire.version>3.8.0</ModTheSpire.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->
